@@ -12,8 +12,7 @@ exercise-7
 exercise-8
 exercise-9
 exercise-10
-bonus-task
-importing-data-from-github-repositories
+bonus-task-data-on-github
 the-structure-of-data-objects
 manipulating-and-tidying-data
 reproducible-workflows-with-r-markdown
