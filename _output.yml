@@ -6,7 +6,9 @@ bookdown::gitbook:
         <li><a href="./">SOST70023 Data Cleaning and Visualisation using R</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    download: [pdf, epub]
+    download: 
+    - ["dcvr.pdf", "PDF"]
+    - ["dcvr.epub", "epub"]
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
