@@ -72,11 +72,11 @@ Export \textbf{both} `bsas_spss` and `bsas_stata` data objects in `.RData` forma
 
 Export `bsas_spss` as a \textbf{single} object in `.RDS` format.  
 
-## Exercise
+### Exercise
 
 Export the `bsas_stata` object as a `.csv` file. 
 
-## Exercise
+### Exercise
 
 a. Import the `.csv` file you have just created and name this object `bsas_stata2`. View the contents of the `bsas_stata2` and `bsas_stata` objects. What are the differences between the two, if any? Why?
 b. Import the spss you have created and name this object `bsas_spss2`. 
