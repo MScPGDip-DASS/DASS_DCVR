@@ -1,7 +1,7 @@
 --- 
-title: "SOST70023 Data Cleaning and Visualisation using R"
-subtitle: "Practicals Notebook"
-author: "Ioana Macoveciuc"
+title: "MSc/PGDip Data Analytics and Social Statistics"
+subtitle: "SOST70023 Data Cleaning and Visualisation using R"
+author: "Course Unit Lead: Ioana Macoveciuc"
 date: "2024-01-26"
 site: bookdown::bookdown_site
 documentclass: book
@@ -11,6 +11,8 @@ description: |
 link-citations: yes
 ---
 
-hello World
+# About {-}
 
+Welcome to SOST70023 Data Cleaning and Visualisation using R!
 
+This notebook will host the materials for all practical exercises for this course unit. 
