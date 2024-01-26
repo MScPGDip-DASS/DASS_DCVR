@@ -46,11 +46,11 @@ Does the output match the contents you entered when you created the vector? Why?
 
 Throughout the course units of this programme, you will utilise real datasets to develop your data analysis and interpretation skills. 
 
-For this exercise, you will navigate to the UK Data Service (UKDS) website and acquire the \textit{British Social Attitudes Survey (2019), Poverty and Welfare: Open Access Teaching Dataset}. 
+For this exercise, you will navigate to the UK Data Service (UKDS) website and acquire the British Social Attitudes Survey (2019), Poverty and Welfare: Open Access Teaching Dataset. 
 
 ### Exercise 
 
-Navigate to the British Social Attitudes Survey (2019) webpage on the UK Data Service \href{https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=8850#!/access-data}{website}. 
+Navigate to the British Social Attitudes Survey (2019) webpage on the UK Data Service website (https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=8850#!/access-data)
 
 Scroll down to the end of the webpage and download the dataset in both SPSS and STATA formats in your R project working directory.
 
@@ -66,11 +66,11 @@ b. Use the view function to explore these data objects.
 
 ### Exercise
 
-Export \textbf{both} `bsas_spss` and `bsas_stata` data objects in `.RData` format. 
+Export both `bsas_spss` and `bsas_stata` data objects in `.RData` format. 
 
 ### Exercise
 
-Export `bsas_spss` as a \textbf{single} object in `.RDS` format.  
+Export `bsas_spss` as a single object in `.RDS` format.  
 
 ### Exercise
 
@@ -84,12 +84,12 @@ c. Load the `.Rdata` file your created.
 
 ## Bonus Task: Data on GitHub
 
-\textbf{Importing Data from Github Repositories}
+**Importing Data from Github Repositories**
 
 Many different types of data can be imported in R using either base R functions or functions from packages. However, R is not limited to importing 'hard copy' files from your machine but also supports direct import of data files located on websites for example. 
 
 A Github Repository is a cloud-based, online platform that allows programming users to openly share research projects, associated documentation, data files, and comments with other users and/or the public. 
-Explore the \href{(https://github.com/CSSEGISandData/COVID-19)}{Johns Hopkins Whiting School of Engineering COVID-19 Github Repository}. 
+Explore the Johns Hopkins Whiting School of Engineering COVID-19 Github Repository (https://github.com/CSSEGISandData/COVID-19) 
 
 1. Open the csse_covid_19_data folder found at the beginning of the page. 
 2. Then open the csse_covid_19_time_series folder. 
