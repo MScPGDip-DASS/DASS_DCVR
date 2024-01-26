@@ -82,9 +82,9 @@ a. Import the `.csv` file you have just created and name this object `bsas_stata
 b. Import the spss you have created and name this object `bsas_spss2`. 
 c. Load the `.Rdata` file your created. 
 
-## Bonus Task
+## Bonus Task: Data on GitHub
 
-### Importing Data from Github Repositories
+\textbf{Importing Data from Github Repositories}
 
 Many different types of data can be imported in R using either base R functions or functions from packages. However, R is not limited to importing 'hard copy' files from your machine but also supports direct import of data files located on websites for example. 
 
