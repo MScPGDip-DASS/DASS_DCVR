@@ -11,10 +11,6 @@ description: |
 link-citations: yes
 ---
 
-# Welcome {-}
-
-
-# How to use this document {-}
 
 
 

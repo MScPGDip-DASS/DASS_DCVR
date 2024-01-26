@@ -11,11 +11,6 @@ description: |
 link-citations: yes
 ---
 
-Book hosting practicals for SOST70032
-
-\newpage 
-
-# How to use this notebook {-}
 
 
 
