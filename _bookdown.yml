@@ -2,7 +2,7 @@ book_filename: dcvr
 delete_merged_file: true
 rmd_files: 
 - index.Rmd
-- 01-about.Rmd
+- 01-howtouse.Rmd
 - 02-intro.Rmd
 - 03-cross-refs.Rmd
 - 04-parts.Rmd
