@@ -13,8 +13,22 @@
   border-right: double #6D009D;
   border-top: double #6D009D;
   border-left: double #6D009D;
-  border-bottom:double #6D009D;
+  border-bottom: double #6D009D;
 }
+
+.summary{
+font-family: "Open Sans", sans-serif;
+}
+
+.summary a:hover {
+  color: #6D009D !important;
+} 
+
+.book .book-summary ul.summary li.active>a { /*active TOC links*/
+  color: #6D009D !important;
+  border-left: solid 6px;
+  border-color: #6D009D;
+} 
 
 p.caption {
   color: #777;
