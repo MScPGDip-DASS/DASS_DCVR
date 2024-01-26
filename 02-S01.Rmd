@@ -1,16 +1,15 @@
 # Introducing Statistical Programming with R and RStudio
 
-To complete the exercises, ensure that you work in your newly created project in RStudio and writing your answers in your new R script.
-
 ## Creating and Exploring Vector Objects
 
 ### Exercise 
+
+Create a vector object that contains the following values: 70, 8, 50, 100. Name this vector `num_vct` and print the contents. 
 
 ```{r}
 num_vct <- c(70, 8, 50, 100) 
 ```
 
-Create a vector object that contains the following values: 70, 8, 50, 100. Name this vector `num_vct` and print the contents. 
 
 a. Use the class() function to find out what type of object `num_vct` is.
 b. Multiply this vector by 2.
