@@ -1,8 +1,6 @@
 --- 
-title: " "
-subtitle: " "
-author: " "
-date: "2024-01-26"
+title: "Data Cleaning and Visualisation using R"
+author: "Dr. Ioana Macoveciuc"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]

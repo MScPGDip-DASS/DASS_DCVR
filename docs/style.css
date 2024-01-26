@@ -30,6 +30,10 @@ font-family: "Open Sans", sans-serif;
   border-color: #6D009D;
 } 
 
+.author,.title{
+    display: none;
+}
+
 p.caption {
   color: #777;
   margin-top: 10px;
