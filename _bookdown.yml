@@ -3,13 +3,15 @@ delete_merged_file: true
 rmd_files: 
 - index.Rmd
 - 01-howtouse.Rmd
-- 02-intro.Rmd
-- 03-cross-refs.Rmd
-- 04-parts.Rmd
-- 05-citations.Rmd
-- 06-blocks.Rmd
-- 07-share.Rmd
-- 08-references.Rmd
+- 02-S01.Rmd
+- 03-S02.Rmd
+- 04-S03.Rmd
+- 05-S04.Rmd
+- 06-S05.Rmd
+- 07-S06.Rmd
+- 08-S07.Rmd
+- 09-S08.Rmd
+- 10-references.Rmd
 output_dir: docs
 language:
   ui:
