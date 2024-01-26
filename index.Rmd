@@ -1,5 +1,5 @@
 --- 
-title: "MSc/PGDip Data Analytics and Social Statistics"
+title: "Data Analytics and Social Statistics"
 subtitle: "SOST70023 Data Cleaning and Visualisation using R"
 author: "Course Unit Lead: Ioana Macoveciuc"
 date: "`r Sys.Date()`"
