@@ -14,7 +14,7 @@ link-citations: yes
 # Welcome {-}
 
 
-# How to use this document {-}
+# How to use this notebook {-}
 
 
 

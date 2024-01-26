@@ -5,25 +5,19 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>SOST70023 Data Cleaning and Visualisation using R</title>
-  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta name="description" content="Notebook hosting practical materials for SOST70023." />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="SOST70023 Data Cleaning and Visualisation using R" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta property="og:description" content="Notebook hosting practical materials for SOST70023." />
   
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="SOST70023 Data Cleaning and Visualisation using R" />
   
-  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta name="twitter:description" content="Notebook hosting practical materials for SOST70023." />
   
 
 <meta name="author" content="Ioana Macoveciuc" />
@@ -37,7 +31,7 @@ set in the _output.yml file.</p>" />
   
   
 
-<link rel="next" href="hello-bookdown.html"/>
+<link rel="next" href="how-to-use-this-document.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -168,12 +162,8 @@ div.csl-indent {
 <li><a href="./">SOST70023 Data Cleaning and Visualisation using R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
-<ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#usage"><i class="fa fa-check"></i>Usage</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#render-book"><i class="fa fa-check"></i>Render book</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#preview-book"><i class="fa fa-check"></i>Preview book</a></li>
-</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="how-to-use-this-document.html"><a href="how-to-use-this-document.html"><i class="fa fa-check"></i>How to use this document</a></li>
 <li class="chapter" data-level="1" data-path="hello-bookdown.html"><a href="hello-bookdown.html"><i class="fa fa-check"></i><b>1</b> Hello bookdown</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="hello-bookdown.html"><a href="hello-bookdown.html#a-section"><i class="fa fa-check"></i><b>1.1</b> A section</a>
@@ -231,32 +221,8 @@ div.csl-indent {
 <p class="author"><em>Ioana Macoveciuc</em></p>
 <p class="date"><em>2024-01-26</em></p>
 </div>
-<div id="preface" class="section level1 unnumbered hasAnchor">
-<h1>Preface<a href="index.html#preface" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This is a <em>sample</em> book written in <strong>Markdown</strong>. You can use anything that Pandoc’s Markdown supports; for example, a math equation <span class="math inline">\(a^2 + b^2 = c^2\)</span>.</p>
-<div id="usage" class="section level2 unnumbered hasAnchor">
-<h2>Usage<a href="index.html#usage" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Each <strong>bookdown</strong> chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter <em>must</em> start with a first-level heading: <code># A good chapter</code>, and can contain one (and only one) first-level heading.</p>
-<p>Use second-level and higher headings within chapters like: <code>## A short section</code> or <code>### An even shorter section</code>.</p>
-<p>The <code>index.Rmd</code> file is required, and is also your first book chapter. It will be the homepage when you render the book.</p>
-</div>
-<div id="render-book" class="section level2 unnumbered hasAnchor">
-<h2>Render book<a href="index.html#render-book" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>You can render the HTML version of this example book without changing anything:</p>
-<ol style="list-style-type: decimal">
-<li><p>Find the <strong>Build</strong> pane in the RStudio IDE, and</p></li>
-<li><p>Click on <strong>Build Book</strong>, then select your output format, or select “All formats” if you’d like to use multiple formats from the same book source files.</p></li>
-</ol>
-<p>Or build the book from the R console:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" tabindex="-1"></a>bookdown<span class="sc">::</span><span class="fu">render_book</span>()</span></code></pre></div>
-<p>To render this example to PDF as a <code>bookdown::pdf_book</code>, you’ll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <a href="https://yihui.org/tinytex/" class="uri">https://yihui.org/tinytex/</a>.</p>
-</div>
-<div id="preview-book" class="section level2 unnumbered hasAnchor">
-<h2>Preview book<a href="index.html#preview-book" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in “Preview book”, or from the R console:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="index.html#cb2-1" tabindex="-1"></a>bookdown<span class="sc">::</span><span class="fu">serve_book</span>()</span></code></pre></div>
-
-</div>
+<div id="welcome" class="section level1 unnumbered hasAnchor">
+<h1>Welcome<a href="index.html#welcome" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 </div>
             </section>
 
@@ -264,7 +230,7 @@ div.csl-indent {
         </div>
       </div>
 
-<a href="hello-bookdown.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="how-to-use-this-document.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
