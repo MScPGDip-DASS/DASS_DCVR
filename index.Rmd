@@ -9,6 +9,7 @@ bibliography: [book.bib, packages.bib]
 description: |
   Notebook hosting practical materials for SOST70023.
 link-citations: yes
+cover-image: images/banners/DCVR_banner.png
 ---
 
 # About {-}
