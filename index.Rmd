@@ -1,7 +1,7 @@
 --- 
-title: "Data Analytics and Social Statistics"
-subtitle: "SOST70023 Data Cleaning and Visualisation using R"
-author: "Course Unit Lead: Ioana Macoveciuc"
+title: " "
+subtitle: " "
+author: " "
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
