@@ -6,7 +6,7 @@ To complete the exercises, ensure that you work in your newly created project in
 
 ### Exercise 
 
-```{r echo=TRUE}
+```{r}
 num_vct <- c(70, 8, 50, 100) 
 ```
 
