@@ -4,7 +4,7 @@ bookdown::gitbook:
   includes:     
     before_body: header.html
   config:
-    toc:
+    toc: 
       before: |
         <li class="toc-logo"><a href="./"><img src="images/logos/uom_logo.png"></a></li>
       after: |
