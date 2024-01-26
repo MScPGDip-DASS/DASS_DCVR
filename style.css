@@ -6,6 +6,16 @@
   font-family: "Open Sans", sans-serif;
 }
 
+/*------------ TOC --------------*/
+
+.book .book-summary {
+  background: #FCF7FE;
+  border-right: double #6D009D;
+  border-top: double #6D009D;
+  border-left: double #6D009D;
+  border-bottom: double #6D009D;
+}
+
 p.caption {
   color: #777;
   margin-top: 10px;
