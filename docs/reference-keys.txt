@@ -4,5 +4,5 @@ manipulating-and-tidying-data
 reproducible-workflows-with-r-markdown
 data-visualisation
 working-with-special-data-types-text-data
-working-with-special-data-types-text-data-1
+programming-with-r
 practising-data-cleaning-and-visualisation-formative-peer-review-case-study
