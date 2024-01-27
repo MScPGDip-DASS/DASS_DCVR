@@ -15,7 +15,6 @@ exercise-10
 bonus-task-data-on-github
 the-structure-of-data-objects
 manipulating-and-tidying-data
-reproducible-workflows-with-r-markdown
 data-visualisation
 working-with-special-data-types-text-data
 programming-with-r
