@@ -6,6 +6,18 @@
   font-family: "Open Sans", sans-serif;
 }
 
+.bookdown h1 {
+  font-size: 18px; /* Custom font size for h1 */
+}
+
+.bookdown h2 {
+  font-size: 16px; /* Custom font size for h2 */
+}
+
+.bookdown h3 {
+  font-size: 14px; /* Custom font size for h3 */
+}
+
 /*------------ TOC --------------*/
 
 .book .book-summary {
