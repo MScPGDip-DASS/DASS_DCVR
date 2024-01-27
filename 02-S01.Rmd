@@ -1,5 +1,56 @@
 # Introducing Statistical Programming with R and RStudio
 
+```{css, echo=FALSE}
+.toggle-button {
+    display: block;
+    margin: 10px 0;
+    padding: 5px 10px;
+    background-color: #6D009D;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-family: "Open Sans", sans-serif;
+}
+
+/* Initially hide R output blocks */
+pre > code {
+    display: none;
+}
+```
+
+```{js, echo=FALSE}
+document.addEventListener('DOMContentLoaded', function() {
+    var codeBlocks = document.querySelectorAll('pre > code');
+
+    codeBlocks.forEach(function(block) {
+        // Check if the block's content starts with '##'
+        if (block.textContent.trim().startsWith('##')) {
+            var button = document.createElement('button');
+            button.className = 'toggle-button';
+            button.textContent = 'Show R Output';
+            button.style.display = 'block'; // Ensure button is visible
+            block.style.display = 'none'; // Initially hide the R output
+
+            button.onclick = function() {
+                if (block.style.display === 'none') {
+                    block.style.display = 'block';
+                    button.textContent = 'Hide R Output';
+                } else {
+                    block.style.display = 'none';
+                    button.textContent = 'Show R Output';
+                }
+            };
+
+            block.parentNode.insertBefore(button, block);
+        }
+    });
+});
+
+```
+
+
 **Learning Outcomes:** 
 
 *- Employ the basics of the R language to run simple lines of code;*  

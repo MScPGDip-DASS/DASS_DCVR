@@ -52,29 +52,6 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script>
-    $(document).ready(function () {
-        process_solutions();
-    });
-    function process_solutions() {
-        $("div.section[id^='solution']").each(function(i) {
-        var soln_wrapper_id = "cvxr_ex_" + i;
-        var solution_id = $(this).attr('id');
-        var button = $("<button onclick=\"toggle_solution('" + soln_wrapper_id + "')\">Show/Hide</button>");
-        var new_div = $("<div id='" + soln_wrapper_id + "' class='solution' style='display: none;'></div>");
-        var h = $(this).first();
-        var others = $(this).children().slice(1);
-        $(others).each(function() {
-            $(this).appendTo($(new_div));
-        });
-        $(button).insertAfter($(h));
-        $(new_div).insertAfter($(button));
-        })
-    }
-    function toggle_solution(el_id) {
-      $("#" + el_id).toggle();
-    } 
-</script>
 
 
 <style type="text/css">
@@ -222,6 +199,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </center>
 <div id="introducing-statistical-programming-with-r-and-rstudio" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number"> 1</span> Introducing Statistical Programming with R and RStudio<a href="introducing-statistical-programming-with-r-and-rstudio.html#introducing-statistical-programming-with-r-and-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<style type="text/css">
+.toggle-button {
+    display: block;
+    margin: 10px 0;
+    padding: 5px 10px;
+    background-color: #6D009D;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-family: "Open Sans", sans-serif;
+}
+
+/* Initially hide R output blocks */
+pre > code {
+    display: none;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var codeBlocks = document.querySelectorAll('pre > code');
+
+    codeBlocks.forEach(function(block) {
+        // Check if the block's content starts with '##'
+        if (block.textContent.trim().startsWith('##')) {
+            var button = document.createElement('button');
+            button.className = 'toggle-button';
+            button.textContent = 'Show R Output';
+            button.style.display = 'block'; // Ensure button is visible
+            block.style.display = 'none'; // Initially hide the R output
+
+            button.onclick = function() {
+                if (block.style.display === 'none') {
+                    block.style.display = 'block';
+                    button.textContent = 'Hide R Output';
+                } else {
+                    block.style.display = 'none';
+                    button.textContent = 'Show R Output';
+                }
+            };
+
+            block.parentNode.insertBefore(button, block);
+        }
+    });
+});
+
+</script>
 <p><strong>Learning Outcomes:</strong></p>
 <p><em>- Employ the basics of the R language to run simple lines of code;</em><br />
 <em>- Import and export data objects.</em></p>
