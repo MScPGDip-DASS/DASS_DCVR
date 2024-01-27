@@ -84,6 +84,26 @@ font-family: "Open Sans", sans-serif;
     background-color: #f0e6ff; /* Changes background color when open to a slightly different shade of purple */
 }
 
+/* Style for the container of the source code */
+div.sourceCode {
+    background-color: #6D009D; /* Light grey background */
+    border: 1px solid #ddd; /* Light grey border */
+    padding: 10px; /* Padding around the text */
+    border-radius: 4px; /* Rounded corners */
+    overflow: auto; /* Add a scrollbar if the content is too wide */
+}
+
+/* Style for the <pre> element containing R code */
+pre.sourceCode.r {
+    font-family: 'Courier New', monospace; /* Monospace font for code */
+    color: #109; /* Dark grey text color */
+    margin: 0; /* Remove default margin */
+}
+
+/* Style for the <code> element containing R code */
+code.sourceCode.r {
+    font-size: 0.9em; /* Slightly smaller font size for code */
+}
 
 p.caption {
   color: #777;
