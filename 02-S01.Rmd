@@ -71,6 +71,9 @@ Print the contents.
 ```{r}
 num_vct 
 ```
+```{r}
+plot(cars)
+```
 
 
 a. Use the class() function to find out what type of object `num_vct` is.
