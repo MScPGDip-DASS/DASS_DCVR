@@ -199,6 +199,60 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </center>
 <div id="introducing-statistical-programming-with-r-and-rstudio" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number"> 1</span> Introducing Statistical Programming with R and RStudio<a href="introducing-statistical-programming-with-r-and-rstudio.html#introducing-statistical-programming-with-r-and-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<style type="text/css">
+/* Button styles */
+.toggle-button {
+    display: block;
+    margin: 10px 0;
+    padding: 5px 10px;
+    background-color: #6D009D;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style for the <pre><code> blocks */
+pre {
+    background-color: #f8f8f8; /* Light grey background */
+    border: 1px solid #ddd; /* Light grey border */
+    padding: 10px; /* Padding around the text */
+    border-radius: 4px; /* Rounded corners */
+    overflow: auto; /* Add a scrollbar if the content is too wide */
+}
+
+code {
+    font-family: 'Courier New', monospace; /* Monospace font for code */
+    color: #333; /* Dark grey text color */
+}
+
+/* Initially hide code blocks */
+pre {
+    display: none;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var codeBlocks = document.querySelectorAll('pre');
+
+    codeBlocks.forEach(function(block, index) {
+        var button = document.createElement('button');
+        button.className = 'toggle-button';
+        button.textContent = 'Show Output';
+        button.addEventListener('click', function() {
+            if (block.style.display === 'none') {
+                block.style.display = 'block';
+                button.textContent = 'Hide Output';
+            } else {
+                block.style.display = 'none';
+                button.textContent = 'Show Output';
+            }
+        });
+
+        block.before(button);
+    });
+});
+</script>
 <p><strong>Learning Outcomes:</strong></p>
 <p><em>- Employ the basics of the R language to run simple lines of code;</em><br />
 <em>- Import and export data objects.</em></p>
@@ -217,11 +271,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1]  70   8  50 100</code></pre>
 <ol style="list-style-type: lower-alpha">
 <li>Use the class() function to find out what type of object <code>num_vct</code> is.</li>
+</ol>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="introducing-statistical-programming-with-r-and-rstudio.html#cb4-1" tabindex="-1"></a><span class="fu">class</span>(num_vct)</span></code></pre></div>
+</details>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<ol start="2" style="list-style-type: lower-alpha">
 <li>Multiply this vector by 2.</li>
+</ol>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="introducing-statistical-programming-with-r-and-rstudio.html#cb6-1" tabindex="-1"></a>num_vct <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
+</details>
+<pre><code>## [1] 140  16 100 200</code></pre>
+<ol start="3" style="list-style-type: lower-alpha">
 <li>Divide the vector by 10.</li>
+</ol>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="introducing-statistical-programming-with-r-and-rstudio.html#cb8-1" tabindex="-1"></a>num_vct <span class="sc">/</span> <span class="dv">10</span></span></code></pre></div>
+</details>
+<pre><code>## [1]  7.0  0.8  5.0 10.0</code></pre>
+<ol start="4" style="list-style-type: lower-alpha">
 <li>Subtract 5 from the vector.</li>
+</ol>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="introducing-statistical-programming-with-r-and-rstudio.html#cb10-1" tabindex="-1"></a>num_vct <span class="sc">-</span> <span class="dv">5</span> </span></code></pre></div>
+</details>
+<pre><code>## [1] 65  3 45 95</code></pre>
+<ol start="5" style="list-style-type: lower-alpha">
 <li>Add 8 to the vector.</li>
 </ol>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="introducing-statistical-programming-with-r-and-rstudio.html#cb12-1" tabindex="-1"></a>num_vct <span class="sc">+</span> <span class="dv">8</span>  </span></code></pre></div>
+</details>
+<pre><code>## [1]  78  16  58 108</code></pre>
 </div>
 <div id="exercise-1" class="section level3 hasAnchor" number="1.1.2">
 <h3><span class="header-section-number">1.1.2</span> Exercise<a href="introducing-statistical-programming-with-r-and-rstudio.html#exercise-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>

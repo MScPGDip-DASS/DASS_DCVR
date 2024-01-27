@@ -1,12 +1,22 @@
 # Introducing Statistical Programming with R and RStudio
 
-<style type="text/css">
+**Learning Outcomes:** 
+
+*- Employ the basics of the R language to run simple lines of code;*  
+*- Import and export data objects.* 
+
+## Creating and Exploring Vector Objects
+
+### Exercise 
+
+
+```{css, echo=FALSE}
 /* Button styles */
 .toggle-button {
     display: block;
     margin: 10px 0;
     padding: 5px 10px;
-    background-color: #6D009D;
+    background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
@@ -31,114 +41,49 @@ code {
 pre {
     display: none;
 }
-</style>
+```
 
 
-<script>
+```{js, echo=FALSE}
 document.addEventListener('DOMContentLoaded', function() {
-    var codeBlocks = document.querySelectorAll('pre');
+    var codeBlocks = document.querySelectorAll('pre.sourceCode');
 
     codeBlocks.forEach(function(block, index) {
         var button = document.createElement('button');
         button.className = 'toggle-button';
-        button.textContent = 'Show Output';
+        button.textContent = 'Show Code';
         button.addEventListener('click', function() {
             if (block.style.display === 'none') {
                 block.style.display = 'block';
-                button.textContent = 'Hide Output';
+                button.textContent = 'Hide Code';
             } else {
                 block.style.display = 'none';
-                button.textContent = 'Show Output';
+                button.textContent = 'Show Code';
             }
         });
 
         block.before(button);
     });
 });
-</script>
-
-
-**Learning Outcomes:** 
-
-*- Employ the basics of the R language to run simple lines of code;*  
-*- Import and export data objects.* 
-
-## Creating and Exploring Vector Objects
-
-### Exercise 
+```
 
 Create a vector object called `num_vct` that contains the following values: 70, 8, 50, 100.
 
-
-```r
+```{r}
 num_vct <- c(70, 8, 50, 100) 
 ```
 
 Print the contents. 
 
-
-```r
+```{r}
 num_vct 
 ```
 
-```
-## [1]  70   8  50 100
-```
-
 a. Use the class() function to find out what type of object `num_vct` is.
-
-
-```r
-class(num_vct)
-```
-
-```
-## [1] "numeric"
-```
-
 b. Multiply this vector by 2.
-
-
-```r
-num_vct * 2
-```
-
-```
-## [1] 140  16 100 200
-```
-
 c. Divide the vector by 10. 
-
-
-```r
-num_vct / 10
-```
-
-```
-## [1]  7.0  0.8  5.0 10.0
-```
-
 d. Subtract 5 from the vector. 
-
-
-```r
-num_vct - 5 
-```
-
-```
-## [1] 65  3 45 95
-```
-
 e. Add 8 to the vector.
-
-
-```r
-num_vct + 8  
-```
-
-```
-## [1]  78  16  58 108
-```
 
 ### Exercise
 
