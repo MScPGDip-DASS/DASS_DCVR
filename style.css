@@ -58,7 +58,7 @@ font-family: "Open Sans", sans-serif;
 
 /* Style for the <details> element */
 .chunk-details {
-    background-color: #e6e6fa; /* Light purple background */
+    background-color: #f0e6ff; /* Light purple background */
     border: 2px solid #d3d3d3; /* Light grey solid border */
     padding: 15px; /* Padding around the content */
     border-radius: 8px; /* Rounded corners for the box */
