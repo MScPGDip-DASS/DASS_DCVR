@@ -52,6 +52,29 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script>
+    $(document).ready(function () {
+        process_solutions();
+    });
+    function process_solutions() {
+        $("div.section[id^='solution']").each(function(i) {
+        var soln_wrapper_id = "cvxr_ex_" + i;
+        var solution_id = $(this).attr('id');
+        var button = $("<button onclick=\"toggle_solution('" + soln_wrapper_id + "')\">Show/Hide</button>");
+        var new_div = $("<div id='" + soln_wrapper_id + "' class='solution' style='display: none;'></div>");
+        var h = $(this).first();
+        var others = $(this).children().slice(1);
+        $(others).each(function() {
+            $(this).appendTo($(new_div));
+        });
+        $(button).insertAfter($(h));
+        $(new_div).insertAfter($(button));
+        })
+    }
+    function toggle_solution(el_id) {
+      $("#" + el_id).toggle();
+    } 
+</script>
 
 
 <style type="text/css">
@@ -199,60 +222,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </center>
 <div id="introducing-statistical-programming-with-r-and-rstudio" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number"> 1</span> Introducing Statistical Programming with R and RStudio<a href="introducing-statistical-programming-with-r-and-rstudio.html#introducing-statistical-programming-with-r-and-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<style type="text/css">
-/* Button styles */
-.toggle-button {
-    display: block;
-    margin: 10px 0;
-    padding: 5px 10px;
-    background-color: #6D009D;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-/* Style for the <pre><code> blocks */
-pre {
-    background-color: #f8f8f8; /* Light grey background */
-    border: 1px solid #ddd; /* Light grey border */
-    padding: 10px; /* Padding around the text */
-    border-radius: 4px; /* Rounded corners */
-    overflow: auto; /* Add a scrollbar if the content is too wide */
-}
-
-code {
-    font-family: 'Courier New', monospace; /* Monospace font for code */
-    color: #333; /* Dark grey text color */
-}
-
-/* Initially hide code blocks */
-pre {
-    display: none;
-}
-</style>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var codeBlocks = document.querySelectorAll('pre');
-
-    codeBlocks.forEach(function(block, index) {
-        var button = document.createElement('button');
-        button.className = 'toggle-button';
-        button.textContent = 'Show Output';
-        button.addEventListener('click', function() {
-            if (block.style.display === 'none') {
-                block.style.display = 'block';
-                button.textContent = 'Hide Output';
-            } else {
-                block.style.display = 'none';
-                button.textContent = 'Show Output';
-            }
-        });
-
-        block.before(button);
-    });
-});
-</script>
 <p><strong>Learning Outcomes:</strong></p>
 <p><em>- Employ the basics of the R language to run simple lines of code;</em><br />
 <em>- Import and export data objects.</em></p>
