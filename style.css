@@ -29,6 +29,76 @@
     background-color: #f0e6ff; /* Changes background color when open to a slightly different shade of purple */
 }
 
+/* Style for the <pre> component */
+pre {
+    margin: 10px 0; /* Margin around the <pre> component */
+    padding: 10px; /* Padding inside the <pre> component */
+    border: 2px solid #d3d3d3; /* Border to visually align with the button */
+    border-radius: 8px; /* Border radius for rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+    background-color: #f0e6ff; /* Background color to match the button */
+    box-sizing: border-box; /* Include padding and border in the element's size */
+}
+
+/* Updated Style for the .toggle-button */
+.toggle-button {
+    display: block;
+    width: 100%; /* Full width to align with <pre> component */
+    margin: 10px 0; /* Margin to separate from other elements */
+    padding: 10px; /* Padding to match <pre> component */
+    background-color: #6D009D; /* Background color */
+    color: white;
+    border: 2px solid #d3d3d3; /* Border to visually align with <pre> component */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 0.9em;
+    font-family: "Open Sans", sans-serif;
+    text-align: left;
+}
+
+/* Initially hide R output blocks */
+pre > code {
+    display: none;
+}
+
+
+/* Style for the <pre> component */
+pre {
+    margin: 10px 0; /* Margin around the <pre> component */
+    padding: 10px; /* Padding inside the <pre> component */
+    border: 2px solid #d3d3d3; /* Border to visually align with the button */
+    border-radius: 8px; /* Border radius for rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+    background-color: #f0e6ff; /* Background color to match the button */
+    box-sizing: border-box; /* Include padding and border in the element's size */
+}
+
+/* Style for the toggle comment button */
+.toggle-comment-button {
+    display: block;
+    width: 100%; /* Full width of the container */
+    margin: 10px 0; /* Margin above and below the button */
+    padding: 10px 15px; /* Padding inside the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 0.9em; /* Font size */
+    font-family: "Open Sans", sans-serif; /* Font family */
+    text-align: center; /* Center-align the text */
+    transition: background-color 0.3s; /* Transition for hover effects */
+    position: relative; /* Relative positioning for the nested element */
+}
+
+/* Wider white background for the toggle comment button */
+.toggle-comment-button .white-background {
+    position: absolute; /* Absolute positioning to cover the full width */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white; /* White background color */
+    z-index: -1; /* Place it behind the purple portion */
+}
+
+
 
  /*------------- Body and header text---------------- */
 

@@ -4,14 +4,13 @@ bookdown::gitbook:
   includes:     
     before_body: header.html
   config:
+    download: no
     sharing: null
     toc: 
       before: |
         <li class="toc-logo"><a href="./"><img src="images/logos/uom_logo.png"></a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    download: 
-    - ["dcvr.pdf", "PDF"]
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex

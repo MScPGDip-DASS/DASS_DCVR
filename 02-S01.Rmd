@@ -2,26 +2,6 @@
 
 *To complete the exercises, ensure that you work in your newly created project in RStudio and writing your answers in your new R script.*
 
-```{css, echo=FALSE}
-.toggle-button {
-    display: block;
-    margin: 10px 0;
-    padding: 5px 10px;
-    background-color: #6D009D;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9em;
-    font-family: "Open Sans", sans-serif;
-}
-
-/* Initially hide R output blocks */
-pre > code {
-    display: none;
-}
-```
-
 ```{js, echo=FALSE}
 document.addEventListener('DOMContentLoaded', function() {
     var codeBlocks = document.querySelectorAll('pre > code');
@@ -49,8 +29,39 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+```
+
+
+```{js, echo=FALSE}
+document.addEventListener('DOMContentLoaded', function() {
+    var rComments = document.querySelectorAll('.r-comment');
+
+    rComments.forEach(function(comment) {
+        // Create the toggle button
+        var button = document.createElement('button');
+        button.className = 'toggle-comment-button';
+        button.textContent = 'Show Explanation';
+        button.style.display = 'block'; // Ensure button is visible
+        comment.style.display = 'none'; // Initially hide the comment
+
+        // Add click event listener to the button
+        button.onclick = function() {
+            if (comment.style.display === 'none') {
+                comment.style.display = 'block'; // Adjust as needed
+                button.textContent = 'Hide Explanation';
+            } else {
+                comment.style.display = 'none';
+                button.textContent = 'Show Explanation';
+            }
+        };
+
+        // Insert the button before the comment
+        comment.parentNode.insertBefore(button, comment);
+    });
+});
 
 ```
+
 
 
 **Learning Outcomes:** 
@@ -104,7 +115,7 @@ f. Add 8 to the vector.
 num_vct + 8  
 ```
 
-#### Performing Calculations with TWo Numeric Vectors {-}
+#### Performing Calculations with TWO Numeric Vectors {-}
 
 a. Create a new numeric vector that contains the following values: 5, 7, 9, 10. Name it `num_vct2` and print the contents. 
 
@@ -160,15 +171,12 @@ b. Attempt to perform the operations from the previous exercise.
 What results do you obtain?   
 Why?
 
-```{r, error=TRUE}
-char_vct * 2
-char_vct / 10
-char_vct - 5 
-char_vct + 8  
-
-
-#Note the error message in the console; none of the tasks can be applied to this vector because these are all arithmetic tasks which work only on numeric vectors
+```{r, error = TRUE, results = 'asis'}
+char_vct * 2 
 ```
+
+<div class="r-comment" style="display: none;"> Note the error message in the console; none of the tasks can be applied to this vector because these are all arithmetic tasks which work only on numeric vectors.
+</div>
 
 ## Exploring Vectors
 
