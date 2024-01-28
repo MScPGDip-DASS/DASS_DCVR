@@ -156,6 +156,41 @@ font-family: "Open Sans", sans-serif;
   padding: 4px 4px 4px 4px;
 }
 
+
+/* -----------Sidebar div tips------------- */
+/* from r-pkgs.org*/
+
+  div.puzzle, div.fyi, div.question, div.note {
+    padding: 1em;
+    margin: 1em 0;
+    padding-left: 100px;
+    background-size: 70px;
+    background-repeat: no-repeat;
+    background-position: 15px center;
+    min-height: 120px;
+    color: black;
+    background-color: white;
+    border: solid 5px #f0e6ff;
+    text-align: center;
+  }
+
+div.puzzle {
+  background-image: url("../images/Your-turn.png");
+}
+
+div.fyi {
+ background-image: url("../images/fyi.png");
+}
+
+div.question {
+  background-image: url("images/boxes/question.png");
+}
+
+div.note {
+  background-image: url("../images/lightbulb.png");
+}
+
+
 p.caption {
   color: #777;
   margin-top: 10px;
