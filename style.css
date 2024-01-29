@@ -1,5 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
+li.part {
+    background-color: #f0e6ff; /* Light purple background */
+    padding: 10px 20px; /* Padding around the content */
+    margin: 15px 0; /* Margin above and below the element */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    opacity: 1; /* Ensure the element is fully opaque */
+
+    /* Style for the span and bold text within */
+    span {
+        color: #333; /* Dark grey color for the text */
+        font-size: 1.2em; /* Slightly larger font size */
+        opacity: 1; /* Ensure the text is fully opaque */
+    }
+
+    b {
+        font-weight: bold; /* Bold for emphasis */
+        opacity: 1; /* Ensure the bold text is fully opaque */
+    }
+}
+
+
+.book .book-summary .summary li a {
+    display: block; /* Display links as block elements */
+    white-space: nowrap; /* Keep text in a single line */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Show ellipsis for overflow text */
+    padding-right: 10px; /* Optional padding to prevent ellipsis too close to the edge */
+}
+
+.book .book-summary ul.summary li span {
+    cursor: not-allowed;
+    opacity: 1;
+}
 
 /* Style for the <details> element */
 .chunk-details {
@@ -138,6 +172,7 @@ pre {
   border-top: double #6D009D;
   border-left: double #6D009D;
   border-bottom: double #6D009D;
+  max-width: 100%; /* Set maximum width to prevent overflow */
 }
 
 .summary{
@@ -152,6 +187,7 @@ font-family: "Open Sans", sans-serif;
   color: #6D009D !important;
   border-left: solid 6px;
   border-color: #6D009D;
+  font-weight: bold;  /* Make the text bold */
 } 
 
 .author,.title{

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>How to use this notebook | Data Cleaning and Visualisation using R</title>
+  <title>2. Exploring Vectors | Data Cleaning and Visualisation using R</title>
   <meta name="description" content="Notebook hosting practical materials for SOST70023." />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="How to use this notebook | Data Cleaning and Visualisation using R" />
+  <meta property="og:title" content="2. Exploring Vectors | Data Cleaning and Visualisation using R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Notebook hosting practical materials for SOST70023." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="How to use this notebook | Data Cleaning and Visualisation using R" />
+  <meta name="twitter:title" content="2. Exploring Vectors | Data Cleaning and Visualisation using R" />
   
   <meta name="twitter:description" content="Notebook hosting practical materials for SOST70023." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="overview.html"/>
+<link rel="prev" href="performing-calculations-with-vectors.html"/>
+<link rel="next" href="importing-and-exporting-data.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -245,21 +245,113 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <img src="images/banners/DCVR_banner.png" alt="Trulli">
   </div>
 </center>
-<div id="how-to-use-this-notebook" class="section level1 unnumbered hasAnchor">
-<h1>How to use this notebook<a href="how-to-use-this-notebook.html#how-to-use-this-notebook" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Describe how to use each week and how to use the menu (maybe add a picture?)</p>
+<div id="exploring-vectors" class="section level1 unnumbered hasAnchor">
+<h1>2. Exploring Vectors<a href="exploring-vectors.html#exploring-vectors" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var codeBlocks = document.querySelectorAll('pre > code');
 
+    codeBlocks.forEach(function(block) {
+        // Check if the block's content starts with '##'
+        if (block.textContent.trim().startsWith('##')) {
+            var button = document.createElement('button');
+            button.className = 'toggle-button';
+            button.textContent = 'Show R Output';
+            button.style.display = 'block'; // Ensure button is visible
+            block.style.display = 'none'; // Initially hide the R output
+
+            button.onclick = function() {
+                if (block.style.display === 'none') {
+                    block.style.display = 'block';
+                    button.textContent = 'Hide R Output';
+                } else {
+                    block.style.display = 'none';
+                    button.textContent = 'Show R Output';
+                }
+            };
+
+            block.parentNode.insertBefore(button, block);
+        }
+    });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var rComments = document.querySelectorAll('.r-comment');
+
+    rComments.forEach(function(comment) {
+        // Create the toggle button
+        var button = document.createElement('button');
+        button.className = 'toggle-comment-button';
+        button.textContent = 'Show Explanation';
+        button.style.display = 'block'; // Ensure button is visible
+        comment.style.display = 'none'; // Initially hide the comment
+
+        // Add click event listener to the button
+        button.onclick = function() {
+            if (comment.style.display === 'none') {
+                comment.style.display = 'block'; // Adjust as needed
+                button.textContent = 'Hide Explanation';
+            } else {
+                comment.style.display = 'none';
+                button.textContent = 'Show Explanation';
+            }
+        };
+
+        // Insert the button before the comment
+        comment.parentNode.insertBefore(button, comment);
+    });
+});
+
+</script>
+<div id="exercise-6" class="section level2 unnumbered hasAnchor">
+<h2>2.1 Exercise<a href="exploring-vectors.html#exercise-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Use the <code>class()</code> function to find out what type of objects <code>num_vct</code> and <code>char_vct</code> are.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="exploring-vectors.html#cb11-1" tabindex="-1"></a><span class="fu">class</span>(num_vct)</span>
+<span id="cb11-2"><a href="exploring-vectors.html#cb11-2" tabindex="-1"></a><span class="fu">class</span>(char_vct)</span></code></pre></div>
+</details>
+<div class="r-comment" style="display: none;">
+<p>Your R output when applying the <code>class()</code> function to the two vectors should have confirmed that <code>num_vct</code> is a “numeric” vector and that the <code>char_vct</code> is a “character” vector.</p>
 </div>
-
-
-
+</div>
+<div id="exercise-7" class="section level2 unnumbered hasAnchor">
+<h2>2.2 Exercise<a href="exploring-vectors.html#exercise-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The number of elements in a vector is referred to as the <em>length</em> of the vector. With small vectors such as those you have already created, you can simply count these. Alternatively, the <code>length()</code> function can be used.</p>
+<p>Use the <code>length()</code> function to obtain the length of the following objects: <code>num_vct</code>, <code>char_vct</code>, <code>num_vct2</code>.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="exploring-vectors.html#cb12-1" tabindex="-1"></a><span class="fu">length</span>(num_vct)</span>
+<span id="cb12-2"><a href="exploring-vectors.html#cb12-2" tabindex="-1"></a><span class="fu">length</span>(char_vct)</span>
+<span id="cb12-3"><a href="exploring-vectors.html#cb12-3" tabindex="-1"></a><span class="fu">length</span>(num_vct2)</span></code></pre></div>
+</details>
+<div class="r-comment" style="display: none;">
+<p>Applying the function for each one of the vectors should have shown you a single number as an output, namely, the number of elements each of the vectors contains.</p>
+</div>
+</div>
+<div id="exercise-8" class="section level2 unnumbered hasAnchor">
+<h2>2.3 Exercise<a href="exploring-vectors.html#exercise-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Create a vector object that contains the following logical and numeric values: TRUE, 6, FALSE, 10, FALSE. Name it <code>new_vct</code> and print the contents.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="exploring-vectors.html#cb13-1" tabindex="-1"></a>new_vct <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="dv">6</span>, <span class="cn">FALSE</span>, <span class="dv">10</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb13-2"><a href="exploring-vectors.html#cb13-2" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="exploring-vectors.html#cb13-3" tabindex="-1"></a>new_vct</span></code></pre></div>
+</details>
+<pre><code>## [1]  1  6  0 10  0</code></pre>
+<div class="question">
+<p>Does the output match the contents you entered when you created the vector? Why?</p>
+</div>
+<div class="r-comment" style="display: none;">
+<p>The output does not match the contents. Since vectors cannot contain different data types, R will force (i.e. coerce) all entered values to match, in an attempt to lose as little information as possible. In this case, the logical values are coerced to 1 and 0, corresponding to True and False respectively. This is one of the several reasons for why data cleaning is important before proceeding with data analysis; such coercions can have a significant impact on the accuracy of our data and implicitly, on your interpretation of the data.</p>
+</div>
+</div>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="overview.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="performing-calculations-with-vectors.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="importing-and-exporting-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

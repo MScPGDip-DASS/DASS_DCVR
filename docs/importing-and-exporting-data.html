@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>How to use this notebook | Data Cleaning and Visualisation using R</title>
+  <title>3. Importing and Exporting Data | Data Cleaning and Visualisation using R</title>
   <meta name="description" content="Notebook hosting practical materials for SOST70023." />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="How to use this notebook | Data Cleaning and Visualisation using R" />
+  <meta property="og:title" content="3. Importing and Exporting Data | Data Cleaning and Visualisation using R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Notebook hosting practical materials for SOST70023." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="How to use this notebook | Data Cleaning and Visualisation using R" />
+  <meta name="twitter:title" content="3. Importing and Exporting Data | Data Cleaning and Visualisation using R" />
   
   <meta name="twitter:description" content="Notebook hosting practical materials for SOST70023." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="overview.html"/>
+<link rel="prev" href="exploring-vectors.html"/>
+<link rel="next" href="bonus-task-data-on-github.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -245,21 +245,154 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <img src="images/banners/DCVR_banner.png" alt="Trulli">
   </div>
 </center>
-<div id="how-to-use-this-notebook" class="section level1 unnumbered hasAnchor">
-<h1>How to use this notebook<a href="how-to-use-this-notebook.html#how-to-use-this-notebook" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Describe how to use each week and how to use the menu (maybe add a picture?)</p>
+<div id="importing-and-exporting-data" class="section level1 unnumbered hasAnchor">
+<h1>3. Importing and Exporting Data<a href="importing-and-exporting-data.html#importing-and-exporting-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var codeBlocks = document.querySelectorAll('pre > code');
 
+    codeBlocks.forEach(function(block) {
+        // Check if the block's content starts with '##'
+        if (block.textContent.trim().startsWith('##')) {
+            var button = document.createElement('button');
+            button.className = 'toggle-button';
+            button.textContent = 'Show R Output';
+            button.style.display = 'block'; // Ensure button is visible
+            block.style.display = 'none'; // Initially hide the R output
+
+            button.onclick = function() {
+                if (block.style.display === 'none') {
+                    block.style.display = 'block';
+                    button.textContent = 'Hide R Output';
+                } else {
+                    block.style.display = 'none';
+                    button.textContent = 'Show R Output';
+                }
+            };
+
+            block.parentNode.insertBefore(button, block);
+        }
+    });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var rComments = document.querySelectorAll('.r-comment');
+
+    rComments.forEach(function(comment) {
+        // Create the toggle button
+        var button = document.createElement('button');
+        button.className = 'toggle-comment-button';
+        button.textContent = 'Show Explanation';
+        button.style.display = 'block'; // Ensure button is visible
+        comment.style.display = 'none'; // Initially hide the comment
+
+        // Add click event listener to the button
+        button.onclick = function() {
+            if (comment.style.display === 'none') {
+                comment.style.display = 'block'; // Adjust as needed
+                button.textContent = 'Hide Explanation';
+            } else {
+                comment.style.display = 'none';
+                button.textContent = 'Show Explanation';
+            }
+        };
+
+        // Insert the button before the comment
+        comment.parentNode.insertBefore(button, comment);
+    });
+});
+
+</script>
+<p>Throughout the course units of this programme, you will utilise real datasets to develop your data analysis and interpretation skills.</p>
+<p>In this exercise, you will practice how to download, access, and import data from the UK Data Service in R. You will also have the opportunity to practice how to export data in various formats.</p>
+<p><strong>Remember to first register with the UK Data Service. Guidance on how to do this can be found in the Section 1 learning materials on Blackboard.</strong></p>
+<p>Navigate to the British Social Attitudes Survey (2019) webpage on the UK Data Service website (<a href="https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=8850#!/access-data" class="uri">https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=8850#!/access-data</a>)</p>
+<p>Scroll down to the end of the webpage and download the dataset in both SPSS and STATA formats in your R project working directory.</p>
+<p>To access the SPSS data file, unzip folder and open the folders in the following sequence: <em>UKDA-8850-spss &gt; spss &gt; spss25</em>. Follow the same approach for accessing the STATA file. Place these two files in your root R project working directory or within a sub-folder in this directory.</p>
+<div id="exercise-9" class="section level2 unnumbered hasAnchor">
+<h2>3.1 Exercise<a href="importing-and-exporting-data.html#exercise-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Import the dataset in SPSS format; name this object <code>bsas_spss</code>.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="importing-and-exporting-data.html#cb15-1" tabindex="-1"></a>bsas_spss <span class="ot">&lt;-</span> <span class="fu">read_spss</span>(<span class="st">&quot;data/bsa2019_poverty_open.sav&quot;</span>)</span></code></pre></div>
+</details>
+<pre><code>## Error in read_spss(&quot;data/bsa2019_poverty_open.sav&quot;): could not find function &quot;read_spss&quot;</code></pre>
+<div class="question">
+<p>Did the import function work? Why?</p>
 </div>
-
-
-
+<div class="r-comment" style="display: none;">
+<p>If you have not loaded the <code>haven</code> package, you will be prompted with the following error in the R console. To load the haven package, type <code>library(haven)</code> in your console first and then run <code>bsas_spss &lt;- read_spss("data/bsa2019_poverty_open.sav")</code>. Also, note that the recommended approach for a ‘clean’ working directory is to place all the data files you plan to use in a separate folder within your working directory. You can name this folder <strong>data</strong>, for example. If you want to access a data file located in your root working directory, then simply remove the <code>data/</code> component from the file path.</p>
+</div>
+</div>
+<div id="exercise-10" class="section level2 unnumbered hasAnchor">
+<h2>3.2 Exercise<a href="importing-and-exporting-data.html#exercise-10" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Import the dataset in STATA format; name this object <code>bsas_stata</code>.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="importing-and-exporting-data.html#cb17-1" tabindex="-1"></a>bsas_stata <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">&quot;data/bsa2019_poverty_open.dta&quot;</span>)</span></code></pre></div>
+</details>
+<div class="question">
+<p>How many observations and variables do the <code>bsas_spss</code> and <code>bsas_stata</code> objects have? Are these identical for both objects?</p>
+</div>
+<div class="r-comment" style="display: none;">
+<p>There are many different ways to find the number of observations and variables such as looking at the information in the <strong>Environment</strong> tab. Since both data files are identical, both objects contain an identical number of observations and variables.</p>
+</div>
+</div>
+<div id="exercise-11" class="section level2 unnumbered hasAnchor">
+<h2>3.3 Exercise<a href="importing-and-exporting-data.html#exercise-11" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Export both <code>bsas_spss</code> and <code>bsas_stata</code> data objects in <code>.RData</code> format.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="importing-and-exporting-data.html#cb18-1" tabindex="-1"></a><span class="fu">save</span>(bsas_spss, bsas_stata, <span class="at">file =</span> <span class="st">&quot;bsas_objects.RData&quot;</span>)</span></code></pre></div>
+</details>
+</div>
+<div id="exercise-12" class="section level2 unnumbered hasAnchor">
+<h2>3.4 Exercise<a href="importing-and-exporting-data.html#exercise-12" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now export <code>bsas_spss</code> as a single object in <code>.RDS</code> format.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="importing-and-exporting-data.html#cb19-1" tabindex="-1"></a><span class="fu">saveRDS</span>(bsas_spss, <span class="st">&quot;bsas_spss_file.RDS&quot;</span>)</span></code></pre></div>
+</details>
+</div>
+<div id="exercise-13" class="section level2 unnumbered hasAnchor">
+<h2>3.5 Exercise<a href="importing-and-exporting-data.html#exercise-13" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Finally, export the <code>bsas_stata</code> object as a <code>.csv</code> file.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="importing-and-exporting-data.html#cb20-1" tabindex="-1"></a><span class="fu">write.csv</span>(bsas_stata, <span class="st">&quot;bsas_stata_file.csv&quot;</span>)</span></code></pre></div>
+</details>
+</div>
+<div id="exercise-14" class="section level2 unnumbered hasAnchor">
+<h2>3.6 Exercise<a href="importing-and-exporting-data.html#exercise-14" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Import the <code>.csv</code> file you have created and name this object <code>bsas_stata2</code>. View the contents of the <code>bsas_stata2</code> and <code>bsas_stata</code> objects. What are the differences between the two, if any? Why?</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="importing-and-exporting-data.html#cb21-1" tabindex="-1"></a>bsas_stata2 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;bsas_stata_file.csv&quot;</span>)</span></code></pre></div>
+</details>
+<div class="question">
+<p>Are there any differences between <code>bsas_stata2</code> and <code>bsas_stata</code>? If there are, Why?</p>
+</div>
+<div class="r-comment" style="display: none;">
+<p>The<code>bsas_stata</code> objected imported with the <code>haven</code> package has accompanying metadata. When exporting data files with metadata as <code>.csv</code> files, this metadata is lost because this type of format does not support metadata in the same way that files such as SPSS and STATA do. Also, you may note that the <code>bsas_stata2</code> has 27 rather than 26 variables; by default, the <code>write.csv()</code> function will automatically number each row in the data file and therefore, will produce an additional column.</p>
+</div>
+</div>
+<div id="exercise-15" class="section level2 unnumbered hasAnchor">
+<h2>3.7 Exercise<a href="importing-and-exporting-data.html#exercise-15" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now import the <code>.RDS</code> created and name this object <code>bsas_spss2</code>.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="importing-and-exporting-data.html#cb22-1" tabindex="-1"></a>bsas_spss2 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;bsas_spss_file.RDS&quot;</span>)</span></code></pre></div>
+</details>
+</div>
+<div id="exercise-16" class="section level2 unnumbered hasAnchor">
+<h2>3.8 Exercise<a href="importing-and-exporting-data.html#exercise-16" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Finally, load the <code>.Rdata</code> file you created.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="importing-and-exporting-data.html#cb23-1" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;bsas_objects.RData&quot;</span>)</span></code></pre></div>
+</details>
+</div>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="overview.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="exploring-vectors.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bonus-task-data-on-github.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

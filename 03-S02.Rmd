@@ -1,4 +1,44 @@
-# The Structure of Data Objects
+# (PART\*) Section 2 {-}
+
+# Overview {-}
+
+<div style="color: #6D009D; font-size: 24px; font-weight: bold;">
+ Section 2: The Structure of Data Objects
+</div>
+
+::: ilos
+**Learning Outcomes:**
+
+-   Employ the basics of the R language to run simple lines of code;
+-   Import different types of data files.
+-   Export data in different formats.
+:::
+
+**In this section, you will practice how to use the following functions:**
+
+|   Function    |               Description               | Package |
+|:-------------:|:---------------------------------------:|:-------:|
+|     `c()`     |          concatenate function           | base R  |
+|   `class()`   |         finding class of object         | base R  |
+|  `length()`   |        finding length of object         | base R  |
+|   `View()`    | viewing data objects spreadsheet-style  | base R  |
+| `read_spss()` |         reading SPSS data files         | `haven` |
+| `read_dta()`  |        reading Stata data files         | `haven` |
+| `read.csv()`  |          reading `.csv` files           | base R  |
+|  `readRDS()`  |          reading `.RDS` files           | base R  |
+|   `load()`    |         loading `.RData` files          | base R  |
+|   `save()`    | saving multiple files (`.Rdata` format) | base R  |
+|  `saveRDS()`  |   saving single files (`.RDS` format)   | base R  |
+| `write.csv()` |       save a file as `.csv` file        | base R  |
+
+::: attention
+**WARNING 1:** Before proceeding to the exercises, ensure that you create and work in a RStudio project and that you **write** and **save** your answers to the exercises in an R script.
+
+**WARNING 2:** To adequately develop your practical programming skills, it is **essential** that you attempt all exercises by typing out the code rather than simply copy-pasting the answers.
+:::
+
+# Practical 1
+
 
 ```{js, echo=FALSE}
 document.addEventListener('DOMContentLoaded', function() {
@@ -59,40 +99,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ```
 
-::: ilos
-**Learning Outcomes:**
+## Vectors and Factors
 
--   Employ the basics of the R language to run simple lines of code;
--   Import different types of data files.
--   Export data in different formats.
-:::
-
-**In this section, you will practice how to use the following functions:**
-
-|   Function    |               Description               | Package |
-|:-------------:|:---------------------------------------:|:-------:|
-|     `c()`     |          concatenate function           | base R  |
-|   `class()`   |         finding class of object         | base R  |
-|  `length()`   |        finding length of object         | base R  |
-|   `View()`    | viewing data objects spreadsheet-style  | base R  |
-| `read_spss()` |         reading SPSS data files         | `haven` |
-| `read_dta()`  |        reading Stata data files         | `haven` |
-| `read.csv()`  |          reading `.csv` files           | base R  |
-|  `readRDS()`  |          reading `.RDS` files           | base R  |
-|   `load()`    |         loading `.RData` files          | base R  |
-|   `save()`    | saving multiple files (`.Rdata` format) | base R  |
-|  `saveRDS()`  |   saving single files (`.RDS` format)   | base R  |
-| `write.csv()` |       save a file as `.csv` file        | base R  |
-
-::: attention
-**WARNING 1:** Before proceeding to the exercises, ensure that you create and work in a RStudio project and that you **write** and **save** your answers to the exercises in an R script.
-
-**WARNING 2:** To adequately develop your practical programming skills, it is **essential** that you attempt all exercises by typing out the code rather than simply copy-pasting the answers.
-:::
-
-## Practical 1 {.unnumbered}
-
-### Vectors and Factors
+### Exercise 
 
 Create and print a vector object named `data_vct` that contains the following values: 8, incorrect, 9.8.
 
@@ -110,6 +119,8 @@ What output does R produce? Why?
 Vectors can only contain a single data type since they are homogenous structures and in this exercise, there are two data types in this vector, namely numeric and character. When R detects multiple data types within a vector, it will, by default, coerce all values to a single data type. Since the character value cannot be coerced to a numeric value, R will coerce all values to character. This is irrespective of whether the values are logical or numeric.   
 Alternatively, if you did not place the word "incorrect" between inverted commas such as `data_vct <- c(8, incorrect, 9.8)`, then the attempt to create the vector would have failed and you would have been prompted by an error message: `Error: object 'incorrect' not found`. The reason for this is that only logical values can be specified as text in vectors without inverted commas; anything else will be a character value and must be specified within inverted commas.
 :::
+
+### Exercise 
 
 Create and print a vector object named `data_vct2` that contains the following values: 8, FALSE, 9.8.
 
@@ -129,6 +140,8 @@ What output does R produce? What class is this vector? Why?
 This is another example of how R coerces values to have a consistent data type when detecting heterogeneity in a vector. In this case, the word FALSE must be specified as a logical value. This value is coerced to numeric because, by default, logical values in R are converted to 0 and 1, corresponding to FALSE and TRUE respectively. Alternatively, if you have specified the word FALSE as a character value, then the logical value would have been coerced to a character value and the vector would have been a vector of class `character`.
 :::
 
+### Exercise 
+
 Create a vector object named `data_vct3` that contains the following values: 8, False, 9.8, True.
 
 ```{r, error = TRUE}
@@ -142,6 +155,8 @@ What output does R produce? Why?
 ::: {.r-comment style="display: none;"}
 If your treated this value as a logical value, then you would have obtained an error since logical values are case sensitive and can only take two different forms: `TRUE` or `T`, `FALSE` or `F`.
 :::
+
+### Exercise 
 
 Create a factor named `data_fct` that contains the following values: bus, car, car, car, train, bus, bus, train, train. Print the contents, find the number of levels, and confirm the class.
 
@@ -158,6 +173,9 @@ class(data_fct)
 ::: {.r-comment style="display: none;"}
 This object is of class `factor` and has three levels `bus, car, train`.
 :::
+
+
+### Exercise 
 
 Create three vectors as follows:
 
@@ -176,7 +194,9 @@ char_vct <- c("This", "is", "a", "string", "vector")
 logic_vct <- c(TRUE, FALSE, FALSE, TRUE, TRUE)
 ```
 
-### Data Frames and Lists
+## Data Frames and Lists
+
+### Exercise 
 
 Create a data frame called `df` by combing the following three vectors you previously created (`num_vct`, `char_vct`, `logic_vct`). 
 
@@ -192,10 +212,16 @@ What does the R output say? Why?
 As you probably already noticed when finding the lengths of each vector earlier in the practical, the numeric vector has 4 rows whilst the character and logical vectors have 5 rows. When creating data frames, all vectors must have the same length, otherwise, you will be prompted by an error: `Error in data.frame(num_vct, char_vct, logic_vct) : arguments imply differing number of rows: 4, 5`. 
 :::
 
-Since a data frame cannot be created with vectors of different lengths, try to instead create a list object called `list_one`.
+### Exercise 
+
+Since a data frame cannot be created with vectors of different lengths, try to instead create a list object called `list_one` and print the contents. 
 
 ```{r}
+# Creating the list 
 list_one <- list(num_vct, char_vct, logic_vct)
+
+# Printing the list.
+list_one
 ```
 
 ::: question
@@ -206,12 +232,6 @@ Did you successfully create a list? Why did this work (or didn't)?
 The list was created successfully since lists are both heterogenous structures and can take different types of items regardless of their structure. No error message should appear. 
 :::
 
-Try to print the contents of the list object called `list_one`. 
-
-```{r}
-list_one
-```
-
 ::: question
 Can you find out how many variables and observations this list has? How about the number of items? 
 :::
@@ -219,6 +239,8 @@ Can you find out how many variables and observations this list has? How about th
 ::: {.r-comment style="display: none;"}
 List structures do not have variables or observations since they are a storage mode of different types of items. Instead, lists are defined by the number of items they contain. If you print the contents, you can confirm that this list has 3 items. 
 :::
+
+### Exercise 
 
 Use the `View()` function to visualise the contents of the list. 
 
@@ -234,12 +256,15 @@ Is the output similar to that from a data frame object? Why not?
 The `View()` function produces a different output for lists than in does for data frames since these are different structures. Data frames have rows and columns whilst lists have items. The view function is not very useful for lists because it is designed for users to visualise data values, but it does provide some relevant information such as the number of items, the data type of each item, and a compact summary of the values of each item.
 :::
 
+### Exercise 
 
 Create a new vector called `num_vct3` with the following values: 50, 10, 45, 90, 5.
 
 ```{r}
 num_vct3 <- c(50, 10, 45, 90, 5)
 ```
+
+### Exercise 
 
 Create a data frame called `df_one` by combing `num_vct3` with the following logical and character vectors you created earlier (`char_vct`, `logic_vct`). Then print the contents. 
 
@@ -257,13 +282,17 @@ How many variables and observations does this data frame have?
 There are 5 observations of 3 variables; you can find this out by simply looking under the Environment tab.
 :::
 
+### Exercise 
+
 Create a list called `list_two` by combining three of the vectors you created earlier (`num_vct3`, `num_vct`, `char_vct`, `logic_vct`). 
 
 ```{r}
 list_two <- list(num_vct3, num_vct, char_vct, logic_vct)
 ```
 
-### Matrices and Arrays 
+## Matrices and Arrays 
+
+### Exercise 
 
 Create and print a matrix named `matrix_one` that contains the following values: 1, 4, 6, 10. The values must be placed in two rows and two columns.
 
@@ -273,12 +302,16 @@ matrix_one <- matrix(c(1,4,6,10), nrow = 2, ncol = 2)
 matrix_one
 ```
 
+### Exercise 
+
 Create and print a matrix named `matrix_two` that contains the following sequence of values: 10 to 13. The values must be placed in one row row and four columns.
 
 ```{r}
 matrix_two <- matrix(10:13, nrow = 1, ncol = 4)
 matrix_two
 ```
+
+### Exercise 
 
 Create a matrix named `matrix_three` using the following numeric vector you created earlier (`num_vct`). The values must be placed in four rows and one column. Print the contents. 
 
@@ -288,7 +321,7 @@ matrix_three <- matrix(num_vct, nrow = 4, ncol = 1)
 matrix_three
 ```
 
-### Bonus Task 
+## Bonus Task 
 
 Create a list using the list of items below and name it `list_example`. Print the contents
 
@@ -315,10 +348,130 @@ Is it possible for a list to contain any type of data structure and if so why? C
 Lists are highly flexible data structures and can contain any data type or object items, regardless of whether they are single values, or more complex structures. Lists also support nesting, which means that they can also contain other lists. There are 6 items in this list: a vector, a matrix, a data frame, a list, a character value, and a numeric value. This list is quite a large one and printing the contents is not a very useful way to view the items. You will learn alternatives functions to display data structures more compactly in Topic 2.
 :::
 
-## Practical 2 {.unnumbered}
+# Practical 2 
 
-### 
 
-## Practical 3 {.unnumbered}
+```{js, echo=FALSE}
+document.addEventListener('DOMContentLoaded', function() {
+    var codeBlocks = document.querySelectorAll('pre > code');
 
-### 
+    codeBlocks.forEach(function(block) {
+        // Check if the block's content starts with '##'
+        if (block.textContent.trim().startsWith('##')) {
+            var button = document.createElement('button');
+            button.className = 'toggle-button';
+            button.textContent = 'Show R Output';
+            button.style.display = 'block'; // Ensure button is visible
+            block.style.display = 'none'; // Initially hide the R output
+
+            button.onclick = function() {
+                if (block.style.display === 'none') {
+                    block.style.display = 'block';
+                    button.textContent = 'Hide R Output';
+                } else {
+                    block.style.display = 'none';
+                    button.textContent = 'Show R Output';
+                }
+            };
+
+            block.parentNode.insertBefore(button, block);
+        }
+    });
+});
+```
+
+```{js, echo=FALSE}
+document.addEventListener('DOMContentLoaded', function() {
+    var rComments = document.querySelectorAll('.r-comment');
+
+    rComments.forEach(function(comment) {
+        // Create the toggle button
+        var button = document.createElement('button');
+        button.className = 'toggle-comment-button';
+        button.textContent = 'Show Explanation';
+        button.style.display = 'block'; // Ensure button is visible
+        comment.style.display = 'none'; // Initially hide the comment
+
+        // Add click event listener to the button
+        button.onclick = function() {
+            if (comment.style.display === 'none') {
+                comment.style.display = 'block'; // Adjust as needed
+                button.textContent = 'Hide Explanation';
+            } else {
+                comment.style.display = 'none';
+                button.textContent = 'Show Explanation';
+            }
+        };
+
+        // Insert the button before the comment
+        comment.parentNode.insertBefore(button, comment);
+    });
+});
+
+```
+
+## 
+
+# Practical 3 
+
+
+```{js, echo=FALSE}
+document.addEventListener('DOMContentLoaded', function() {
+    var codeBlocks = document.querySelectorAll('pre > code');
+
+    codeBlocks.forEach(function(block) {
+        // Check if the block's content starts with '##'
+        if (block.textContent.trim().startsWith('##')) {
+            var button = document.createElement('button');
+            button.className = 'toggle-button';
+            button.textContent = 'Show R Output';
+            button.style.display = 'block'; // Ensure button is visible
+            block.style.display = 'none'; // Initially hide the R output
+
+            button.onclick = function() {
+                if (block.style.display === 'none') {
+                    block.style.display = 'block';
+                    button.textContent = 'Hide R Output';
+                } else {
+                    block.style.display = 'none';
+                    button.textContent = 'Show R Output';
+                }
+            };
+
+            block.parentNode.insertBefore(button, block);
+        }
+    });
+});
+```
+
+```{js, echo=FALSE}
+document.addEventListener('DOMContentLoaded', function() {
+    var rComments = document.querySelectorAll('.r-comment');
+
+    rComments.forEach(function(comment) {
+        // Create the toggle button
+        var button = document.createElement('button');
+        button.className = 'toggle-comment-button';
+        button.textContent = 'Show Explanation';
+        button.style.display = 'block'; // Ensure button is visible
+        comment.style.display = 'none'; // Initially hide the comment
+
+        // Add click event listener to the button
+        button.onclick = function() {
+            if (comment.style.display === 'none') {
+                comment.style.display = 'block'; // Adjust as needed
+                button.textContent = 'Hide Explanation';
+            } else {
+                comment.style.display = 'none';
+                button.textContent = 'Show Explanation';
+            }
+        };
+
+        // Insert the button before the comment
+        comment.parentNode.insertBefore(button, comment);
+    });
+});
+
+```
+
+##  

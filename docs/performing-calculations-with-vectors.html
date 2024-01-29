@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>How to use this notebook | Data Cleaning and Visualisation using R</title>
+  <title>1. Performing Calculations with Vectors | Data Cleaning and Visualisation using R</title>
   <meta name="description" content="Notebook hosting practical materials for SOST70023." />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="How to use this notebook | Data Cleaning and Visualisation using R" />
+  <meta property="og:title" content="1. Performing Calculations with Vectors | Data Cleaning and Visualisation using R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Notebook hosting practical materials for SOST70023." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="How to use this notebook | Data Cleaning and Visualisation using R" />
+  <meta name="twitter:title" content="1. Performing Calculations with Vectors | Data Cleaning and Visualisation using R" />
   
   <meta name="twitter:description" content="Notebook hosting practical materials for SOST70023." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="overview.html"/>
+<link rel="prev" href="overview.html"/>
+<link rel="next" href="exploring-vectors.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -245,21 +245,174 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <img src="images/banners/DCVR_banner.png" alt="Trulli">
   </div>
 </center>
-<div id="how-to-use-this-notebook" class="section level1 unnumbered hasAnchor">
-<h1>How to use this notebook<a href="how-to-use-this-notebook.html#how-to-use-this-notebook" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Describe how to use each week and how to use the menu (maybe add a picture?)</p>
+<div id="performing-calculations-with-vectors" class="section level1 unnumbered hasAnchor">
+<h1>1. Performing Calculations with Vectors<a href="performing-calculations-with-vectors.html#performing-calculations-with-vectors" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var codeBlocks = document.querySelectorAll('pre > code');
 
+    codeBlocks.forEach(function(block) {
+        // Check if the block's content starts with '##'
+        if (block.textContent.trim().startsWith('##')) {
+            var button = document.createElement('button');
+            button.className = 'toggle-button';
+            button.textContent = 'Show R Output';
+            button.style.display = 'block'; // Ensure button is visible
+            block.style.display = 'none'; // Initially hide the R output
+
+            button.onclick = function() {
+                if (block.style.display === 'none') {
+                    block.style.display = 'block';
+                    button.textContent = 'Hide R Output';
+                } else {
+                    block.style.display = 'none';
+                    button.textContent = 'Show R Output';
+                }
+            };
+
+            block.parentNode.insertBefore(button, block);
+        }
+    });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var rComments = document.querySelectorAll('.r-comment');
+
+    rComments.forEach(function(comment) {
+        // Create the toggle button
+        var button = document.createElement('button');
+        button.className = 'toggle-comment-button';
+        button.textContent = 'Show Explanation';
+        button.style.display = 'block'; // Ensure button is visible
+        comment.style.display = 'none'; // Initially hide the comment
+
+        // Add click event listener to the button
+        button.onclick = function() {
+            if (comment.style.display === 'none') {
+                comment.style.display = 'block'; // Adjust as needed
+                button.textContent = 'Hide Explanation';
+            } else {
+                comment.style.display = 'none';
+                button.textContent = 'Show Explanation';
+            }
+        };
+
+        // Insert the button before the comment
+        comment.parentNode.insertBefore(button, comment);
+    });
+});
+
+</script>
+<div id="exercise" class="section level2 unnumbered hasAnchor">
+<h2>1.1 Exercise<a href="performing-calculations-with-vectors.html#exercise" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Create a vector object called <code>num_vct</code> that contains the following values: 70, 8, 50, 100. Print the contents.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="performing-calculations-with-vectors.html#cb1-1" tabindex="-1"></a><span class="co"># Creating the vector.</span></span>
+<span id="cb1-2"><a href="performing-calculations-with-vectors.html#cb1-2" tabindex="-1"></a>num_vct <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">70</span>, <span class="dv">8</span>, <span class="dv">50</span>, <span class="dv">100</span>) </span>
+<span id="cb1-3"><a href="performing-calculations-with-vectors.html#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="performing-calculations-with-vectors.html#cb1-4" tabindex="-1"></a><span class="co"># Now printing the contents.</span></span>
+<span id="cb1-5"><a href="performing-calculations-with-vectors.html#cb1-5" tabindex="-1"></a>num_vct </span></code></pre></div>
+</details>
+<pre><code>## [1]  70   8  50 100</code></pre>
 </div>
-
-
-
+<div id="exercise-1" class="section level2 unnumbered hasAnchor">
+<h2>1.2 Exercise<a href="performing-calculations-with-vectors.html#exercise-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Perform the following tasks with the <code>num_vct</code> object:</p>
+<ul>
+<li>Multiply the vector by 2.<br />
+</li>
+<li>Divide the vector by 10.<br />
+</li>
+<li>Subtract 5 from the vector.<br />
+</li>
+<li>Add 8 to the vector.</li>
+</ul>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="performing-calculations-with-vectors.html#cb3-1" tabindex="-1"></a>num_vct <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb3-2"><a href="performing-calculations-with-vectors.html#cb3-2" tabindex="-1"></a>num_vct <span class="sc">/</span> <span class="dv">10</span></span>
+<span id="cb3-3"><a href="performing-calculations-with-vectors.html#cb3-3" tabindex="-1"></a>num_vct <span class="sc">-</span> <span class="dv">5</span> </span>
+<span id="cb3-4"><a href="performing-calculations-with-vectors.html#cb3-4" tabindex="-1"></a>num_vct <span class="sc">+</span> <span class="dv">8</span> </span></code></pre></div>
+</details>
+<div class="r-comment" style="display: none;">
+<p>When performing each of the operations above, you will note in the output that the operation is applied to each individual element within the vector.</p>
+</div>
+</div>
+<div id="exercise-2" class="section level2 unnumbered hasAnchor">
+<h2>1.3 Exercise<a href="performing-calculations-with-vectors.html#exercise-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Create a new numeric vector that contains the following values: 5, 7, 9, 10. Name it <code>num_vct2</code> and print the contents.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="performing-calculations-with-vectors.html#cb4-1" tabindex="-1"></a><span class="co"># Creating the vector.</span></span>
+<span id="cb4-2"><a href="performing-calculations-with-vectors.html#cb4-2" tabindex="-1"></a>num_vct2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">10</span>)</span>
+<span id="cb4-3"><a href="performing-calculations-with-vectors.html#cb4-3" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="performing-calculations-with-vectors.html#cb4-4" tabindex="-1"></a><span class="co">#Now printing the contents.</span></span>
+<span id="cb4-5"><a href="performing-calculations-with-vectors.html#cb4-5" tabindex="-1"></a>num_vct2</span></code></pre></div>
+</details>
+<pre><code>## [1]  5  7  9 10</code></pre>
+</div>
+<div id="exercise-3" class="section level2 unnumbered hasAnchor">
+<h2>1.4 Exercise<a href="performing-calculations-with-vectors.html#exercise-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Perform the following tasks with the following two vectors: <code>num_vct</code> and <code>num_vct2</code>.</p>
+<ul>
+<li>Add <code>num_vct2</code> to <code>num_vct</code>.<br />
+</li>
+<li>Divide <code>num_vct</code> by <code>num_vct2</code>.<br />
+</li>
+<li>Multiply <code>num_vct</code> by <code>num_vct2</code>.</li>
+<li>Subtract <code>num_vct</code> from <code>num_vct2</code>.</li>
+</ul>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="performing-calculations-with-vectors.html#cb6-1" tabindex="-1"></a>num_vct2 <span class="sc">+</span> num_vct</span>
+<span id="cb6-2"><a href="performing-calculations-with-vectors.html#cb6-2" tabindex="-1"></a>num_vct <span class="sc">/</span> num_vct2</span>
+<span id="cb6-3"><a href="performing-calculations-with-vectors.html#cb6-3" tabindex="-1"></a>num_vct <span class="sc">*</span> num_vct2</span>
+<span id="cb6-4"><a href="performing-calculations-with-vectors.html#cb6-4" tabindex="-1"></a>num_vct2 <span class="sc">-</span> num_vct</span></code></pre></div>
+</details>
+<div class="r-comment" style="display: none;">
+<p>When performing each of the operations between the two vectors, you will note in the output that the operation is being applied to the element of each vector in sequential order, according to the index of each element.</p>
+<p>Let’s take the following operation as an example: <code>num_vct2 - num_vct</code>.</p>
+<p>The elements of <code>num_vct</code> are: <code>70, 8, 50, 100</code><br />
+The elements of <code>num_vct2</code> are: <code>5, 7, 9, 10</code></p>
+<p>When subtracting <code>num_vct</code> from <code>num_vct2</code>, R performs the following operations according to the ‘position’ of each element in the vector.</p>
+<p>At index [1], we have 70 for <code>num_vct</code> and 5 for <code>num_vct2</code><br />
+At index [2], we have 8 for <code>num_vct</code> and 7 for <code>num_vct2</code><br />
+At index [3], we have 50 for <code>num_vct</code> and 9 for <code>num_vct2</code><br />
+At index [4], we have 100 for <code>num_vct</code> and 10 for <code>num_vct2</code></p>
+<p>Therefore, R will perform the subtraction operation for each element located at a given index.</p>
+<p>The output for this operation will be: <code>[1] -65  -1 -41 -90</code>.</p>
+</div>
+</div>
+<div id="exercise-4" class="section level2 unnumbered hasAnchor">
+<h2>1.5 Exercise<a href="performing-calculations-with-vectors.html#exercise-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Create a character vector object that contains the following: I, love, programming, with, R. Name this vector <code>char_vct</code> and print the contents.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="performing-calculations-with-vectors.html#cb7-1" tabindex="-1"></a>char_vct <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;I&quot;</span>, <span class="st">&quot;love&quot;</span>, <span class="st">&quot;programming&quot;</span>, <span class="st">&quot;with&quot;</span>, <span class="st">&quot;R&quot;</span>)</span>
+<span id="cb7-2"><a href="performing-calculations-with-vectors.html#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="performing-calculations-with-vectors.html#cb7-3" tabindex="-1"></a>char_vct</span></code></pre></div>
+</details>
+<pre><code>## [1] &quot;I&quot;           &quot;love&quot;        &quot;programming&quot; &quot;with&quot;        &quot;R&quot;</code></pre>
+</div>
+<div id="exercise-5" class="section level2 unnumbered hasAnchor">
+<h2>1.6 Exercise<a href="performing-calculations-with-vectors.html#exercise-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Perform calculations on the character vector.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="performing-calculations-with-vectors.html#cb9-1" tabindex="-1"></a>char_vct <span class="sc">*</span> <span class="dv">2</span> </span></code></pre></div>
+</details>
+<pre><code>## Error in char_vct * 2: non-numeric argument to binary operator</code></pre>
+<div class="question">
+<p>What results do you obtain after trying to perform mathematical operations on your character vector? Why ?</p>
+</div>
+<div class="r-comment" style="display: none;">
+<p>Let’s say we try to multiply the character vector by 2. Note the error message in the console; none of the tasks can be applied to this vector because these are all arithmetic tasks which work only on numeric vectors.</p>
+</div>
+</div>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="overview.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="overview.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exploring-vectors.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
