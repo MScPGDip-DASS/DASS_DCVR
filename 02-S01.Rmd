@@ -368,7 +368,7 @@ A Github Repository is a cloud-based, online platform that allows programming us
 5.  The webpage will now show you a long series of numbers. This is the 'data file' that you need to import. Note that this file is a `.csv` file. The same base R function you have previously used will also work in this case.
 
 
-### Exercise: How to Import Data File into R
+### Exercise: 
 
 To import the data file, create a new object called `covid_johnshop`. Within the base R `.csv` function, paste the full data file web link. Do not forget to enclose this link with quotation marks.
 
