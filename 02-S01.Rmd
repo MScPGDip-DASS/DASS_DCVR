@@ -1,20 +1,20 @@
-# (PART\*) Section 1 {-}
+# (PART\*) Section 1 {.unnumbered}
 
-# Overview {-}
+# Overview {.unnumbered}
 
-<div style="color: #333; font-size: 24px; font-style: italic; text-align: justify;">
- Section 1: Introducing Statistical Programming with R and RStudio
-</div>
+::: {style="color: #333; font-size: 24px; font-style: italic; text-align: justify;"}
+Section 1: Introducing Statistical Programming with R and RStudio
+:::
 
 ::: ilos
 **Learning Outcomes:**
 
 -   Employ the basics of the R language to run simple lines of code;
--   Import different types of data files.
+-   Import different types of data files;
 -   Export data in different formats.
 :::
 
-**In this section, you will practice how to use the following functions:**
+**In this section, you will be introduced to the following functions:**
 
 |   Function    |               Description               | Package |
 |:-------------:|:---------------------------------------:|:-------:|
@@ -32,12 +32,12 @@
 | `write.csv()` |       save a file as `.csv` file        | base R  |
 
 ::: attention
-**WARNING 1:** Before proceeding to the exercises, ensure that you create and work in a RStudio project and that you **write** and **save** your answers to the exercises in an R script. 
+**WARNING 1:** Before proceeding to the exercises, ensure that you create and work in a RStudio project and that you **write** and **save** your answers to the exercises in an R script.
 
 **WARNING 2:** To adequately develop your practical programming skills, it is **essential** that you attempt all exercises by typing out the code rather than simply copy-pasting the answers.
 :::
 
-# 1. Performing Calculations with Vectors {-}
+# 1. Performing Calculations with Vectors {.unnumbered}
 
 ```{js, echo=FALSE}
 document.addEventListener('DOMContentLoaded', function() {
@@ -98,8 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ```
 
-
-## 1.1 Exercise {-}
+## 1.1 Exercise {.unnumbered}
 
 Create a vector object called `num_vct` that contains the following values: 70, 8, 50, 100. Print the contents.
 
@@ -112,14 +111,14 @@ num_vct <- c(70, 8, 50, 100)
 num_vct 
 ```
 
-## 1.2 Exercise {-}
+## 1.2 Exercise {.unnumbered}
 
-Perform the following tasks with the `num_vct` object: 
+Perform the following tasks with the `num_vct` object:
 
-- Multiply the vector by 2.  
-- Divide the vector by 10.  
-- Subtract 5 from the vector.  
-- Add 8 to the vector.
+-   Multiply the vector by 2.\
+-   Divide the vector by 10.\
+-   Subtract 5 from the vector.\
+-   Add 8 to the vector.
 
 ```{r, eval = FALSE}
 num_vct * 2
@@ -132,7 +131,7 @@ num_vct + 8
 When performing each of the operations above, you will note in the output that the operation is applied to each individual element within the vector.
 :::
 
-## 1.3 Exercise {-}
+## 1.3 Exercise {.unnumbered}
 
 Create a new numeric vector that contains the following values: 5, 7, 9, 10. Name it `num_vct2` and print the contents.
 
@@ -145,14 +144,14 @@ num_vct2 <- c(5, 7, 9, 10)
 num_vct2
 ```
 
-## 1.4 Exercise {-}
+## 1.4 Exercise {.unnumbered}
 
-Perform the following tasks with the following two vectors: `num_vct` and `num_vct2`. 
+Perform the following tasks with the following two vectors: `num_vct` and `num_vct2`.
 
-- Add `num_vct2` to `num_vct`.  
-- Divide `num_vct` by `num_vct2`.  
-- Multiply `num_vct` by `num_vct2`. 
-- Subtract `num_vct` from `num_vct2`.  
+-   Add `num_vct2` to `num_vct`.\
+-   Divide `num_vct` by `num_vct2`.\
+-   Multiply `num_vct` by `num_vct2`.
+-   Subtract `num_vct` from `num_vct2`.
 
 ```{r, eval = FALSE}
 num_vct2 + num_vct
@@ -162,27 +161,26 @@ num_vct2 - num_vct
 ```
 
 ::: {.r-comment style="display: none;"}
-When performing each of the operations between the two vectors, you will note in the output that the operation is being applied to the element of each vector in sequential order, according to the index of each element.  
+When performing each of the operations between the two vectors, you will note in the output that the operation is being applied to the element of each vector in sequential order, according to the index of each element.
 
-Let's take the following operation as an example: `num_vct2 - num_vct`.  
+Let's take the following operation as an example: `num_vct2 - num_vct`.
 
-The elements of `num_vct` are: `70, 8, 50, 100`  
-The elements of `num_vct2` are: `5, 7, 9, 10`  
+The elements of `num_vct` are: `70, 8, 50, 100`\
+The elements of `num_vct2` are: `5, 7, 9, 10`
 
-When subtracting `num_vct` from `num_vct2`, R performs the following operations according to the 'position' of each element in the vector.  
+When subtracting `num_vct` from `num_vct2`, R performs the following operations according to the 'position' of each element in the vector.
 
-At index [1], we have 70 for `num_vct` and 5 for `num_vct2`  
-At index [2], we have 8 for `num_vct` and 7 for `num_vct2`  
-At index [3], we have 50 for `num_vct` and 9 for `num_vct2`  
-At index [4], we have 100 for `num_vct` and 10 for `num_vct2`  
+At index [1], we have 70 for `num_vct` and 5 for `num_vct2`\
+At index [2], we have 8 for `num_vct` and 7 for `num_vct2`\
+At index [3], we have 50 for `num_vct` and 9 for `num_vct2`\
+At index [4], we have 100 for `num_vct` and 10 for `num_vct2`
 
-Therefore, R will perform the subtraction operation for each element located at a given index.   
+Therefore, R will perform the subtraction operation for each element located at a given index.
 
 The output for this operation will be: `[1] -65  -1 -41 -90`.
 :::
 
-
-## 1.5 Exercise {-}
+## 1.5 Exercise {.unnumbered}
 
 Create a character vector object that contains the following: I, love, programming, with, R. Name this vector `char_vct` and print the contents.
 
@@ -192,7 +190,7 @@ char_vct <- c("I", "love", "programming", "with", "R")
 char_vct
 ```
 
-## 1.6 Exercise {-}
+## 1.6 Exercise {.unnumbered}
 
 Perform calculations on the character vector.
 
@@ -208,8 +206,7 @@ What results do you obtain after trying to perform mathematical operations on yo
 Let's say we try to multiply the character vector by 2. Note the error message in the console; none of the tasks can be applied to this vector because these are all arithmetic tasks which work only on numeric vectors.
 :::
 
-# 2. Exploring Vectors {-}
-
+# 2. Exploring Vectors {.unnumbered}
 
 ```{js, echo=FALSE}
 document.addEventListener('DOMContentLoaded', function() {
@@ -270,7 +267,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ```
 
-## 2.1 Exercise {-}
+## 2.1 Exercise {.unnumbered}
 
 Use the `class()` function to find out what type of objects `num_vct` and `char_vct` are.
 
@@ -280,10 +277,10 @@ class(char_vct)
 ```
 
 ::: {.r-comment style="display: none;"}
-Your R output when applying the `class()` function to the two vectors should have confirmed that `num_vct` is a "numeric" vector and that the `char_vct` is a "character" vector. 
+Your R output when applying the `class()` function to the two vectors should have confirmed that `num_vct` is a "numeric" vector and that the `char_vct` is a "character" vector.
 :::
 
-## 2.2 Exercise {-}
+## 2.2 Exercise {.unnumbered}
 
 The number of elements in a vector is referred to as the *length* of the vector. With small vectors such as those you have already created, you can simply count these. Alternatively, the `length()` function can be used.
 
@@ -295,14 +292,13 @@ length(char_vct)
 length(num_vct2)
 ```
 
-
 ::: {.r-comment style="display: none;"}
-Applying the function for each one of the vectors should have shown you a single number as an output, namely, the number of elements each of the vectors contains. 
+Applying the function for each one of the vectors should have shown you a single number as an output, namely, the number of elements each of the vectors contains.
 :::
- 
-## 2.3 Exercise {-}
 
-Create a vector object that contains the following logical and numeric values: TRUE, 6, FALSE, 10, FALSE. Name it `new_vct` and print the contents. 
+## 2.3 Exercise {.unnumbered}
+
+Create a vector object that contains the following logical and numeric values: TRUE, 6, FALSE, 10, FALSE. Name it `new_vct` and print the contents.
 
 ```{r}
 new_vct <- c(TRUE, 6, FALSE, 10, FALSE)
@@ -318,8 +314,7 @@ Does the output match the contents you entered when you created the vector? Why?
 The output does not match the contents. Since vectors cannot contain different data types, R will force (i.e. coerce) all entered values to match, in an attempt to lose as little information as possible. In this case, the logical values are coerced to 1 and 0, corresponding to True and False respectively. This is one of the several reasons for why data cleaning is important before proceeding with data analysis; such coercions can have a significant impact on the accuracy of our data and implicitly, on your interpretation of the data.
 :::
 
-# 3. Importing and Exporting Data {-}
-
+# 3. Importing and Exporting Data {.unnumbered}
 
 ```{js, echo=FALSE}
 document.addEventListener('DOMContentLoaded', function() {
@@ -392,7 +387,7 @@ Scroll down to the end of the webpage and download the dataset in both SPSS and 
 
 To access the SPSS data file, unzip folder and open the folders in the following sequence: *UKDA-8850-spss \> spss \> spss25*. Follow the same approach for accessing the STATA file. Place these two files in your root R project working directory or within a sub-folder in this directory.
 
-## 3.1 Exercise {-}
+## 3.1 Exercise {.unnumbered}
 
 Import the dataset in SPSS format; name this object `bsas_spss`.
 
@@ -408,7 +403,7 @@ Did the import function work? Why?
 If you have not loaded the `haven` package, you will be prompted with the following error in the R console. To load the haven package, type `library(haven)` in your console first and then run `bsas_spss <- read_spss("data/bsa2019_poverty_open.sav")`. Also, note that the recommended approach for a 'clean' working directory is to place all the data files you plan to use in a separate folder within your working directory. You can name this folder **data**, for example. If you want to access a data file located in your root working directory, then simply remove the `data/` component from the file path.
 :::
 
-## 3.2 Exercise {-}
+## 3.2 Exercise {.unnumbered}
 
 Import the dataset in STATA format; name this object `bsas_stata`.
 
@@ -424,7 +419,7 @@ How many observations and variables do the `bsas_spss` and `bsas_stata` objects 
 There are many different ways to find the number of observations and variables such as looking at the information in the **Environment** tab. Since both data files are identical, both objects contain an identical number of observations and variables.
 :::
 
-## 3.3 Exercise {-}
+## 3.3 Exercise {.unnumbered}
 
 Export both `bsas_spss` and `bsas_stata` data objects in `.RData` format.
 
@@ -432,7 +427,7 @@ Export both `bsas_spss` and `bsas_stata` data objects in `.RData` format.
 save(bsas_spss, bsas_stata, file = "bsas_objects.RData")
 ```
 
-## 3.4 Exercise {-}
+## 3.4 Exercise {.unnumbered}
 
 Now export `bsas_spss` as a single object in `.RDS` format.
 
@@ -440,7 +435,7 @@ Now export `bsas_spss` as a single object in `.RDS` format.
 saveRDS(bsas_spss, "bsas_spss_file.RDS")
 ```
 
-## 3.5 Exercise {-}
+## 3.5 Exercise {.unnumbered}
 
 Finally, export the `bsas_stata` object as a `.csv` file.
 
@@ -448,7 +443,7 @@ Finally, export the `bsas_stata` object as a `.csv` file.
 write.csv(bsas_stata, "bsas_stata_file.csv")
 ```
 
-## 3.6 Exercise {-}
+## 3.6 Exercise {.unnumbered}
 
 Import the `.csv` file you have created and name this object `bsas_stata2`. View the contents of the `bsas_stata2` and `bsas_stata` objects. What are the differences between the two, if any? Why?
 
@@ -464,7 +459,7 @@ Are there any differences between `bsas_stata2` and `bsas_stata`? If there are, 
 The`bsas_stata` objected imported with the `haven` package has accompanying metadata. When exporting data files with metadata as `.csv` files, this metadata is lost because this type of format does not support metadata in the same way that files such as SPSS and STATA do. Also, you may note that the `bsas_stata2` has 27 rather than 26 variables; by default, the `write.csv()` function will automatically number each row in the data file and therefore, will produce an additional column.
 :::
 
-## 3.7 Exercise {-}
+## 3.7 Exercise {.unnumbered}
 
 Now import the `.RDS` created and name this object `bsas_spss2`.
 
@@ -472,7 +467,7 @@ Now import the `.RDS` created and name this object `bsas_spss2`.
 bsas_spss2 <- readRDS("bsas_spss_file.RDS")
 ```
 
-## 3.8 Exercise {-}
+## 3.8 Exercise {.unnumbered}
 
 Finally, load the `.Rdata` file you created.
 
@@ -480,8 +475,7 @@ Finally, load the `.Rdata` file you created.
 load("bsas_objects.RData")
 ```
 
-# 4. Bonus Task: Data on GitHub {-}
-
+# 4. Bonus Task: Data on GitHub {.unnumbered}
 
 ```{js, echo=FALSE}
 document.addEventListener('DOMContentLoaded', function() {
@@ -554,8 +548,7 @@ A Github Repository is a cloud-based, online platform that allows programming us
 4.  Click on the **Raw** button on the right hand side of the screen.\
 5.  The webpage will now show you a long series of numbers. This is the 'data file' that you need to import. Note that this file is a `.csv` file. The same base R function you have previously used will also work in this case.
 
-
-## 4.1 Exercise {-}
+## 4.1 Exercise {.unnumbered}
 
 To import the data file, create a new object called `covid_johnshop`. Within the base R `.csv` function, paste the full data file web link. Do not forget to enclose this link with quotation marks.
 
@@ -563,7 +556,7 @@ To import the data file, create a new object called `covid_johnshop`. Within the
 covid_johnshop <- read.csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv")
 ```
 
-## 4.2 Exercise {-}
+## 4.2 Exercise {.unnumbered}
 
 View the contents of this object.
 
@@ -571,7 +564,7 @@ View the contents of this object.
 View(covid_johnshop)
 ```
 
-## 4.3 Exercise {-}
+## 4.3 Exercise {.unnumbered}
 
 Find the class of the object.
 
