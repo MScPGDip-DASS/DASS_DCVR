@@ -98,8 +98,11 @@ document.addEventListener('DOMContentLoaded', function() {
 Create a vector object called `num_vct` that contains the following values: 70, 8, 50, 100. Print the contents.
 
 ```{r}
+
+# Creating the vector.
 num_vct <- c(70, 8, 50, 100) 
 
+# Now printing the contents.
 num_vct 
 ```
 
@@ -130,8 +133,11 @@ num_vct + 8
 Create a new numeric vector that contains the following values: 5, 7, 9, 10. Name it `num_vct2` and print the contents.
 
 ```{r}
+
+# Creating the vector.
 num_vct2 <- c(5, 7, 9, 10)
 
+#Now printing the contents.
 num_vct2
 ```
 
@@ -191,9 +197,6 @@ Use the `class()` function to find out what type of objects `num_vct` and `char_
 
 ```{r}
 class(num_vct)
-```
-
-```{r}
 class(char_vct)
 ```
 
@@ -202,28 +205,21 @@ The number of elements in a vector is referred to as the *length* of the vector.
 Use the `length()` function to obtain the length of the following objects: `num_vct`, `char_vct`, `num_vct2`.
 
 ```{r}
+
+# Finding the length of each of the three vectors
+
 length(num_vct)
-```
-
-```{r}
 length(char_vct)
-```
-
-```{r}
 length(num_vct2)
 ```
 
 ### Exercise
 
-Create a vector object that contains the following logical and numeric values: TRUE, 6, FALSE, 10, FALSE. Name it `new_vct` .
+Create a vector object that contains the following logical and numeric values: TRUE, 6, FALSE, 10, FALSE. Name it `new_vct` and print the contents. 
 
 ```{r}
 new_vct <- c(TRUE, 6, FALSE, 10, FALSE)
-```
 
-Print the contents.
-
-```{r}
 new_vct
 ```
 
