@@ -1,7 +1,5 @@
 # Introducing Statistical Programming with R and RStudio
 
-*To complete the exercises, ensure that you work in your newly created project in RStudio and writing your answers in your new R script.*
-
 ```{js, echo=FALSE}
 document.addEventListener('DOMContentLoaded', function() {
     var codeBlocks = document.querySelectorAll('pre > code');
@@ -30,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 ```
-
 
 ```{js, echo=FALSE}
 document.addEventListener('DOMContentLoaded', function() {
@@ -62,165 +59,155 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ```
 
+::: ilos
+**Learning Outcomes:**
 
+-   Employ the basics of the R language to run simple lines of code;
+-   Import different types of data files.
+-   Export data in different formats.
+:::
 
-**Learning Outcomes:** 
+**In this section, you will practice how to use the following functions:**
 
-*- Employ the basics of the R language to run simple lines of code;*  
-*- Import and export data objects.* 
+|   Function    |               Description               | Package |
+|:-------------:|:---------------------------------------:|:-------:|
+|     `c()`     |          concatenate function           | base R  |
+|   `class()`   |         finding class of object         | base R  |
+|  `length()`   |        finding length of object         | base R  |
+|   `View()`    | viewing data objects spreadsheet-style  | base R  |
+| `read_spss()` |         reading SPSS data files         | `haven` |
+| `read_dta()`  |        reading Stata data files         | `haven` |
+| `read.csv()`  |          reading `.csv` files           | base R  |
+|  `readRDS()`  |          reading `.RDS` files           | base R  |
+|   `load()`    |         loading `.RData` files          | base R  |
+|   `save()`    | saving multiple files (`.Rdata` format) | base R  |
+|  `saveRDS()`  |   saving single files (`.RDS` format)   | base R  |
+| `write.csv()` |       save a file as `.csv` file        | base R  |
 
+::: attention
+**WARNING 1:** Before proceeding to the exercises, ensure that you create and work in a RStudio project and that you **write** and **save** your answers to the exercises in an R script. 
 
-**Functions you will learn: **
+**WARNING 2:** To adequately develop your practicals programming skills, it is **essential** that you attempt all exercises by typing out the code rather than simply copy-pasting the answers.
 
-- 
+:::
 
-## Basic Operations with Vectors
+## Performing Calculations with Vectors
 
-### Exercise: Operations with Numeric Vectors 
+### Exercise
 
-#### Performing Calculations on Single Numeric Vectors {-}
-
-a. Create a vector object called `num_vct` that contains the following values: 70, 8, 50, 100.
+Create a vector object called `num_vct` that contains the following values: 70, 8, 50, 100. Print the contents.
 
 ```{r}
 num_vct <- c(70, 8, 50, 100) 
-```
 
-b. Print the contents. 
-
-```{r}
 num_vct 
 ```
-c. Multiply this vector by 2.
+
+Multiply this vector by 2.
 
 ```{r}
 num_vct * 2
 ```
 
-d. Divide the vector by 10. 
+Divide the vector by 10.
 
 ```{r}
 num_vct / 10
 ```
 
-e. Subtract 5 from the vector. 
+Subtract 5 from the vector.
 
 ```{r}
 num_vct - 5 
 ```
 
-f. Add 8 to the vector.
+Add 8 to the vector.
 
 ```{r}
 num_vct + 8  
 ```
 
-#### Performing Calculations with TWO Numeric Vectors {-}
-
-a. Create a new numeric vector that contains the following values: 5, 7, 9, 10. Name it `num_vct2` and print the contents. 
+Create a new numeric vector that contains the following values: 5, 7, 9, 10. Name it `num_vct2` and print the contents.
 
 ```{r}
 num_vct2 <- c(5, 7, 9, 10)
+
+num_vct2
 ```
 
-Printing the contents. 
-
-```{r}
-num_vct2 
-```
-
-b. Add `num_vct2` to `num_vct`.  
+Add `num_vct2` to `num_vct`.
 
 ```{r}
 num_vct2 + num_vct
 ```
 
-c. Divide `num_vct` by `num_vct2`. 
+Divide `num_vct` by `num_vct2`.
 
 ```{r}
 num_vct / num_vct2
 ```
 
-d. Multiply `num_vct2` by `num_vct`. 
+Multiply `num_vct2` by `num_vct`.
 
 ```{r}
 num_vct2 * num_vct
 ```
 
-e. Subtract `num_vct` from `num_vct2`.
+Subtract `num_vct` from `num_vct2`.
 
 ```{r}
 num_vct2 - num_vct
 ```
 
-### Exercise: Operations with Character Vectors
+### Exercise
 
-a. Create a character vector object that contains the following: I, love, programming, with, R.  Name this vector `char_vct` and print the contents.
+Create a character vector object that contains the following: I, love, programming, with, R. Name this vector `char_vct` and print the contents.
 
 ```{r}
 char_vct <- c("I", "love", "programming", "with", "R")
-```
 
-Printing the contents. 
-
-```{r}
 char_vct
 ```
 
-b. Attempt to perform the operations from the previous exercise.   
-What results do you obtain?   
-Why?
+Perform calculations on the character vector.
 
 ```{r, error = TRUE, results = 'asis'}
 char_vct * 2 
 ```
 
-:::question
+::: question
 What results do you obtain after trying to perform mathematical operations on your character vector? Why ?
 :::
 
-<div class="r-comment" style="display: none;"> Note the error message in the console; none of the tasks can be applied to this vector because these are all arithmetic tasks which work only on numeric vectors.
-</div>
+::: {.r-comment style="display: none;"}
+Note the error message in the console; none of the tasks can be applied to this vector because these are all arithmetic tasks which work only on numeric vectors.
+:::
 
 ## Exploring Vectors
 
-### Exercise 
+### Exercise
 
-a. Use the `class()` function to find out what type of objects `num_vct` and `char_vct` are.
-
-The numeric vector. 
+Use the `class()` function to find out what type of objects `num_vct` and `char_vct` are.
 
 ```{r}
 class(num_vct)
-
-# The output confirms that the class of `num_vct` is numeric. 
 ```
-
-The character vector. 
 
 ```{r}
 class(char_vct)
-
-# The output confirms that the class of `char_vct` is character. 
 ```
 
-b. The number of elements in a vector is referred to as the *length* of the vector. With small vectors such as those you have already created, you can simply count these. Alternatively, the `length()` function can be used.  
+The number of elements in a vector is referred to as the *length* of the vector. With small vectors such as those you have already created, you can simply count these. Alternatively, the `length()` function can be used.
 
 Use the `length()` function to obtain the length of the following objects: `num_vct`, `char_vct`, `num_vct2`.
-
-The first numeric vector
 
 ```{r}
 length(num_vct)
 ```
 
-The character vector. 
-
 ```{r}
 length(char_vct)
-``` 
-
-The second numeric vector. 
+```
 
 ```{r}
 length(num_vct2)
@@ -228,128 +215,133 @@ length(num_vct2)
 
 ### Exercise
 
-Create a vector object that contains the following logical and numeric values: TRUE, 6, FALSE, 10, FALSE. Name it `new_vct` . 
+Create a vector object that contains the following logical and numeric values: TRUE, 6, FALSE, 10, FALSE. Name it `new_vct` .
 
 ```{r}
 new_vct <- c(TRUE, 6, FALSE, 10, FALSE)
 ```
 
-Print the contents. Does the output match the contents you entered when you created the vector? Why?
+Print the contents.
 
 ```{r}
 new_vct
-
-#The output does not match the contents. Since vectors cannot contain different data types, R will force (i.e. coerce) all entered values to match, in an attempt to lose as little information as possible. In this case, the logical values are coerced to 1 and 0, corresponding to True and False respectively. This is one of the several reasons for why data cleaning is important before proceeding with data analysis; such coercions can have a significant impact on the accuracy of our data and implicitly, on your interpretation of the data.
 ```
+
+::: question
+Does the output match the contents you entered when you created the vector? Why?
+:::
+
+::: {.r-comment style="display: none;"}
+The output does not match the contents. Since vectors cannot contain different data types, R will force (i.e. coerce) all entered values to match, in an attempt to lose as little information as possible. In this case, the logical values are coerced to 1 and 0, corresponding to True and False respectively. This is one of the several reasons for why data cleaning is important before proceeding with data analysis; such coercions can have a significant impact on the accuracy of our data and implicitly, on your interpretation of the data.
+:::
 
 ## Importing and Exporting Data
 
-Throughout the course units of this programme, you will utilise real datasets to develop your data analysis and interpretation skills. 
+Throughout the course units of this programme, you will utilise real datasets to develop your data analysis and interpretation skills.
 
-In this exercise, you will practice how to download, access, and import data from the UK Data Service in R. You will also have the opportunity to practice how to export data in various formats. 
+In this exercise, you will practice how to download, access, and import data from the UK Data Service in R. You will also have the opportunity to practice how to export data in various formats.
 
 **Remember to first register with the UK Data Service. Guidance on how to do this can be found in the Section 1 learning materials on Blackboard.**
 
-### Importing Data Files  
-
-a. Navigate to the British Social Attitudes Survey (2019) webpage on the UK Data Service website (https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=8850#!/access-data)
+Navigate to the British Social Attitudes Survey (2019) webpage on the UK Data Service website (<https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=8850#!/access-data>)
 
 Scroll down to the end of the webpage and download the dataset in both SPSS and STATA formats in your R project working directory.
 
-To access the SPSS data file, unzip folder and open  the folders in the following sequence: *UKDA-8850-spss > spss > spss25*. Follow the same approach for accessing the STATA file. Place these two files in your root R project working directory or within a sub-folder in this directory. 
+To access the SPSS data file, unzip folder and open the folders in the following sequence: *UKDA-8850-spss \> spss \> spss25*. Follow the same approach for accessing the STATA file. Place these two files in your root R project working directory or within a sub-folder in this directory.
 
-b. Import the dataset in SPSS format; name this object `bsas_spss`. 
+### Exercise
+
+Import the dataset in SPSS format; name this object `bsas_spss`.
 
 ```{r, error=TRUE}
 bsas_spss <- read_spss("data/bsa2019_poverty_open.sav")
-
-# If you have not loaded the `haven` package, you will be prompted with the following error in the R console.
 ```
 
-```{r}
-# Load the haven package
-library(haven)
-```
+::: question
+Did the import function work? Why?
+:::
 
-c. The recommended approach for a 'clean' working directory is to place all the data files you plan to use in a separate folder within your working directory. You can name this folder **data**, for example. If you want to access a data file located in your root working directory, then simply remove the `data/` component from the file path. 
+::: {.r-comment style="display: none;"}
+If you have not loaded the `haven` package, you will be prompted with the following error in the R console. To load the haven package, type `library(haven)` in your console first and then run `bsas_spss <- read_spss("data/bsa2019_poverty_open.sav")`. Also, note that the recommended approach for a 'clean' working directory is to place all the data files you plan to use in a separate folder within your working directory. You can name this folder data, for example. If you want to access a data file located in your root working directory, then simply remove the `data/` component from the file path.
+:::
 
-```{r}
-bsas_spss <- read_spss("data/bsa2019_poverty_open.sav")
-```
+Import the dataset in STATA format; name this object `bsas_stata`.
 
-d. Import the dataset in STATA format; name this object `bsas_stata`. 
-
-```{r}
+```{r, eval = FALSE}
 bsas_stata <- read_dta("data/bsa2019_poverty_open.dta")
 ```
 
-e. How many observations and variables do the `bsas_spss` and `bsas_stata` objects have? Are these identical for both objects?
+::: question
+How many observations and variables do the `bsas_spss` and `bsas_stata` objects have? Are these identical for both objects?
+:::
 
-```{r}
-# There are many different ways to find the number of observations and variables such as looking at the information in the Environment tab, or using the View() function. 
+::: {.r-comment style="display: none;"}
+There are many different ways to find the number of observations and variables such as looking at the information in the Environment tab. Since both data files are identical, both objects contain an identical number of observations and variables.
+:::
 
-# Since both data files are identical, both objects contain an identical number of observations and variables. There are 3,224 observations and 26 variables in each data file. 
-```
+### Exercise
 
-### Exporting Data Files
-
-a. Export both `bsas_spss` and `bsas_stata` data objects in `.RData` format. 
+Export both `bsas_spss` and `bsas_stata` data objects in `.RData` format.
 
 ```{r, eval=FALSE}
 save(bsas_spss, bsas_stata, file = "bsas_objects.RData")
 ```
 
-b. Export `bsas_spss` as a single object in `.RDS` format.  
+Now export `bsas_spss` as a single object in `.RDS` format.
 
 ```{r, eval=FALSE}
 saveRDS(bsas_spss, "bsas_spss_file.RDS")
 ```
 
-c. Export the `bsas_stata` object as a `.csv` file. 
+Finally, export the `bsas_stata` object as a `.csv` file.
 
 ```{r, eval=FALSE}
 write.csv(bsas_stata, "bsas_stata_file.csv")
 ```
 
-### Effects of Exporting Data Files in Specific Formats
+### Exercise
 
-a. Import the `.csv` file you have created and name this object `bsas_stata2`. View the contents of the `bsas_stata2` and `bsas_stata` objects. What are the differences between the two, if any? Why?
+Import the `.csv` file you have created and name this object `bsas_stata2`. View the contents of the `bsas_stata2` and `bsas_stata` objects. What are the differences between the two, if any? Why?
 
 ```{r, eval=FALSE}
 bsas_stata2 <- read.csv("bsas_stata_file.csv")
-
-# The`bsas_stata` objected imported with the `haven` package has accompanying metadata. When exporting data files with metadata as `.csv` files, this metadata is lost because this type of format does not support metadata in the same way that files such as SPSS and STATA do. Also, you may note that the `bsas_stata2` has 27 rather than 26 variables; by default, the `write.csv` function will automatically number each row in the data file and therefore, will produce an additional column.
 ```
 
-b. Import the `.RDS` created and name this object `bsas_spss2`. 
+::: question
+Are there any differences between `bsas_stata2` and `bsas_stata`? If there are, Why?
+:::
+
+::: {.r-comment style="display: none;"}
+The`bsas_stata` objected imported with the `haven` package has accompanying metadata. When exporting data files with metadata as `.csv` files, this metadata is lost because this type of format does not support metadata in the same way that files such as SPSS and STATA do. Also, you may note that the `bsas_stata2` has 27 rather than 26 variables; by default, the `write.csv` function will automatically number each row in the data file and therefore, will produce an additional column.
+:::
+
+Now import the `.RDS` created and name this object `bsas_spss2`.
 
 ```{r, eval=FALSE}
 bsas_spss2 <- readRDS("bsas_spss_file.RDS")
 ```
 
-c. Load the `.Rdata` file you created. 
+Finally, load the `.Rdata` file you created.
 
 ```{r, eval=FALSE}
 load("bsas_objects.RData")
 ```
 
-
 ## Bonus Task: Data on GitHub
 
 **Importing Data from Github Repositories**
 
-Many different types of data can be imported in R using either base R functions or functions from packages. However, R is not limited to importing 'hard copy' files from your machine but also supports direct import of data files located on websites for example. 
+Many different types of data can be imported in R using either base R functions or functions from packages. However, R is not limited to importing 'hard copy' files from your machine but also supports direct import of data files located on websites for example.
 
-A Github Repository is a cloud-based, online platform that allows programming users to openly share research projects, associated documentation, data files, and comments with other users and/or the public. 
-Explore the Johns Hopkins Whiting School of Engineering COVID-19 Github Repository (https://github.com/CSSEGISandData/COVID-19) 
+A Github Repository is a cloud-based, online platform that allows programming users to openly share research projects, associated documentation, data files, and comments with other users and/or the public. Explore the Johns Hopkins Whiting School of Engineering COVID-19 Github Repository (<https://github.com/CSSEGISandData/COVID-19>)
 
-1. Open the **csse_covid_19_data** folder found at the beginning of the page. 
-2. Then open **the csse_covid_19_time_series** folder. 
-3. Click on **time_series_covid19_confirmed_global.csv** link. 
-4. Click on the  **Raw** button on the right hand side of the screen.  
-5. The webpage will now show you a long series of numbers. This is the 'data file' that you need to import. Note that this file is a `.csv` file. The same base R function you have previously used will also work in this case. 
+1.  Open the **csse_covid_19_data** folder found at the beginning of the page.
+2.  Then open **the csse_covid_19_time_series** folder.
+3.  Click on **time_series_covid19_confirmed_global.csv** link.
+4.  Click on the **Raw** button on the right hand side of the screen.\
+5.  The webpage will now show you a long series of numbers. This is the 'data file' that you need to import. Note that this file is a `.csv` file. The same base R function you have previously used will also work in this case.
 
-To import the data file, create a new object called `covid_johnshop`. Within the base R `.csv` function, paste the full data file web link. Do not forget to enclose this link with quotation marks. 
+To import the data file, create a new object called `covid_johnshop`. Within the base R `.csv` function, paste the full data file web link. Do not forget to enclose this link with quotation marks.
 
 ```{r, importing github}
 covid_johnshop <- read.csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv")
@@ -357,7 +349,7 @@ covid_johnshop <- read.csv("https://raw.githubusercontent.com/CSSEGISandData/COV
 
 View the contents of this object.
 
-```{r, view contents}
+```{r, eval = FALSE}
 View(covid_johnshop)
 ```
 
@@ -365,6 +357,4 @@ Find the class of the object.
 
 ```{r, class}
 class(covid_johnshop)
-
-# This object is a data frame with 289 observations and 991 variables. 
 ```

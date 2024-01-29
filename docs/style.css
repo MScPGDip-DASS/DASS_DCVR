@@ -85,6 +85,7 @@ pre {
     text-align: center; /* Center-align the text */
     transition: background-color 0.3s; /* Transition for hover effects */
     position: relative; /* Relative positioning for the nested element */
+    border: 2px solid #d3d3d3; /* Border to visually align with the button */
 }
 
 /* Wider white background for the toggle comment button */
@@ -96,6 +97,17 @@ pre {
     bottom: 0;
     background-color: white; /* White background color */
     z-index: -1; /* Place it behind the purple portion */
+}
+
+
+/* Style for the text container that appears when the toggle comment button is clicked */
+.r-comment {
+    margin: 10px 0; 
+    padding: 10px; 
+    border: 2px solid #d3d3d3; /* Border to visually align with the button */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+    background-color: white; /* Background color to match the button */
+    box-sizing: border-box; /* Include padding and border in the element's size */ effect */
 }
 
 
@@ -160,7 +172,7 @@ font-family: "Open Sans", sans-serif;
 /* -----------Sidebar div tips------------- */
 /* from r-pkgs.org*/
 
-  div.puzzle, div.fyi, div.question, div.note {
+  div.question {
     padding: 1em;
     margin: 1em 0;
     padding-left: 100px;
@@ -170,26 +182,57 @@ font-family: "Open Sans", sans-serif;
     min-height: 120px;
     color: black;
     background-color: white;
-    border: solid 5px #f0e6ff;
+    border: solid 5px  #f0e6ff;
     text-align: center;
   }
-
-div.puzzle {
-  background-image: url("../images/Your-turn.png");
-}
-
-div.fyi {
- background-image: url("../images/fyi.png");
-}
 
 div.question {
   background-image: url("images/boxes/question.png");
 }
 
-div.note {
-  background-image: url("../images/lightbulb.png");
+
+/* -----------Sidebar div tips------------- */
+/* from r-pkgs.org*/
+
+  div.ilos {
+    padding: 1em;
+    margin: 1em 0;
+    padding-left: 100px;
+    background-size: 70px;
+    background-repeat: no-repeat;
+    background-position: 15px center;
+    min-height: 120px;
+    color: black;
+    background-color: #F8F3FF;
+    border: 5px dotted #6D009D; /* Dotted border */
+    text-align: left;
+  }
+
+div.ilos {
+  background-image: url("images/boxes/ilos.png");
 }
 
+
+
+/* -----------Sidebar div tips------------- */
+/* from r-pkgs.org*/
+
+  div.attention {
+    padding: 1em;
+    margin: 1em 0;
+    padding-left: 100px;
+    background-size: 70px;
+    background-repeat: no-repeat;
+    background-position: 15px center;
+    min-height: 120px;
+    color: black;
+    background-color: #FFF7DD;
+    text-align: justify;
+  }
+
+div.attention {
+  background-image: url("images/boxes/attention.png");
+}
 
 p.caption {
   color: #777;
