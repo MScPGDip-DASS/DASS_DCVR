@@ -248,7 +248,7 @@ To access the SPSS data file, unzip folder and open the folders in the following
 
 Import the dataset in SPSS format; name this object `bsas_spss`.
 
-```{r, error=TRUE}
+```{r, error = TRUE}
 bsas_spss <- read_spss("data/bsa2019_poverty_open.sav")
 ```
 
