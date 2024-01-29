@@ -7,6 +7,7 @@ bookdown::gitbook:
     download: no
     sharing: null
     toc: 
+      collapse: section
       before: |
         <li class="toc-logo"><a href="./"><img src="images/logos/uom_logo.png"></a></li>
       after: |
