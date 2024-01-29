@@ -2,7 +2,7 @@
 
 # Overview {-}
 
-<div style="color: #6D009D; font-size: 24px; font-weight: bold;">
+<div style="color: #6D009D; font-size: 24px; font-weight: bold;text-align: justify;">
  Section 1: Introducing Statistical Programming with R and RStudio
 </div>
 
