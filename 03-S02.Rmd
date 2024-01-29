@@ -176,19 +176,6 @@ char_vct <- c("This", "is", "a", "string", "vector")
 logic_vct <- c(TRUE, FALSE, FALSE, TRUE, TRUE)
 ```
 
-For each vector, print the contents and find the length.
-
-```{r}
-num_vct 
-char_vct 
-logic_vct 
-
-length(num_vct)
-length(char_vct)
-length(logic_vct)
-```
-
-
 ### Data Frames and Lists
 
 Create a data frame called `df` by combing the following three vectors you previously created (`num_vct`, `char_vct`, `logic_vct`). 
@@ -217,6 +204,7 @@ Did you successfully create a list? Why did this work (or didn't)?
 
 ::: {.r-comment style="display: none;"}
 The list was created successfully since lists are both heterogenous structures and can take different types of items regardless of their structure. No error message should appear. 
+:::
 
 Try to print the contents of the list object called `list_one`. 
 
@@ -243,7 +231,7 @@ Is the output similar to that from a data frame object? Why not?
 :::
 
 ::: {.r-comment style="display: none;"}
-The view function produces a different output for lists than in does for data frames since these are different structures. Data frames have rows and columns whilst lists have items. The view function is not very useful for lists because it is designed for users to visualise data values, but it does provide some relevant information such as the number of items, the data type of each item, and a compact summary of the values of each item.
+The `View()` function produces a different output for lists than in does for data frames since these are different structures. Data frames have rows and columns whilst lists have items. The view function is not very useful for lists because it is designed for users to visualise data values, but it does provide some relevant information such as the number of items, the data type of each item, and a compact summary of the values of each item.
 :::
 
 
@@ -300,7 +288,7 @@ matrix_three <- matrix(num_vct, nrow = 4, ncol = 1)
 matrix_three
 ```
 
-### BONUS TASK 
+### Bonus Task 
 
 Create a list using the list of items below and name it `list_example`. Print the contents
 
@@ -324,8 +312,7 @@ Is it possible for a list to contain any type of data structure and if so why? C
 
 
 ::: {.r-comment style="display: none;"}
-Lists are highly flexible data structures and can contain any data type or object items, regardless of whether they are single values, or more complex structures. Lists also support nesting, which means that they can also contain other lists.
-There are 6 items in this list: a vector, a matrix, a data frame, a list, a character value, and a numeric value. This list is quite a large one and printing the contents is not a very useful way to view the items. You will learn alternatives functions to display data structures more compactly in Topic 2.
+Lists are highly flexible data structures and can contain any data type or object items, regardless of whether they are single values, or more complex structures. Lists also support nesting, which means that they can also contain other lists. There are 6 items in this list: a vector, a matrix, a data frame, a list, a character value, and a numeric value. This list is quite a large one and printing the contents is not a very useful way to view the items. You will learn alternatives functions to display data structures more compactly in Topic 2.
 :::
 
 ## Practical 2 {.unnumbered}

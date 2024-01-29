@@ -105,29 +105,27 @@ num_vct <- c(70, 8, 50, 100)
 num_vct 
 ```
 
-Multiply this vector by 2.
+### Exercise
 
-```{r}
+Perform the following tasks with the `num_vct` object: 
+
+- Multiply the vector by 2.  
+- Divide the vector by 10.  
+- Subtract 5 from the vector.  
+- Add 8 to the vector.
+
+```{r, eval = FALSE}
 num_vct * 2
-```
-
-Divide the vector by 10.
-
-```{r}
 num_vct / 10
-```
-
-Subtract 5 from the vector.
-
-```{r}
 num_vct - 5 
+num_vct + 8 
 ```
 
-Add 8 to the vector.
+::: {.r-comment style="display: none;"}
+When performing each of the operations above, you will note in the output that the operation is applied to each individual element within the vector.
+:::
 
-```{r}
-num_vct + 8  
-```
+### Exercise
 
 Create a new numeric vector that contains the following values: 5, 7, 9, 10. Name it `num_vct2` and print the contents.
 
@@ -140,29 +138,42 @@ num_vct2 <- c(5, 7, 9, 10)
 num_vct2
 ```
 
-Add `num_vct2` to `num_vct`.
+### Exercise 
 
-```{r}
+Perform the following tasks with the following two vectors: `num_vct` and `num_vct2`. 
+
+- Add `num_vct2` to `num_vct`.  
+- Divide `num_vct` by `num_vct2`.  
+- Multiply `num_vct` by `num_vct2`. 
+- Subtract `num_vct` from `num_vct2`.  
+
+```{r, eval = FALSE}
 num_vct2 + num_vct
-```
-
-Divide `num_vct` by `num_vct2`.
-
-```{r}
 num_vct / num_vct2
-```
-
-Multiply `num_vct2` by `num_vct`.
-
-```{r}
-num_vct2 * num_vct
-```
-
-Subtract `num_vct` from `num_vct2`.
-
-```{r}
+num_vct * num_vct2
 num_vct2 - num_vct
 ```
+
+::: {.r-comment style="display: none;"}
+When performing each of the operations between the two vectors, you will note in the output that the operation is being applied to the element of each vector in sequential order, according to the index of each element.  
+
+Let's take the following operation as an example: `num_vct2 - num_vct`.  
+
+The elements of `num_vct` are: `70, 8, 50, 100`  
+The elements of `num_vct2` are: `5, 7, 9, 10`  
+
+When subtracting `num_vct` from `num_vct2`, R performs the following operations according to the 'position' of each element in the vector.  
+
+At index [1], we have 70 for `num_vct` and 5 for `num_vct2`  
+At index [2], we have 8 for `num_vct` and 7 for `num_vct2`  
+At index [3], we have 50 for `num_vct` and 9 for `num_vct2`  
+At index [4], we have 100 for `num_vct` and 10 for `num_vct2`  
+
+Therefore, R will perform the subtraction operation for each element located at a given index.   
+
+The output for this operation will be: `[1] -65  -1 -41 -90`.
+:::
+
 
 ### Exercise
 
@@ -173,6 +184,8 @@ char_vct <- c("I", "love", "programming", "with", "R")
 
 char_vct
 ```
+
+### Exercise 
 
 Perform calculations on the character vector.
 
@@ -185,7 +198,7 @@ What results do you obtain after trying to perform mathematical operations on yo
 :::
 
 ::: {.r-comment style="display: none;"}
-Note the error message in the console; none of the tasks can be applied to this vector because these are all arithmetic tasks which work only on numeric vectors.
+Let's say we try to multiply the character vector by 2. Note the error message in the console; none of the tasks can be applied to this vector because these are all arithmetic tasks which work only on numeric vectors.
 :::
 
 ## Exploring Vectors
@@ -194,23 +207,31 @@ Note the error message in the console; none of the tasks can be applied to this 
 
 Use the `class()` function to find out what type of objects `num_vct` and `char_vct` are.
 
-```{r}
+```{r, eval = FALSE}
 class(num_vct)
 class(char_vct)
 ```
+
+::: {.r-comment style="display: none;"}
+Your R output when applying the `class()` function to the two vectors should have confirmed that `num_vct` is a "numeric" vector and that the `char_vct` is a "character" vector. 
+:::
+
+### Exercise 
 
 The number of elements in a vector is referred to as the *length* of the vector. With small vectors such as those you have already created, you can simply count these. Alternatively, the `length()` function can be used.
 
 Use the `length()` function to obtain the length of the following objects: `num_vct`, `char_vct`, `num_vct2`.
 
-```{r}
-
-# Finding the length of each of the three vectors
-
+```{r, eval = FALSE}
 length(num_vct)
 length(char_vct)
 length(num_vct2)
 ```
+
+
+::: {.r-comment style="display: none;"}
+Applying the function for each one of the vectors should have shown you a single number as an output, namely, the number of elements each of the vectors contains. 
+:::
 
 ### Exercise
 
@@ -257,8 +278,10 @@ Did the import function work? Why?
 :::
 
 ::: {.r-comment style="display: none;"}
-If you have not loaded the `haven` package, you will be prompted with the following error in the R console. To load the haven package, type `library(haven)` in your console first and then run `bsas_spss <- read_spss("data/bsa2019_poverty_open.sav")`. Also, note that the recommended approach for a 'clean' working directory is to place all the data files you plan to use in a separate folder within your working directory. You can name this folder data, for example. If you want to access a data file located in your root working directory, then simply remove the `data/` component from the file path.
+If you have not loaded the `haven` package, you will be prompted with the following error in the R console. To load the haven package, type `library(haven)` in your console first and then run `bsas_spss <- read_spss("data/bsa2019_poverty_open.sav")`. Also, note that the recommended approach for a 'clean' working directory is to place all the data files you plan to use in a separate folder within your working directory. You can name this folder **data**, for example. If you want to access a data file located in your root working directory, then simply remove the `data/` component from the file path.
 :::
+
+### Exercise 
 
 Import the dataset in STATA format; name this object `bsas_stata`.
 
@@ -271,7 +294,7 @@ How many observations and variables do the `bsas_spss` and `bsas_stata` objects 
 :::
 
 ::: {.r-comment style="display: none;"}
-There are many different ways to find the number of observations and variables such as looking at the information in the Environment tab. Since both data files are identical, both objects contain an identical number of observations and variables.
+There are many different ways to find the number of observations and variables such as looking at the information in the **Environment** tab. Since both data files are identical, both objects contain an identical number of observations and variables.
 :::
 
 ### Exercise
@@ -282,11 +305,15 @@ Export both `bsas_spss` and `bsas_stata` data objects in `.RData` format.
 save(bsas_spss, bsas_stata, file = "bsas_objects.RData")
 ```
 
+### Exercise 
+
 Now export `bsas_spss` as a single object in `.RDS` format.
 
 ```{r, eval=FALSE}
 saveRDS(bsas_spss, "bsas_spss_file.RDS")
 ```
+
+### Exercise 
 
 Finally, export the `bsas_stata` object as a `.csv` file.
 
@@ -307,14 +334,18 @@ Are there any differences between `bsas_stata2` and `bsas_stata`? If there are, 
 :::
 
 ::: {.r-comment style="display: none;"}
-The`bsas_stata` objected imported with the `haven` package has accompanying metadata. When exporting data files with metadata as `.csv` files, this metadata is lost because this type of format does not support metadata in the same way that files such as SPSS and STATA do. Also, you may note that the `bsas_stata2` has 27 rather than 26 variables; by default, the `write.csv` function will automatically number each row in the data file and therefore, will produce an additional column.
+The`bsas_stata` objected imported with the `haven` package has accompanying metadata. When exporting data files with metadata as `.csv` files, this metadata is lost because this type of format does not support metadata in the same way that files such as SPSS and STATA do. Also, you may note that the `bsas_stata2` has 27 rather than 26 variables; by default, the `write.csv()` function will automatically number each row in the data file and therefore, will produce an additional column.
 :::
+
+### Exercise 
 
 Now import the `.RDS` created and name this object `bsas_spss2`.
 
 ```{r, eval=FALSE}
 bsas_spss2 <- readRDS("bsas_spss_file.RDS")
 ```
+
+### Exercise 
 
 Finally, load the `.Rdata` file you created.
 
@@ -336,17 +367,24 @@ A Github Repository is a cloud-based, online platform that allows programming us
 4.  Click on the **Raw** button on the right hand side of the screen.\
 5.  The webpage will now show you a long series of numbers. This is the 'data file' that you need to import. Note that this file is a `.csv` file. The same base R function you have previously used will also work in this case.
 
+
+### Exercise: How to Import Data File into R
+
 To import the data file, create a new object called `covid_johnshop`. Within the base R `.csv` function, paste the full data file web link. Do not forget to enclose this link with quotation marks.
 
 ```{r, importing github}
 covid_johnshop <- read.csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv")
 ```
 
+### Exercise 
+
 View the contents of this object.
 
 ```{r, eval = FALSE}
 View(covid_johnshop)
 ```
+
+### Exercise 
 
 Find the class of the object.
 

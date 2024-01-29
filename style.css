@@ -5,9 +5,9 @@
 .chunk-details {
     background-color: #f0e6ff; /* Light purple background */
     border: 2px solid #d3d3d3; /* Light grey solid border */
-    padding: 15px; /* Padding around the content */
+    padding: 10px; /* Padding around the content */
     border-radius: 8px; /* Rounded corners for the box */
-    margin: 10px 0; /* Margin for top and bottom */
+    margin: 5px 0; /* Margin for top and bottom */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for a 3D effect */
 }
 
