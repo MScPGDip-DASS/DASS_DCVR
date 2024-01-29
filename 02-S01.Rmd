@@ -88,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function() {
 **WARNING 1:** Before proceeding to the exercises, ensure that you create and work in a RStudio project and that you **write** and **save** your answers to the exercises in an R script. 
 
 **WARNING 2:** To adequately develop your practical programming skills, it is **essential** that you attempt all exercises by typing out the code rather than simply copy-pasting the answers.
-
 :::
 
 ## Performing Calculations with Vectors
