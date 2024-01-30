@@ -12,3 +12,5 @@ link-citations: yes
 # About {-}
 
 Welcome to SOST70023 Data Cleaning and Visualisation using R! This notebook will host the materials for all practical exercises for this course unit. 
+
+WORK IN PROGRESS
