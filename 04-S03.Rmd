@@ -308,102 +308,255 @@ When using `glimpse()`, it is evidently cumbersome to explore the variables in t
 
 ## 5.3 Task {-}
 
-Before merging, we must check  kthe two data objects have unique keys. One sensible option would be  the `cntry` variable which is found in both objects. 
+Before merging, we must check whether the two data objects (**ess** and  **ess_cntry18**) have unique keys. One sensible option for unique key would be the **cntry** variable which is found in both objects. 
 
-Use the appropriate function to see whether the observations for the `cntry` variable from `ess_cntry18` are unique. Do the same for `ess`. 
+Use the appropriate function to check whether the observations for the **cntry** variable in **ess_cntry18** are unique. 
 
-Can the `cntry` variable from `ess` be used as a key? How about `idno` ?
-
-If not, then create a unique key called `id`, place this variable at the start of the dataset, and arrange the values in ascending order. \textbf{Hint\: use the} `mutate()` , `row_number()` \textbf{and} `arrange` \textbf{functions.} Confirm that the new `id` key is unique.
-
-## 5.2 Exploring Data before Merging
-
-In this exercise, we are interested to explore individual level data. The purpose of the merge is to add the country level data to the individual level data so that each survey respondent will be associated with a particular country. Therefore, this will be a `left_join()` with the individual level data as the first input and the `cntry` variable as the key since this is the key in the country level data object. 
-
-For information purposes, it is important to explore whether all countries are available in the individual level data so that we become aware of whether any information would be lost during the merge. 
-
-To do so, we can use the `unique()` base R function which identifies unique values in variables and the  \%in\% logical operator which is used to compare values and produce a TRUE or FALSE output. 
-
-Let's first check unique values in the `ess` object. Run the code below in your console. 
-
-```{r, eval = FALSE}
-unique(ess$cntry)
+```{r}
+ess_cntry18 %>% 
+group_by(cntry) %>% 
+count() %>% 
+filter(n > 1) 
 ```
 
-Do the same for `ess_cntry18`. 
+::: {.r-comment style="display: none;"}
+For **ess_cntry18**, the **cntry** variable has unique observations and therefore, can be used as a key.
+:::
 
-Now, let's find out if all the countries in the country level data are also found in the individual level data. Note below how the two functions we applied earlier are combined with the \%in\% operator. Essentially, this function is asking R whether the values of the variable `cntry` in the `ess` object are are also present in the `ess_cntry18` object. 
+Now, do the same for **ess**. 
 
-Run the code below in your console. 
-
-```{r, eval = FALSE}
-country_present <- unique(ess$cntry) %in% unique(ess_cntry18$cntry)
+```{r}
+ess %>% 
+group_by(cntry) %>% 
+count() %>% 
+filter(n > 1) 
 ```
 
-Print the contents. Are there any false instances?
+::: {.r-comment style="display: none;"}
+In **ess**, the **cntry** variable has multiple observations, and therefore, does **not* represent a unique key. 
+:::
 
-```{r, eval = FALSE}
-country_present 
+::: question 
+If **cntry** does not represent a unique key, can **idno** be used instead?  
+:::
+
+
+```{r}
+ess %>% 
+group_by(idno) %>% 
+count() %>% 
+filter(n > 1) 
 ```
 
-To find out exactly which countries are not present in the country level data, run the below code in your console. This combines the unique function to check for countries in the `ess` object and the subsetting square brackets so that the output excludes countries that are present in both objects and provides only those which are absent from `ess_cntry18`. 
+::: {.r-comment style="display: none;"}
+In **ess**, the **idno** variable has multiple observations, and therefore, does not represent a unique key either. 
+:::
 
-```{r, eval = FALSE}
-unique(ess$cntry)[!country_present]
+## 5.4 Task {-}
+
+If neither **cntry** nor **idno** are unique keys for **ess**, then create a unique key called **id**, place this variable at the start of the dataset, and arrange the values in ascending order.
+
+```{r}
+ess <- ess %>%
+arrange(cntry, idno) %>% 
+mutate(id = row_number())
 ```
 
-## 5.3 Perfoming the Merge
+Don't forget to double-check if the changes you have made have been applied. 
 
-Use the appropriate function to merge `ess` with `ess_cntry18` by `cntry` and name this new data object `ess2`.
+```{r}
+ess %>% 
+group_by(id) %>% 
+count() %>% 
+filter(n > 1)
+```
+
+# 6. Keys and Unique Values {-}
+
+In the context of this practical, we are interested to explore individual level differences given country. Therefore, the purpose of the merge is to add the country level data to the individual level data so that each survey respondent will be associated with a particular country.  
+
+:::question 
+What kind of join will this be?
+:::
+
+::: {.r-comment style="display: none;"}
+This will be a `left_join()` with the individual level data as the first input and the **cntry** variable as the key since this is the key in the country level data object. 
+:::
+
+For information purposes, it is important to explore whether all countries are available in the individual level data object so that we can identify whether any information would be lost during the merge. 
+
+To do so, we can use the `unique()` base R function which identifies unique values in variables and the  `%in%` logical operator which is used to compare values and produce a `TRUE` or `FALSE` output. 
+
+To check for unique values in the **ess** object, you can run the code below in your console. 
+
+`unique(ess$cntry)`  
+
+We should also find out if all the countries in the country level data are also found in the individual level data. Essentially, the below line of code is asking R whether the values of the variable `cntry` in the `ess` object are are also present in the `ess_cntry18` object. Run the code below in your console.
+
+`country_present <- unique(ess$cntry) %in% unique(ess_cntry18$cntry)`  
+
+If you print the contents, you will find that there are multiple `FALSE` instances, which means that there are countries that are not present in the country level dataset.
+
+To find out exactly which countries are not present in the country level data, run the below code in your console. This combines the unique function to check for countries in the `ess` object and the subsetting square brackets so that the output excludes countries that are present in both objects and provides only those which are absent from `ess_cntry18`. Run the code below in your console.
+
+`unique(ess$cntry)[!country_present]`
+
+
+# 7. Perfoming the Merge {-}
+
+## 7.1 Task {-}
+
+Use the appropriate function to merge **ess** with **ess_cntry18** by **cntry** and name this new data object **ess2**.
+
+```{r}
+ess2 <- left_join(ess, ess_cntry18, by = "cntry")
+```
+
+## 7.2 Task {-}
 
 Explore the object using `glimpse()`. What are the dimensions of this new data object? 
 
-\newpage 
+```{r}
+glimpse(ess2)
+```
 
-# 6. Data Transformation 
+::: {.r-comment style="display: none;"}
+This new object has 35,510 observations of 21 variables.
+:::
 
-Now that our new dataset contains all the information needed, let's have a look at the variables and perform some transformations. 
+# 8. Data Transformation {-}
 
-## 6.1 Exploring Variables
+Now that our new dataset contains all the information needed, let's have a look at the variables and perform some transformations. To find out more about what the variable code names mean, you can of course consult the data dictionaries for more detailed information, but you can also use the `attributes()` function. 
 
-To find out more about what the variable code names mean, you can of course consult the data dictionaries, but you can also use the `attributes()` function to do so. 
-
-Apply this function to the following variables to learn more about what they measure: `agea`, `imwbcnt` , and `imbgeco`.
-
-Also, use the `count` function to see the number of observations and whether there are missing values. 
-
-## 6.2 Transforming Numeric and Character Variables into Factors
+## 8.1 Task {-}
 
 Explore the `gndr` variable using the `count()` function. 
 
+## 8.2 Task {-}
+
+```{r}
+count(ess2, gndr)
+```
+
 Transform the `gndr` variable into a factor variable called `sex` with two categories; assign a Male label to values of 1 and a Female label to the values of 2. Use the `count` function to confirm the changes.  
 
-## 6.3 Creating and Modifying Factors 
+```{r}
+ess2$sex <- factor(ess2$gndr, labels = c("Male", "Female"))
+```
 
-Use the appropriate function to transform the `imbgeco` variable into a factor variable called `immigration` with three categories as follows: 
+Use the `count` function to confirm the changes.  
 
-- values 0 to 3 should represent "Bad for Economy"
-- values 4 to 6 should represent "Neutral"
-- values 7 to 10 should represent "Good for Economy"
+```{r}
+count(ess2, sex)
+```
+
+
+## 8.3 Task {-}
+
+Find out what the **imbgeco** variable measures. 
+
+```{r}
+attributes(ess2$imbgeco)
+```
+
+Use the appropriate functions to transform the `imbgeco` variable into a factor variable called `immigration` with three categories as follows: 
+
+- values 0 to 3 should represent "Bad for Economy"  
+- values 4 to 6 should represent "Neutral"  
+- values 7 to 10 should represent "Good for Economy"  
+
+```{r}
+ess2 <- mutate(ess2, 
+                   immigration = case_when(
+                     imbgeco >=0 & imbgeco <= 3 ~ "Bad for Economy",
+                     imbgeco >= 4 & imbgeco <= 6 ~ "Neutral",
+                     imbgeco >= 7 & imbgeco <= 10 ~ "Good for Economy"), 
+                   immigration_factor = factor(immigration))
+```
+
 
 Confirm the changes using the `count()` function. 
 
-Use the appropriate function to create a new factor variable called `immigrants` based on the`imwbcnt` variable such that: 
+```{r}
+count(ess2, immigration_factor)
+```
+
+## 8.4 Task {-}
+
+Use the appropriate functions to create a new factor variable called `immigrants` based on the`imwbcnt` variable such that: 
 - values of 0 to 3 represent "Worse"
 - values of 4 to 6 represent "Neither Better nor Worse"
 - values of 7 to 10 represent "Better"
 
+```{r}
+ess2 <- mutate(ess2, 
+                   immigrants = case_when(
+                     imbgeco >=0 & imbgeco <= 3 ~ "Worse",
+                     imbgeco >= 4 & imbgeco <= 6 ~ "Neither Better nor Worse",
+                     imbgeco >= 7 & imbgeco <= 10 ~ "Better"), 
+                   immigrats = factor(immigrants))
+```
+
 Confirm the changes using the `count()` function. 
 
-Use the appropriate forcats function to assign NA values to a level called "missing" for the `immigrants` variable. Confirm the changes. 
-
-# 6.4 Renaming Variables
-
-Remove the "c_" prefix and the "_2018" suffix from the `ess2` variables. Now use the appropriate function to check whether the changes have been applied. 
-
-# 7. Saving Data Objects 
-
-Now save the `ess2` data object in .csv format using the `write_csv()` function from the `readr` core tidyverse package. This works in a similar way to the base R function `write.csv()` with which you are already familiar. The main difference between the two is that the tidyverse function maintains the metadata associated with the data object whilst the base R does not. It is therefore more useful when you re-import the data, particularly if you have not completed the data manipulation stages. 
+```{r}
+count(ess2, immigrants)
+```
 
 
+Use the appropriate forcats function to assign NA values to a level called "missing" for the `immigrants` variable.
+
+```{r}
+ess2 <- mutate(ess2, 
+	             immigrants = fct_explicit_na(immigrants, 
+					                                  na_level = "Missing"))
+```
+
+Confirm the changes. 
+
+```{r}
+count(ess2, immigrants)
+```
+
+## 8.5 Task {-}
+
+Remove the "c_" prefix and the "_2018" suffix from the **ess2** variables. Now use the appropriate function to check whether the changes have been applied. 
+
+```{r}
+
+# Removing the "c_prefix"
+ess2 <- ess2 %>%
+rename_all(~ str_remove(., "c_"))
+
+# Removing the "_2018" suffix
+ess2 <- ess2 %>%
+rename_all(~ str_remove(., "_2018"))
+```
+
+Now use a suitable function to check whether the changes have been applied. 
+
+```{r}
+names(ess2)
+```
+
+
+# 9. Saving Data Objects 
+
+Now export the **ess2** data object as a `.csv` file using the `write_csv()` function from the `readr` core tidyverse package. 
+
+::: folder 
+Make sure that you export this file in your **data** subfolder in your RStudio project working directory. You will use this file in other practicals of this course. 
+:::
+
+```{r, eval = FALSE}
+write_csv(ess2, "data/ess2.csv")
+```
+
+:::question 
+Why would we use `write_csv()` instead of `write.csv()`?
+:::
+
+::: {.r-comment style="display: none;"}
+The `write_csv()` function works in a similar way to the base R function `write.csv()` with which you are already familiar. The main difference between the two is that the `tidyverse` function maintains the metadata associated with the data object whilst the base R function does not. It is therefore more useful when you re-import the data, particularly if you have not completed the data manipulation stages.  
+:::
 
