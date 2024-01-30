@@ -145,9 +145,9 @@ In general, datasets will require some degree of subsetting of variables that wo
 
 ## 3.1 Task {-}
 
-Using the appropriate function, subset `ess9` so that it contains only the variables listed above and place it in a new object called `ess`.
+Using the appropriate function, subset `ess9` so that it contains only the following variables: idno, cntry, imbgeco, imueclt, imwbcnt, vote, uempla, agea, eduyrs, gndr, region.  
 
-## Without Pipe 
+Name this new data object `ess`.  
 
 ```{r}
 
@@ -160,20 +160,27 @@ ess <- ess9 %>% select(idno, cntry, imbgeco, imueclt, imwbcnt, vote,
                        uempla, agea, eduyrs, gndr, region)
 ```
 
+::: {.r-comment style="display: none;"}
+In general, datasets will require some degree of subsetting of variables that would be most relevant to your topic of analysis. Normally, you would study the data dictionary that provides details about each variable, what it represent, and how it is coded. For this practical, we will only need the variables you have just subsetted.
+:::
 
-In general, datasets will require some degree of subsetting of variables that would be most relevant to your topic of analysis. Normally, you would study the data dictionary that provides details about each variable, what it represent, and how it is coded. For this practical, we will use the following variables: 
+## 3.2 Task {-}
 
-`idno, cntry, imbgeco, imueclt, imwbcnt, vote, uempla, agea, eduyrs, gndr, region`
+Explore `ess` using `glimpse()`.
 
-Using the appropriate function, subset `ess9` so that it contains only the variables listed above and place it in a new object called `ess`.
+```{r}
+glimpse(ess)
+```
 
+::: question
+What dimensions does the object have? What do you think about the class of some of these variables; do you think any of these might require transformation?
+:::
 
+::: {.r-comment style="display: none;"}
+This object is quite large (over 30,000 observations for 11 variables). You can also see that at least two variables, such as **gndr** and **cntry** should be coded as factors; in the dataset, they are coded as numeric or character, respectively.
+:::
 
-
-
-
-
-Explore `ess` using `glimpse()`. What dimensions does the object have? What do you think about the class of some of these variables; do you think any of these might require transformation?
+## 3.3 Task {-}
 
 Explore `vote` and `gndr` using the `attributes()` function. What do these variables represent? Are these variables of the correct class?
 
