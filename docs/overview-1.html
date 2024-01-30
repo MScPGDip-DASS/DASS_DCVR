@@ -298,11 +298,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Learning Outcomes:</strong></p>
 <ul>
 <li>Differentiate between vectors, data frames, lists, and matrices;</li>
-<li>Apply rules of data structures to create different types of objects.</li>
+<li>Apply rules of various data structures to create different types of objects;</li>
+<li>Explore different types of data objects using suitable functions;</li>
+<li>Calculate summary statistics;</li>
+<li>Make effective use of data dictionaries;</li>
+<li>Perform basic transformation and recoding tasks using base R functions.</li>
 </ul>
 </div>
 <p><strong>In this section, you will be introduced to the following functions::</strong></p>
 <table>
+<colgroup>
+<col width="20%" />
+<col width="58%" />
+<col width="20%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="center">Function</th>
@@ -313,22 +322,77 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tbody>
 <tr class="odd">
 <td align="center"><code>factor()</code></td>
-<td align="center">function to create factors</td>
+<td align="center">create factors</td>
 <td align="center">base R</td>
 </tr>
 <tr class="even">
 <td align="center"><code>data.frame()</code></td>
-<td align="center">function to create data frames</td>
+<td align="center">create data frames</td>
 <td align="center">base R</td>
 </tr>
 <tr class="odd">
 <td align="center"><code>list()</code></td>
-<td align="center">function to create lists</td>
+<td align="center">create lists</td>
 <td align="center">base R</td>
 </tr>
 <tr class="even">
 <td align="center"><code>matrix()</code></td>
-<td align="center">function to create matrices</td>
+<td align="center">create matrices</td>
+<td align="center">base R</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>dim()</code></td>
+<td align="center">find dimensions of object (e.g. number of variables and observations)</td>
+<td align="center">base R</td>
+</tr>
+<tr class="even">
+<td align="center"><code>attributes()</code></td>
+<td align="center">find attributes/characteristics of object</td>
+<td align="center">base R</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>str()</code></td>
+<td align="center">view internal structure of object</td>
+<td align="center">base R</td>
+</tr>
+<tr class="even">
+<td align="center"><code>table()</code></td>
+<td align="center">build contingency table</td>
+<td align="center">base R</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>head()</code></td>
+<td align="center">view first parts of data object</td>
+<td align="center">base R</td>
+</tr>
+<tr class="even">
+<td align="center"><code>tail()</code></td>
+<td align="center">view last parts of data object</td>
+<td align="center">base R</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>colnames()</code></td>
+<td align="center">find or set row or column names of a matrix-like object</td>
+<td align="center">base R</td>
+</tr>
+<tr class="even">
+<td align="center"><code>names()</code></td>
+<td align="center">find or set row or column names of a data object</td>
+<td align="center">base R</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>summary()</code></td>
+<td align="center">obtain summary statistics</td>
+<td align="center">base R</td>
+</tr>
+<tr class="even">
+<td align="center"><code>sum()</code></td>
+<td align="center">obtain of sum of values</td>
+<td align="center">base R</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>is.na()</code></td>
+<td align="center">identifies NA values; returns a logical output (TRUE/FALSE) for each element in an object</td>
 <td align="center">base R</td>
 </tr>
 </tbody>

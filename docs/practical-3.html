@@ -490,17 +490,22 @@ document.addEventListener('DOMContentLoaded', function() {
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="practical-3.html#cb87-1" tabindex="-1"></a><span class="fu">colnames</span>(bsas_sample) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;false_benefits&quot;</span>, <span class="st">&quot;sex&quot;</span>, <span class="st">&quot;marital_status&quot;</span>, <span class="st">&quot;age_category&quot;</span>)</span></code></pre></div>
 </details>
-<p>Now use the appropriate function to confirm that the column names have been changed.</p>
+<p>Now confirm that the column names have been changed.</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="practical-3.html#cb88-1" tabindex="-1"></a><span class="fu">names</span>(bsas_sample)</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="practical-3.html#cb88-1" tabindex="-1"></a><span class="fu">colnames</span>(bsas_sample)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;false_benefits&quot; &quot;sex&quot;            &quot;marital_status&quot; &quot;age_category&quot;</code></pre>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="practical-3.html#cb90-1" tabindex="-1"></a><span class="co"># You can use the same function or, more simply:</span></span>
+<span id="cb90-2"><a href="practical-3.html#cb90-2" tabindex="-1"></a></span>
+<span id="cb90-3"><a href="practical-3.html#cb90-3" tabindex="-1"></a><span class="co"># names(bsas_sample)</span></span></code></pre></div>
+</details>
 </div>
 <div id="exercise-43" class="section level3 unnumbered hasAnchor">
 <h3>3.3.2 Exercise<a href="practical-3.html#exercise-43" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Using the <code>table()</code> function, explore the contents of the variable false_benefits.</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="practical-3.html#cb90-1" tabindex="-1"></a><span class="fu">table</span>(bsas_sample<span class="sc">$</span>false_benefits)</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="practical-3.html#cb91-1" tabindex="-1"></a><span class="fu">table</span>(bsas_sample<span class="sc">$</span>false_benefits)</span></code></pre></div>
 </details>
 <pre><code>## 
 ##   0   1   2   3   4   5   6   7   8   9  10  12  13  15  18  19  20  23  25  27 
@@ -529,11 +534,11 @@ document.addEventListener('DOMContentLoaded', function() {
 <li>For false_benefits, change the 998 and 999 values to <code>NA</code>.</li>
 </ul>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="practical-3.html#cb92-1" tabindex="-1"></a>bsas_sample<span class="sc">$</span>marital_status[bsas_sample<span class="sc">$</span>marital_status <span class="sc">==</span> <span class="dv">9</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb92-2"><a href="practical-3.html#cb92-2" tabindex="-1"></a></span>
-<span id="cb92-3"><a href="practical-3.html#cb92-3" tabindex="-1"></a>bsas_sample<span class="sc">$</span>age_category[bsas_sample<span class="sc">$</span>age_category <span class="sc">==</span> <span class="dv">8</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb92-4"><a href="practical-3.html#cb92-4" tabindex="-1"></a></span>
-<span id="cb92-5"><a href="practical-3.html#cb92-5" tabindex="-1"></a>bsas_sample<span class="sc">$</span>false_benefits[bsas_sample<span class="sc">$</span>false_benefits <span class="sc">&gt;</span> <span class="dv">900</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="practical-3.html#cb93-1" tabindex="-1"></a>bsas_sample<span class="sc">$</span>marital_status[bsas_sample<span class="sc">$</span>marital_status <span class="sc">==</span> <span class="dv">9</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb93-2"><a href="practical-3.html#cb93-2" tabindex="-1"></a></span>
+<span id="cb93-3"><a href="practical-3.html#cb93-3" tabindex="-1"></a>bsas_sample<span class="sc">$</span>age_category[bsas_sample<span class="sc">$</span>age_category <span class="sc">==</span> <span class="dv">8</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb93-4"><a href="practical-3.html#cb93-4" tabindex="-1"></a></span>
+<span id="cb93-5"><a href="practical-3.html#cb93-5" tabindex="-1"></a>bsas_sample<span class="sc">$</span>false_benefits[bsas_sample<span class="sc">$</span>false_benefits <span class="sc">&gt;</span> <span class="dv">900</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span></code></pre></div>
 </details>
 <div class="r-comment" style="display: none;">
 <p>For the false_benefits variable, the simplest approach is to specify a value large enough to encompass both 998 and 999. In this case, the maximum value is 100 after which there are no values corresponding to any number between 100 and 998.</p>
@@ -542,7 +547,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>How many <code>NA</code> values does the variable false_benefits have in total?</p>
 </div>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="practical-3.html#cb93-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(bsas_sample<span class="sc">$</span>false_benefits))</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="practical-3.html#cb94-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(bsas_sample<span class="sc">$</span>false_benefits))</span></code></pre></div>
 </details>
 <pre><code>## [1] 246</code></pre>
 </div>
@@ -550,16 +555,16 @@ document.addEventListener('DOMContentLoaded', function() {
 <h3>3.3.4 Exercise<a href="practical-3.html#exercise-45" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For the sex variable, change the 1 values to Male and the 2 values to Female.</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="practical-3.html#cb95-1" tabindex="-1"></a>bsas_sample<span class="sc">$</span>sex[bsas_sample<span class="sc">$</span>sex <span class="sc">==</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Male&quot;</span></span>
-<span id="cb95-2"><a href="practical-3.html#cb95-2" tabindex="-1"></a></span>
-<span id="cb95-3"><a href="practical-3.html#cb95-3" tabindex="-1"></a>bsas_sample<span class="sc">$</span>sex[bsas_sample<span class="sc">$</span>sex <span class="sc">==</span> <span class="dv">2</span> ] <span class="ot">&lt;-</span> <span class="st">&quot;Female&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="practical-3.html#cb96-1" tabindex="-1"></a>bsas_sample<span class="sc">$</span>sex[bsas_sample<span class="sc">$</span>sex <span class="sc">==</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Male&quot;</span></span>
+<span id="cb96-2"><a href="practical-3.html#cb96-2" tabindex="-1"></a></span>
+<span id="cb96-3"><a href="practical-3.html#cb96-3" tabindex="-1"></a>bsas_sample<span class="sc">$</span>sex[bsas_sample<span class="sc">$</span>sex <span class="sc">==</span> <span class="dv">2</span> ] <span class="ot">&lt;-</span> <span class="st">&quot;Female&quot;</span></span></code></pre></div>
 </details>
 <div class="r-comment" style="display: none;">
 <p>For the purposes of this practical, it is acceptable to perform factor recoding for each category individually. You will learn how to do this more efficiently later in in the course.</p>
 </div>
 <p>Now confirm the changes using a suitable function.</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="practical-3.html#cb96-1" tabindex="-1"></a><span class="fu">table</span>(bsas_sample<span class="sc">$</span>sex)</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="practical-3.html#cb97-1" tabindex="-1"></a><span class="fu">table</span>(bsas_sample<span class="sc">$</span>sex)</span></code></pre></div>
 </details>
 <pre><code>## 
 ## Female   Male 
@@ -568,7 +573,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>What is the class of the variable now?</p>
 </div>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="practical-3.html#cb98-1" tabindex="-1"></a><span class="fu">class</span>(bsas_sample<span class="sc">$</span>sex)</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="practical-3.html#cb99-1" tabindex="-1"></a><span class="fu">class</span>(bsas_sample<span class="sc">$</span>sex)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <div class="r-comment" style="display: none;">
@@ -580,17 +585,17 @@ document.addEventListener('DOMContentLoaded', function() {
 <h3>3.3.5 Exercise<a href="practical-3.html#exercise-46" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Create a new vector object called <code>id</code> that contains a sequence of values from 1 to 3,224.</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="practical-3.html#cb100-1" tabindex="-1"></a>id <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3224</span></span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="practical-3.html#cb101-1" tabindex="-1"></a>id <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3224</span></span></code></pre></div>
 </details>
 <p>Add the <code>id</code> vector as a column to the <code>bsas_sample</code> data frame.</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="practical-3.html#cb101-1" tabindex="-1"></a>bsas_sample<span class="sc">$</span>id <span class="ot">&lt;-</span> id</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="practical-3.html#cb102-1" tabindex="-1"></a>bsas_sample<span class="sc">$</span>id <span class="ot">&lt;-</span> id</span></code></pre></div>
 </details>
 <div class="question">
 <p>Where in the data frame was this new ‘vector’ added?</p>
 </div>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="practical-3.html#cb102-1" tabindex="-1"></a><span class="fu">str</span>(bsas_sample)</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="practical-3.html#cb103-1" tabindex="-1"></a><span class="fu">str</span>(bsas_sample)</span></code></pre></div>
 </details>
 <pre><code>## &#39;data.frame&#39;:    3224 obs. of  5 variables:
 ##  $ false_benefits: int  5 30 50 50 50 10 1 NA 5 50 ...
@@ -606,13 +611,13 @@ document.addEventListener('DOMContentLoaded', function() {
 <h3>3.3.6 Exercise<a href="practical-3.html#exercise-47" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Reorder the variables of <code>bsas_sample</code> as follows: <code>id</code>, <code>RSex</code>, <code>RAgeCat</code>, <code>Married</code>, and <code>NatFrEst</code>.</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="practical-3.html#cb104-1" tabindex="-1"></a>bsas_sample <span class="ot">&lt;-</span> bsas_sample[, <span class="fu">c</span>(<span class="st">&quot;id&quot;</span>, <span class="st">&quot;sex&quot;</span>, <span class="st">&quot;age_category&quot;</span>, <span class="st">&quot;marital_status&quot;</span>, <span class="st">&quot;false_benefits&quot;</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="practical-3.html#cb105-1" tabindex="-1"></a>bsas_sample <span class="ot">&lt;-</span> bsas_sample[, <span class="fu">c</span>(<span class="st">&quot;id&quot;</span>, <span class="st">&quot;sex&quot;</span>, <span class="st">&quot;age_category&quot;</span>, <span class="st">&quot;marital_status&quot;</span>, <span class="st">&quot;false_benefits&quot;</span>)]</span></code></pre></div>
 </details>
 <p>Confirm the change in order using a suitable function.</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="practical-3.html#cb105-1" tabindex="-1"></a><span class="co"># You can use the names() function, for example. </span></span>
-<span id="cb105-2"><a href="practical-3.html#cb105-2" tabindex="-1"></a></span>
-<span id="cb105-3"><a href="practical-3.html#cb105-3" tabindex="-1"></a><span class="fu">names</span>(bsas_sample)</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="practical-3.html#cb106-1" tabindex="-1"></a><span class="co"># You can use the names() function, for example. </span></span>
+<span id="cb106-2"><a href="practical-3.html#cb106-2" tabindex="-1"></a></span>
+<span id="cb106-3"><a href="practical-3.html#cb106-3" tabindex="-1"></a><span class="fu">names</span>(bsas_sample)</span></code></pre></div>
 </details>
 <pre><code>## [1] &quot;id&quot;             &quot;sex&quot;            &quot;age_category&quot;   &quot;marital_status&quot;
 ## [5] &quot;false_benefits&quot;</code></pre>

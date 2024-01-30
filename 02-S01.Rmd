@@ -19,8 +19,8 @@ Section 1: Introducing Statistical Programming with R and RStudio
 |   Function    |               Description               | Package |
 |:-------------:|:---------------------------------------:|:-------:|
 |     `c()`     |          concatenate function           | base R  |
-|   `class()`   |         finding class of object         | base R  |
-|  `length()`   |        finding length of object         | base R  |
+|   `class()`   |             class of object             | base R  |
+|  `length()`   |            length of object             | base R  |
 |   `View()`    | viewing data objects spreadsheet-style  | base R  |
 | `read_spss()` |         reading SPSS data files         | `haven` |
 | `read_dta()`  |        reading Stata data files         | `haven` |
@@ -32,9 +32,7 @@ Section 1: Introducing Statistical Programming with R and RStudio
 | `write.csv()` |       save a file as `.csv` file        | base R  |
 
 ::: attention
-**WARNING 1:** Before proceeding to the exercises, ensure that you create and work in a RStudio project and that you **write** and **save** your answers to the exercises in an R script.
-
-**WARNING 2:** To adequately develop your practical programming skills, it is **essential** that you attempt all exercises by typing out the code rather than simply copy-pasting the answers.
+Remember to continue working in the RStudio project you created for this course and typing your answers in separate R script for each practical.
 :::
 
 # 1. Performing Calculations with Vectors {.unnumbered}
@@ -385,18 +383,18 @@ You will also have the opportunity to practice how to export data in various for
 
 Navigate to the <a href="https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=8850#!/access-data" target="_blank">British Social Attitudes Survey (2019) webpage</a> on the UK Data Service website.
 
-Scroll down to the end of the webpage and download the dataset in both SPSS and STATA formats on your computer. 
+Scroll down to the end of the webpage and download the dataset in both SPSS and STATA formats on your computer.
 
-To access the SPSS data file, unzip folder and open the folders in the following sequence:  
+To access the SPSS data file, unzip folder and open the folders in the following sequence:
 
-*UKDA-8850-spss \> spss \> spss25* 
+*UKDA-8850-spss \> spss \> spss25*
 
-Follow the same approach for accessing the STATA file.   
+Follow the same approach for accessing the STATA file.
 
-Place these two files in your root R project working directory in a subfolder called **data**. 
+Place these two files in your root R project working directory in a subfolder called **data**.
 
 ::: folder
-The recommended approach for a ‘clean’ working directory is to place all the data files you plan to use in a separate folder within your R project working directory. You should always use simple names that allow you easy access to the contents when you want to either explore the folder on your machine or specify the path to these folders in R. 
+The recommended approach for a ‘clean’ working directory is to place all the data files you plan to use in a separate folder within your R project working directory. You should always use simple names that allow you easy access to the contents when you want to either explore the folder on your machine or specify the path to these folders in R.
 :::
 
 ## 3.1 Exercise {.unnumbered}
@@ -412,7 +410,7 @@ Did the import function work? Why?
 :::
 
 ::: {.r-comment style="display: none;"}
-If you have not loaded the `haven` package, you will be prompted with the following error in the R console. To load the package, type `library(haven)` in your console first and after that, the code for importing the data. Remember to always start your work in R by first loading all the packages that you require for your session. 
+If you have not loaded the `haven` package, you will be prompted with the following error in the R console. To load the package, type `library(haven)` in your console first and after that, the code for importing the data. Remember to always start your work in R by first loading all the packages that you require for your session.
 :::
 
 ## 3.2 Exercise {.unnumbered}
@@ -444,7 +442,7 @@ save(bsas_spss, bsas_stata, file = "data/bsas_objects.RData")
 ```
 
 ::: folder
-Remember to keep your root working directory organised and save/export your data files in your **data** folder. 
+Remember to keep your root working directory organised and save/export your data files in your **data** folder.
 :::
 
 ## 3.4 Exercise {.unnumbered}
@@ -498,7 +496,6 @@ load("data/bsas_objects.RData")
 ::: folder
 You will use some of these data objects in future practicals. Please make sure that you keep all of the data files from this section in your **data** folder.
 :::
-
 
 # 4. Bonus Task: Data on GitHub {.unnumbered}
 
@@ -565,9 +562,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 Many different types of data can be imported in R using either base R functions or functions from packages. However, R is not limited to importing 'hard copy' files from your machine but also supports direct import of data files located on websites for example.
 
-<a href="https://github.com/features" target="_blank">GitHub  </a> is a cloud-based, online platform that allows programming users to openly share research projects, associated documentation, data files, and comments with other users and/or the public. You will learn more about GitHub later in the course.
+<a href="https://github.com/features" target="_blank">GitHub </a> is a cloud-based, online platform that allows programming users to openly share research projects, associated documentation, data files, and comments with other users and/or the public. You will learn more about GitHub later in the course.
 
-Explore the <a href="https://github.com/CSSEGISandData/COVID-19" target="_blank">Johns Hopkins Whiting School of Engineering COVID-19</a> Github Repository.  
+Explore the <a href="https://github.com/CSSEGISandData/COVID-19" target="_blank">Johns Hopkins Whiting School of Engineering COVID-19</a> Github Repository.
 
 1.  Open the **csse_covid_19_data** folder found at the beginning of the page.
 2.  Then open **the csse_covid_19_time_series** folder.
@@ -601,9 +598,8 @@ class(covid_johnshop)
 
 ## 4.4 Exercise {.unnumbered}
 
-Export the data as a `.csv` file. 
+Export the data as a `.csv` file.
 
 ```{r, eval=FALSE}
 write.csv(covid_johnshop, "data/covid_johnshop.csv")
 ```
-
