@@ -250,7 +250,7 @@ div.ilos {
 
 /* -----------Sidebar div tips------------- */
 /* from r-pkgs.org*/
-  div.note {
+  div.folder {
     padding: 1em;
     margin: 1em 0;
     padding-left: 100px;
@@ -258,13 +258,13 @@ div.ilos {
     background-repeat: no-repeat;
     background-position: 15px center;
     min-height: 120px;
-    color: black;
-    background-color: #F0F3FE;
+    color: #003258;
+    background-color: white;
     text-align: left;
   }
 
-div.note {
-  background-image: url("images/boxes/note.png");
+div.folder {
+  background-image: url("images/boxes/folder.png");
 }
 
 /* -----------Sidebar div tips------------- */
@@ -286,6 +286,7 @@ div.note {
 div.attention {
   background-image: url("images/boxes/attention.png");
 }
+
 
 p.caption {
   color: #777;

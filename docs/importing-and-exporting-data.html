@@ -224,7 +224,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html"><i class="fa fa-check"></i>Practical 3</a>
 <ul>
-<li class="chapter" data-level="0.1" data-path="practical-3.html"><a href="practical-3.html#working-with-datasets"><i class="fa fa-check"></i><b>0.1</b> 3. Working with Datasets</a></li>
+<li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html#exploring-data-files"><i class="fa fa-check"></i>3.1 Exploring Data Files</a>
+<ul>
+<li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html#exercise-37"><i class="fa fa-check"></i>3.1.1 Exercise</a></li>
+<li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html#exercise-38"><i class="fa fa-check"></i>3.1.2 Exercise</a></li>
+<li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html#exercise-39"><i class="fa fa-check"></i>3.1.3 Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html#subsetting"><i class="fa fa-check"></i>3.2 Subsetting</a>
+<ul>
+<li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html#exercise-40"><i class="fa fa-check"></i>3.2.1 Exercise</a></li>
+<li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html#exercise-41"><i class="fa fa-check"></i>3.2.2 Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html#basic-transformations"><i class="fa fa-check"></i>3.3 Basic Transformations</a>
+<ul>
+<li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html#exercise-42"><i class="fa fa-check"></i>3.3.1 Exercise</a></li>
+<li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html#exercise-43"><i class="fa fa-check"></i>3.3.2 Exercise</a></li>
+<li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html#exercise-44"><i class="fa fa-check"></i>3.3.3 Exercise</a></li>
+<li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html#exercise-45"><i class="fa fa-check"></i>3.3.4 Exercise</a></li>
+<li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html#exercise-46"><i class="fa fa-check"></i>3.3.5 Exercise</a></li>
+<li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html#exercise-47"><i class="fa fa-check"></i>3.3.6 Exercise</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>Section 3</b></span></li>
 <li class="chapter" data-level="" data-path="overview-2.html"><a href="overview-2.html"><i class="fa fa-check"></i>Overview</a></li>
@@ -339,7 +358,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <p><em>UKDA-8850-spss &gt; spss &gt; spss25</em></p>
 <p>Follow the same approach for accessing the STATA file.</p>
 <p>Place these two files in your root R project working directory in a subfolder called <strong>data</strong>.</p>
-<div class="note">
+<div class="folder">
 <p>The recommended approach for a ‘clean’ working directory is to place all the data files you plan to use in a separate folder within your R project working directory. You should always use simple names that allow you easy access to the contents when you want to either explore the folder on your machine or specify the path to these folders in R.</p>
 </div>
 <div id="exercise-9" class="section level2 unnumbered hasAnchor">
@@ -375,7 +394,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="importing-and-exporting-data.html#cb18-1" tabindex="-1"></a><span class="fu">save</span>(bsas_spss, bsas_stata, <span class="at">file =</span> <span class="st">&quot;data/bsas_objects.RData&quot;</span>)</span></code></pre></div>
 </details>
-<div class="note">
+<div class="folder">
 <p>Remember to keep your root working directory organised and save/export your data files in your <strong>data</strong> folder.</p>
 </div>
 </div>
@@ -419,7 +438,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="importing-and-exporting-data.html#cb23-1" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;data/bsas_objects.RData&quot;</span>)</span></code></pre></div>
 </details>
-<div class="note">
+<div class="folder">
 <p>You will use some of these data objects in future practicals. Please make sure that you keep all of the data files from this section in your <strong>data</strong> folder.</p>
 </div>
 </div>

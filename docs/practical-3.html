@@ -224,7 +224,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html"><i class="fa fa-check"></i>Practical 3</a>
 <ul>
-<li class="chapter" data-level="0.1" data-path="practical-3.html"><a href="practical-3.html#working-with-datasets"><i class="fa fa-check"></i><b>0.1</b> 3. Working with Datasets</a></li>
+<li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html#exploring-data-files"><i class="fa fa-check"></i>3.1 Exploring Data Files</a>
+<ul>
+<li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html#exercise-37"><i class="fa fa-check"></i>3.1.1 Exercise</a></li>
+<li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html#exercise-38"><i class="fa fa-check"></i>3.1.2 Exercise</a></li>
+<li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html#exercise-39"><i class="fa fa-check"></i>3.1.3 Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html#subsetting"><i class="fa fa-check"></i>3.2 Subsetting</a>
+<ul>
+<li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html#exercise-40"><i class="fa fa-check"></i>3.2.1 Exercise</a></li>
+<li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html#exercise-41"><i class="fa fa-check"></i>3.2.2 Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html#basic-transformations"><i class="fa fa-check"></i>3.3 Basic Transformations</a>
+<ul>
+<li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html#exercise-42"><i class="fa fa-check"></i>3.3.1 Exercise</a></li>
+<li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html#exercise-43"><i class="fa fa-check"></i>3.3.2 Exercise</a></li>
+<li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html#exercise-44"><i class="fa fa-check"></i>3.3.3 Exercise</a></li>
+<li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html#exercise-45"><i class="fa fa-check"></i>3.3.4 Exercise</a></li>
+<li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html#exercise-46"><i class="fa fa-check"></i>3.3.5 Exercise</a></li>
+<li class="chapter" data-level="" data-path="practical-3.html"><a href="practical-3.html#exercise-47"><i class="fa fa-check"></i>3.3.6 Exercise</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>Section 3</b></span></li>
 <li class="chapter" data-level="" data-path="overview-2.html"><a href="overview-2.html"><i class="fa fa-check"></i>Overview</a></li>
@@ -329,10 +348,276 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 </script>
-<div id="working-with-datasets" class="section level2 hasAnchor" number="0.1">
-<h2><span class="header-section-number">0.1</span> 3. Working with Datasets<a href="practical-3.html#working-with-datasets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exploring-data-files" class="section level2 unnumbered hasAnchor">
+<h2>3.1 Exploring Data Files<a href="practical-3.html#exploring-data-files" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In Section 1, you have completed a series of file import/export exercises using data from British Social Attitudes Survey (2019): Open Access Teaching Dataset. For this practical, you will use one of the objects you have exported as a <code>.csv</code> file in your R project <strong>data</strong> folder, namely the <code>bsas_stata</code> object.</p>
+<div id="exercise-37" class="section level3 unnumbered hasAnchor">
+<h3>3.1.1 Exercise<a href="practical-3.html#exercise-37" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Import the <code>bsas_stata</code> .csv object and name this object <code>bsas_dataset</code>.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="practical-3.html#cb81-1" tabindex="-1"></a>bsas_dataset <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/bsas_stata_file.csv&quot;</span>)</span></code></pre></div>
+</details>
+<div class="question">
+<p>Explore the structure of the data object and confirm its class. How many observations and variables does this object have?</p>
+</div>
+<div class="r-comment" style="display: none;">
+<p>Use the <code>class()</code> function to confirm that the data object is a <code>data.frame</code>. You can explore the structure of the object in various ways such as using the <code>str()</code> function which also tells you the number of observations and variables. You can also, of course, obtain this information from your <strong>Environment</strong> pane.</p>
+</div>
+</div>
+<div id="exercise-38" class="section level3 unnumbered hasAnchor">
+<h3>3.1.2 Exercise<a href="practical-3.html#exercise-38" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Use the appropriate function to obtain a compact summary statistics output.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="practical-3.html#cb82-1" tabindex="-1"></a><span class="fu">summary</span>(bsas_dataset)</span></code></pre></div>
+</details>
+<pre><code>##        X             Sserial          WtFactor           RSex      
+##  Min.   :   1.0   Min.   :310001   Min.   :0.2950   Min.   :1.000  
+##  1st Qu.: 806.8   1st Qu.:310807   1st Qu.:0.5865   1st Qu.:1.000  
+##  Median :1612.5   Median :311613   Median :0.9042   Median :2.000  
+##  Mean   :1612.5   Mean   :311613   Mean   :1.0000   Mean   :1.549  
+##  3rd Qu.:2418.2   3rd Qu.:312418   3rd Qu.:1.2064   3rd Qu.:2.000  
+##  Max.   :3224.0   Max.   :313224   Max.   :4.4400   Max.   :2.000  
+##     RAgeCat      eq_inc_quintiles    RClassGp         HEdQual3   
+##  Min.   :1.000   Min.   :-1.000   Min.   :-1.000   Min.   :1.00  
+##  1st Qu.:3.000   1st Qu.:-1.000   1st Qu.: 1.000   1st Qu.:2.00  
+##  Median :4.000   Median : 2.000   Median : 2.000   Median :2.00  
+##  Mean   :4.569   Mean   : 1.874   Mean   : 2.722   Mean   :2.56  
+##  3rd Qu.:7.000   3rd Qu.: 4.000   3rd Qu.: 5.000   3rd Qu.:3.00  
+##  Max.   :8.000   Max.   : 5.000   Max.   : 8.000   Max.   :8.00  
+##     Married         ChildHh        skipmeal          paptype     
+##  Min.   :1.000   Min.   :1.00   Min.   :-1.0000   Min.   :0.000  
+##  1st Qu.:1.000   1st Qu.:1.00   1st Qu.:-1.0000   1st Qu.:0.000  
+##  Median :1.000   Median :2.00   Median : 1.0000   Median :0.000  
+##  Mean   :2.036   Mean   :1.68   Mean   : 0.4935   Mean   :0.348  
+##  3rd Qu.:3.000   3rd Qu.:2.00   3rd Qu.: 1.0000   3rd Qu.:0.000  
+##  Max.   :9.000   Max.   :2.00   Max.   : 9.0000   Max.   :8.000  
+##      SMNews          PartyId2        Politics        SocTrust      
+##  Min.   : 1.000   Min.   :-1.00   Min.   :1.000   Min.   :-1.0000  
+##  1st Qu.: 2.000   1st Qu.: 1.00   1st Qu.:2.000   1st Qu.:-1.0000  
+##  Median : 8.000   Median : 2.00   Median :3.000   Median :-1.0000  
+##  Mean   : 5.636   Mean   : 3.04   Mean   :2.869   Mean   :-0.1051  
+##  3rd Qu.: 8.000   3rd Qu.: 5.00   3rd Qu.:4.000   3rd Qu.: 1.0000  
+##  Max.   :98.000   Max.   : 8.00   Max.   :9.000   Max.   : 8.0000  
+##      Spend1             Dole          TaxSpend        MuchPov    
+##  Min.   :-1.0000   Min.   :1.000   Min.   :1.000   Min.   :1.00  
+##  1st Qu.:-1.0000   1st Qu.:1.000   1st Qu.:2.000   1st Qu.:1.00  
+##  Median :-1.0000   Median :2.000   Median :3.000   Median :2.00  
+##  Mean   : 0.6845   Mean   :2.303   Mean   :2.676   Mean   :1.97  
+##  3rd Qu.: 3.0000   3rd Qu.:3.000   3rd Qu.:3.000   3rd Qu.:2.00  
+##  Max.   :98.0000   Max.   :9.000   Max.   :9.000   Max.   :9.00  
+##     Poverty1        Poverty2       NatFrEst        incdiffs      
+##  Min.   :1.000   Min.   :1.00   Min.   :  0.0   Min.   :-1.0000  
+##  1st Qu.:1.000   1st Qu.:1.00   1st Qu.: 12.0   1st Qu.:-1.0000  
+##  Median :2.000   Median :1.00   Median : 35.0   Median : 1.0000  
+##  Mean   :1.865   Mean   :1.56   Mean   :109.2   Mean   : 0.7382  
+##  3rd Qu.:2.000   3rd Qu.:2.00   3rd Qu.: 60.0   3rd Qu.: 2.0000  
+##  Max.   :9.000   Max.   :8.00   Max.   :999.0   Max.   : 9.0000  
+##     welfare2         leftrigh         libauth      
+##  Min.   :-1.000   Min.   :-1.000   Min.   :-1.000  
+##  1st Qu.: 1.875   1st Qu.: 1.600   1st Qu.: 2.500  
+##  Median : 2.625   Median : 2.400   Median : 3.333  
+##  Mean   : 2.156   Mean   : 2.006   Mean   : 2.797  
+##  3rd Qu.: 3.125   3rd Qu.: 3.000   3rd Qu.: 4.000  
+##  Max.   : 9.000   Max.   : 9.000   Max.   : 9.000</code></pre>
+<div class="question">
+<p>Do you think all of these variables are actually numeric? Why?</p>
+</div>
+<div class="r-comment" style="display: none;">
+<p>No; variables in survey datasets are often coded in numeric form, regardless of whether these are actually numeric or categorical. Datasets from reputable sources such as the UK Data Service (UKDS), are accompanied by data dictionaries which describe and explain in detail what each variable measures and how it is coded in the data file. For data that you download from the UKDS, the data dictionary can be found in the <strong>mrdoc</strong> folder.</p>
+<p>In general, datasets from the UKDS will be available in a format that hosts metadata (e.g. Stata, SPSS). This means that if you explore the variables in a SPSS or Stata data file you imported in R, you will note that variables are accompanied by metadata. Those which are categorical are also accompanied by labels which describe the categories to which numeric values belong. However, since you are now using the file you exported as a <code>.csv</code>, you will remember that such files do not host any metadata.</p>
+</div>
+</div>
+<div id="exercise-39" class="section level3 unnumbered hasAnchor">
+<h3>3.1.3 Exercise<a href="practical-3.html#exercise-39" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To practice using data dictionaries, open the <strong>mrdoc</strong> subfolder within the main folder you downloaded (starts with <strong>UKDA-8850</strong>…). Extract the file from the zippeed <strong>ukda_data_dictionaries</strong> folder.</p>
+<p>Find the following variables in the data dictionary: <strong>NatFrEst</strong>, <strong>RSex</strong>, <strong>Married</strong>, and <strong>RAgeCat</strong>.</p>
+<div class="question">
+<p>What do these variables measure and how are they coded?</p>
+</div>
+<div class="r-comment" style="display: none;">
+<p>According to the data dictionary:</p>
+<ul>
+<li><strong>NatFrEst</strong> asks survey respondents to provide an estimated numeric value for the following question: <em>Out of every 100 people receiving benefits in Britain, how many have broken the law by giving false information to support their claim?</em>.<br />
+</li>
+<li><strong>RSex</strong> represents the sex of the respondent. Males are numerically labelled as “1” and females as “2”.<br />
+</li>
+<li><strong>Married</strong> represents the marital status of the respondent. There are four categories labelled “1” to “4”.<br />
+</li>
+<li><strong>RAgeCat</strong> represents the age category into which the respondent falls. Age is grouped into 7 categories labelled “1” to “7”.<br />
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="subsetting" class="section level2 unnumbered hasAnchor">
+<h2>3.2 Subsetting<a href="practical-3.html#subsetting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exercise-40" class="section level3 unnumbered hasAnchor">
+<h3>3.2.1 Exercise<a href="practical-3.html#exercise-40" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Create a new data frame object called <code>bsas_sample</code> that contains the following variables in this order: NatFrEst, RSex, Married, and RAgeCat.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="practical-3.html#cb84-1" tabindex="-1"></a>bsas_sample <span class="ot">&lt;-</span> bsas_dataset[<span class="fu">c</span>(<span class="st">&quot;NatFrEst&quot;</span>, <span class="st">&quot;RSex&quot;</span>, <span class="st">&quot;Married&quot;</span>, <span class="st">&quot;RAgeCat&quot;</span>)]</span></code></pre></div>
+</details>
+<div class="r-comment" style="display: none;">
+<p>As you have already seen in the lecture materials, there are various ways to achieve this. One simple way is to specify a character vector of variable names using <code>c()</code> within square brackets used to subset a data object.</p>
+</div>
+</div>
+<div id="exercise-41" class="section level3 unnumbered hasAnchor">
+<h3>3.2.2 Exercise<a href="practical-3.html#exercise-41" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Find the class of variable Married.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="practical-3.html#cb85-1" tabindex="-1"></a><span class="fu">class</span>(bsas_sample<span class="sc">$</span>Married)</span></code></pre></div>
+</details>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<div class="question">
+<p>Would you be able to analyse this variable as it is, without any further transformation?</p>
+</div>
+<div class="r-comment" style="display: none;">
+<p>In most cases, the answer would be NO, since this variable is categorical and should be coded as a factor. If you also explore RSex and RAgeCat, you would also see that they are also of class <code>integer</code>. To ensure that you recode all relevant variables correctly, you must consult the data dictionaries.</p>
+</div>
+</div>
+</div>
+<div id="basic-transformations" class="section level2 unnumbered hasAnchor">
+<h2>3.3 Basic Transformations<a href="practical-3.html#basic-transformations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exercise-42" class="section level3 unnumbered hasAnchor">
+<h3>3.3.1 Exercise<a href="practical-3.html#exercise-42" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Use <code>colnames()</code> function to change the names of the variables as follows:</p>
+<ul>
+<li>NatFrEst to false_benefits</li>
+<li>RSex to sex</li>
+<li>Married to marital_status</li>
+<li>RAgeCat to age_cat</li>
+</ul>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="practical-3.html#cb87-1" tabindex="-1"></a><span class="fu">colnames</span>(bsas_sample) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;false_benefits&quot;</span>, <span class="st">&quot;sex&quot;</span>, <span class="st">&quot;marital_status&quot;</span>, <span class="st">&quot;age_category&quot;</span>)</span></code></pre></div>
+</details>
+<p>Now use the appropriate function to confirm that the column names have been changed.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="practical-3.html#cb88-1" tabindex="-1"></a><span class="fu">names</span>(bsas_sample)</span></code></pre></div>
+</details>
+<pre><code>## [1] &quot;false_benefits&quot; &quot;sex&quot;            &quot;marital_status&quot; &quot;age_category&quot;</code></pre>
+</div>
+<div id="exercise-43" class="section level3 unnumbered hasAnchor">
+<h3>3.3.2 Exercise<a href="practical-3.html#exercise-43" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Using the <code>table()</code> function, explore the contents of the variable false_benefits.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="practical-3.html#cb90-1" tabindex="-1"></a><span class="fu">table</span>(bsas_sample<span class="sc">$</span>false_benefits)</span></code></pre></div>
+</details>
+<pre><code>## 
+##   0   1   2   3   4   5   6   7   8   9  10  12  13  15  18  19  20  23  25  27 
+##   8  68  82  43  25 192   3  14  10   1 354   7   1  90   1   1 286   1 190   3 
+##  30  32  33  35  38  40  42  43  45  46  47  48  49  50  51  55  56  57  59  60 
+## 194   2  19  45   1 188   1   3  23   2   1   2   1 436   2  20   1   2   1 160 
+##  63  65  66  68  69  70  75  78  79  80  82  85  86  88  90  93  95  98  99 100 
+##   1  29   2   2   2 107  77   2   1 126   2  18   1   2  58   1  10   4  19  30 
+## 998 999 
+## 242   4</code></pre>
+<div class="question">
+<p>Are there any strange values and if so, what do they mean?</p>
+</div>
+<div class="r-comment" style="display: none;">
+<p>Based on the data dictionary you have consulted in the previous exercise, you should already know that each one of the four variables, regardless of whether it is measured on a numeric or nominal scale, has labels that denote missing data. For the variable <strong>false_benefits</strong>, there are several missing data since both 998 and 999 labels appear in the table. This type of information is very important for recoding/tranforming variables correctly.</p>
+</div>
+</div>
+<div id="exercise-44" class="section level3 unnumbered hasAnchor">
+<h3>3.3.3 Exercise<a href="practical-3.html#exercise-44" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Perform the following modifications to the variables below:</p>
+<ul>
+<li>For marital_status, change the 9 values to <code>NA</code>.<br />
+</li>
+<li>For age_category , change the 8 values to <code>NA</code>.<br />
+</li>
+<li>For false_benefits, change the 998 and 999 values to <code>NA</code>.</li>
+</ul>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="practical-3.html#cb92-1" tabindex="-1"></a>bsas_sample<span class="sc">$</span>marital_status[bsas_sample<span class="sc">$</span>marital_status <span class="sc">==</span> <span class="dv">9</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb92-2"><a href="practical-3.html#cb92-2" tabindex="-1"></a></span>
+<span id="cb92-3"><a href="practical-3.html#cb92-3" tabindex="-1"></a>bsas_sample<span class="sc">$</span>age_category[bsas_sample<span class="sc">$</span>age_category <span class="sc">==</span> <span class="dv">8</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb92-4"><a href="practical-3.html#cb92-4" tabindex="-1"></a></span>
+<span id="cb92-5"><a href="practical-3.html#cb92-5" tabindex="-1"></a>bsas_sample<span class="sc">$</span>false_benefits[bsas_sample<span class="sc">$</span>false_benefits <span class="sc">&gt;</span> <span class="dv">900</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span></code></pre></div>
+</details>
+<div class="r-comment" style="display: none;">
+<p>For the false_benefits variable, the simplest approach is to specify a value large enough to encompass both 998 and 999. In this case, the maximum value is 100 after which there are no values corresponding to any number between 100 and 998.</p>
+</div>
+<div class="question">
+<p>How many <code>NA</code> values does the variable false_benefits have in total?</p>
+</div>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="practical-3.html#cb93-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(bsas_sample<span class="sc">$</span>false_benefits))</span></code></pre></div>
+</details>
+<pre><code>## [1] 246</code></pre>
+</div>
+<div id="exercise-45" class="section level3 unnumbered hasAnchor">
+<h3>3.3.4 Exercise<a href="practical-3.html#exercise-45" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For the sex variable, change the 1 values to Male and the 2 values to Female.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="practical-3.html#cb95-1" tabindex="-1"></a>bsas_sample<span class="sc">$</span>sex[bsas_sample<span class="sc">$</span>sex <span class="sc">==</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Male&quot;</span></span>
+<span id="cb95-2"><a href="practical-3.html#cb95-2" tabindex="-1"></a></span>
+<span id="cb95-3"><a href="practical-3.html#cb95-3" tabindex="-1"></a>bsas_sample<span class="sc">$</span>sex[bsas_sample<span class="sc">$</span>sex <span class="sc">==</span> <span class="dv">2</span> ] <span class="ot">&lt;-</span> <span class="st">&quot;Female&quot;</span></span></code></pre></div>
+</details>
+<div class="r-comment" style="display: none;">
+<p>For the purposes of this practical, it is acceptable to perform factor recoding for each category individually. You will learn how to do this more efficiently later in in the course.</p>
+</div>
+<p>Now confirm the changes using a suitable function.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="practical-3.html#cb96-1" tabindex="-1"></a><span class="fu">table</span>(bsas_sample<span class="sc">$</span>sex)</span></code></pre></div>
+</details>
+<pre><code>## 
+## Female   Male 
+##   1770   1454</code></pre>
+<div class="question">
+<p>What is the class of the variable now?</p>
+</div>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="practical-3.html#cb98-1" tabindex="-1"></a><span class="fu">class</span>(bsas_sample<span class="sc">$</span>sex)</span></code></pre></div>
+</details>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="r-comment" style="display: none;">
+<p>After changing the numeric labels to character labels, the variable is now of class <code>character</code>. To make this variable a factor, we need an extra step:<br />
+<code>bsas_sample$sex &lt;- factor(bsas_sample$sex)</code>.</p>
+</div>
+</div>
+<div id="exercise-46" class="section level3 unnumbered hasAnchor">
+<h3>3.3.5 Exercise<a href="practical-3.html#exercise-46" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Create a new vector object called <code>id</code> that contains a sequence of values from 1 to 3,224.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="practical-3.html#cb100-1" tabindex="-1"></a>id <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3224</span></span></code></pre></div>
+</details>
+<p>Add the <code>id</code> vector as a column to the <code>bsas_sample</code> data frame.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="practical-3.html#cb101-1" tabindex="-1"></a>bsas_sample<span class="sc">$</span>id <span class="ot">&lt;-</span> id</span></code></pre></div>
+</details>
+<div class="question">
+<p>Where in the data frame was this new ‘vector’ added?</p>
+</div>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="practical-3.html#cb102-1" tabindex="-1"></a><span class="fu">str</span>(bsas_sample)</span></code></pre></div>
+</details>
+<pre><code>## &#39;data.frame&#39;:    3224 obs. of  5 variables:
+##  $ false_benefits: int  5 30 50 50 50 10 1 NA 5 50 ...
+##  $ sex           : chr  &quot;Female&quot; &quot;Female&quot; &quot;Female&quot; &quot;Male&quot; ...
+##  $ marital_status: int  1 2 1 4 4 1 4 1 1 4 ...
+##  $ age_category  : int  6 3 4 2 6 4 2 4 4 1 ...
+##  $ id            : int  1 2 3 4 5 6 7 8 9 10 ...</code></pre>
+<div class="r-comment" style="display: none;">
+<p>You can find this out in various ways, one being <code>str()</code>. The new column was added at the <strong>end</strong> of the data frame. The purpose of adding an ID column is to uniquely identify each case within the data frame (in cases where no such ID exists). You will learn more about why this is important, later in the course.</p>
+</div>
+</div>
+<div id="exercise-47" class="section level3 unnumbered hasAnchor">
+<h3>3.3.6 Exercise<a href="practical-3.html#exercise-47" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Reorder the variables of <code>bsas_sample</code> as follows: <code>id</code>, <code>RSex</code>, <code>RAgeCat</code>, <code>Married</code>, and <code>NatFrEst</code>.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="practical-3.html#cb104-1" tabindex="-1"></a>bsas_sample <span class="ot">&lt;-</span> bsas_sample[, <span class="fu">c</span>(<span class="st">&quot;id&quot;</span>, <span class="st">&quot;sex&quot;</span>, <span class="st">&quot;age_category&quot;</span>, <span class="st">&quot;marital_status&quot;</span>, <span class="st">&quot;false_benefits&quot;</span>)]</span></code></pre></div>
+</details>
+<p>Confirm the change in order using a suitable function.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="practical-3.html#cb105-1" tabindex="-1"></a><span class="co"># You can use the names() function, for example. </span></span>
+<span id="cb105-2"><a href="practical-3.html#cb105-2" tabindex="-1"></a></span>
+<span id="cb105-3"><a href="practical-3.html#cb105-3" tabindex="-1"></a><span class="fu">names</span>(bsas_sample)</span></code></pre></div>
+</details>
+<pre><code>## [1] &quot;id&quot;             &quot;sex&quot;            &quot;age_category&quot;   &quot;marital_status&quot;
+## [5] &quot;false_benefits&quot;</code></pre>
 
+</div>
 </div>
 </div>
 
