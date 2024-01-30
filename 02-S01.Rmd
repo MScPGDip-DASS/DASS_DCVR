@@ -383,9 +383,15 @@ In this exercise, you will practice how to download, access, and import data fro
 
 Navigate to the British Social Attitudes Survey (2019) webpage on the UK Data Service website (<https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=8850#!/access-data>)
 
-Scroll down to the end of the webpage and download the dataset in both SPSS and STATA formats in your R project working directory.
+Scroll down to the end of the webpage and download the dataset in both SPSS and STATA formats on your computer. 
 
-To access the SPSS data file, unzip folder and open the folders in the following sequence: *UKDA-8850-spss \> spss \> spss25*. Follow the same approach for accessing the STATA file. Place these two files in your root R project working directory or within a sub-folder in this directory.
+To access the SPSS data file, unzip folder and open the folders in the following sequence: *UKDA-8850-spss \> spss \> spss25*. Follow the same approach for accessing the STATA file.   
+
+Place these two files in your root R project working directory in a subfolder called **data**. 
+
+::: note
+The recommended approach for a ‘clean’ working directory is to place all the data files you plan to use in a separate folder within your R project working directory. You should always use simple names that allow you easy access to the contents when you want to either explore the folder on your machine or specify the path to these folders in R. 
+:::
 
 ## 3.1 Exercise {.unnumbered}
 
@@ -400,14 +406,18 @@ Did the import function work? Why?
 :::
 
 ::: {.r-comment style="display: none;"}
-If you have not loaded the `haven` package, you will be prompted with the following error in the R console. To load the haven package, type `library(haven)` in your console first and then run `bsas_spss <- read_spss("data/bsa2019_poverty_open.sav")`. Also, note that the recommended approach for a 'clean' working directory is to place all the data files you plan to use in a separate folder within your working directory. You can name this folder **data**, for example. If you want to access a data file located in your root working directory, then simply remove the `data/` component from the file path.
+If you have not loaded the `haven` package, you will be prompted with the following error in the R console. To load the package, type `library(haven)` in your console first and after that, the code for importing the data. Remember to always start your work in R by first loading all the packages that you require for your session. 
 :::
 
 ## 3.2 Exercise {.unnumbered}
 
 Import the dataset in STATA format; name this object `bsas_stata`.
 
-```{r, eval = FALSE}
+```{r echo = FALSE, warning = FALSE, message = FALSE}
+library(haven)
+```
+
+```{r eval = FALSE}
 bsas_stata <- read_dta("data/bsa2019_poverty_open.dta")
 ```
 
@@ -423,32 +433,36 @@ There are many different ways to find the number of observations and variables s
 
 Export both `bsas_spss` and `bsas_stata` data objects in `.RData` format.
 
-```{r, eval=FALSE}
-save(bsas_spss, bsas_stata, file = "bsas_objects.RData")
+```{r, eval = FALSE}
+save(bsas_spss, bsas_stata, file = "data/bsas_objects.RData")
 ```
+
+::: note
+Remember to keep your root working directory organised and save/export your data files in your **data** folder. 
+:::
 
 ## 3.4 Exercise {.unnumbered}
 
 Now export `bsas_spss` as a single object in `.RDS` format.
 
-```{r, eval=FALSE}
-saveRDS(bsas_spss, "bsas_spss_file.RDS")
+```{r, eval = FALSE}
+saveRDS(bsas_spss, "data/bsas_spss_file.RDS")
 ```
 
 ## 3.5 Exercise {.unnumbered}
 
 Finally, export the `bsas_stata` object as a `.csv` file.
 
-```{r, eval=FALSE}
-write.csv(bsas_stata, "bsas_stata_file.csv")
+```{r, eval = FALSE}
+write.csv(bsas_stata, "data/bsas_stata_file.csv")
 ```
 
 ## 3.6 Exercise {.unnumbered}
 
 Import the `.csv` file you have created and name this object `bsas_stata2`. View the contents of the `bsas_stata2` and `bsas_stata` objects. What are the differences between the two, if any? Why?
 
-```{r, eval=FALSE}
-bsas_stata2 <- read.csv("bsas_stata_file.csv")
+```{r, eval = FALSE}
+bsas_stata2 <- read.csv("data/bsas_stata_file.csv")
 ```
 
 ::: question
@@ -464,7 +478,7 @@ The`bsas_stata` objected imported with the `haven` package has accompanying meta
 Now import the `.RDS` created and name this object `bsas_spss2`.
 
 ```{r, eval=FALSE}
-bsas_spss2 <- readRDS("bsas_spss_file.RDS")
+bsas_spss2 <- readRDS("data/bsas_spss_file.RDS")
 ```
 
 ## 3.8 Exercise {.unnumbered}
@@ -472,8 +486,13 @@ bsas_spss2 <- readRDS("bsas_spss_file.RDS")
 Finally, load the `.Rdata` file you created.
 
 ```{r, eval=FALSE}
-load("bsas_objects.RData")
+load("data/bsas_objects.RData")
 ```
+
+::: note
+You will use some of these data objects in future practicals. Please make sure that you keep all of the data files from this section in your **data** folder.
+:::
+
 
 # 4. Bonus Task: Data on GitHub {.unnumbered}
 
@@ -571,3 +590,12 @@ Find the class of the object.
 ```{r, class}
 class(covid_johnshop)
 ```
+
+## 4.4 Exercise {.unnumbered}
+
+Export the data as a `.csv` file. 
+
+```{r, eval=FALSE}
+write.csv(covid_johnshop, "data/covid_johnshop.csv")
+```
+

@@ -405,8 +405,143 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ## 2.1 Exploring Homogenous Data Structures {-}
 
-### Exercise 2.1.1 
+### 2.1.1 Exercise {-} 
 
+Create the following vectors:  
+
+-   A numeric vector called `numeric_vct` comprising of: 8, 10, 5, 9, 6, 0, 2, 3.  
+
+-   A character vector called `char_vct` comprising of: bus, train, train, car, car, bus, train, bus.  
+
+-   A factor called `commuting` comprising of the same values as those of `char_vct`.  
+
+-   A factor called `commuting2`  comprising of the same values as those of `commuting`. Use the levels argument to specify the following levels to the factor: bus, car, train, taxi.  
+
+-   A numeric vector called `num_vct` comprising of: 1, 2, 1, 3, 2, 3, 3, 1, 1, 2, 2, 4, 2, 4, 4. Transform this numeric vector into a factor called `education` and assign it the following labels: GCSE, Alevel, undergraduate, graduate.  
+
+```{r}
+numeric_vector <- c(8, 10, 5, 9, 6, 0, 2, 3)
+
+char_vct <- c("bus", "train", "train", "car", "car", "bus", "train", "bus")
+
+commuting <- factor(char_vct)
+
+commuting2 <- factor(char_vct, levels = c("bus", "car", "train", "taxi"))
+
+num_vct <- c(1, 2, 1, 3, 2, 3, 3, 1, 1, 2, 2, 4, 2, 4, 4)
+education <- factor(num_vct, labels  = c("GCSE", "Alevel", "undergraduate", "graduate"))
+```
+
+::: question
+Explore `commuting` and `commuting2` using the `table()` function. How do the levels and number of observations of these two vectors differ?
+:::
+
+```{r eval = FALSE}
+table(commuting)
+
+table(commuting2)
+```
+
+::: {.r-comment style="display: none;"}
+The object values are of course identical for levels `bus`, `car`, and `train` but you have also added one more level to `commuting2`, namely `taxi`. As you would have seen in the output in your RStudio console, there are zero observations for this factor level. 
+
+`> table(commuting2)`  
+  `bus   car train  taxi`   
+    `3     2     3     0`  
+
+Versus  
+
+`> table(commuting)`   
+  `bus   car train`   
+    `3     2     3`   
+    
+This illustrates that levels can be added to factors even though observations for that particular level are not present in the 'dataset'. This is an important feature of factors during statistical analysis since the absence of data is meaningful for categorical variables.
+:::
+
+### 2.1.2 Exercise {-} 
+
+Create a matrix object called `matrix_object` using one of the numeric vectors you created earlier (`numeric_vector`). The matrix must have 2 rows and 4 columns.   
+
+```{r}
+matrix_object <- matrix(numeric_vector, nrow = 2, ncol = 4)
+```
+
+Find the class, length, and dimensions.  
+
+```{r}
+class(matrix_object)
+length(matrix_object)
+dim(matrix_object)
+```
+
+\newpage
+
+## 2.2 Exploring Heterogenous Data Structures {-}
+
+### Exercise 2.2.1 {-}
+
+Create a data frame called `data_frame` by combining the three objects you created earlier (`numeric_vector`, `char_vct` and `commuting`). 
+
+```{r}
+data_frame <- data.frame(numeric_vector, char_vct, commuting)
+```
+
+Find the class, dimensions and attributes. 
+
+```{r}
+class(data_frame)
+dim(data_frame)
+attributes(data_frame)
+```
+
+### Exercise 2.2.2 {-}
+
+Use the appropriate functions to compactly view the first and last parts of the `data_frame` object.
+
+```{r}
+head(data_frame)
+```
+
+
+```{r}
+tail(data_frame)
+```
+
+### Exercise 2.2.3 {-}
+
+Use the appropriate function to confirm the names of the columns of `data_frame`.
+
+```{r}
+colnames(data_frame)
+
+# OR
+
+names(data_frame)
+```
+
+### Exercise 2.2.4 {-}
+
+Create a list called `list_combined` by combing the following objects you previously created (`numeric_vector`, `commuting`, `education`, and `data_frame`). 
+
+```{r}
+list_combined <- list(numeric_vector, commuting, education, data_frame)
+```
+
+### Exercise 2.2.5 {-}
+
+Use the appropriate function to view the contents of `list_combined` in a compact form. 
+
+```{r}
+str(list_combined)
+```
+
+::: question
+What does the output tell you about `list_combined`? 
+:::
+
+::: {.r-comment style="display: none;"}
+The `str()` function provides the total number of items in an object (in this case a list), the class of each item, as well as the number of elements within each item. There are 4 items; in the order in which they would appear in your console, these are: a numeric vector of 8 elements, a factor with 3 levels, a factor with 4 levels, and a data frame composed of a numeric, character, and factor. 
+:::
 
 
 # Practical 3 {.unnumbered}
@@ -470,4 +605,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ```
 
-## 
+## 3. Working with Datasets 
+
+
+In Section 1, you have completed a series of file import/export exercises using data from British Social Attitudes Survey (2019): Open Access Teaching Dataset. For this practical, you will use one of the objects you have exported as a `.csv` file in your R project **data** folder, namely the `bsas_stata` object. 
+
+

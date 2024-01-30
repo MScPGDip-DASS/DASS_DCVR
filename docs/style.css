@@ -248,7 +248,24 @@ div.ilos {
   background-image: url("images/boxes/ilos.png");
 }
 
+/* -----------Sidebar div tips------------- */
+/* from r-pkgs.org*/
+  div.note {
+    padding: 1em;
+    margin: 1em 0;
+    padding-left: 100px;
+    background-size: 70px;
+    background-repeat: no-repeat;
+    background-position: 15px center;
+    min-height: 120px;
+    color: black;
+    background-color: #F0F3FE;
+    text-align: left;
+  }
 
+div.note {
+  background-image: url("images/boxes/note.png");
+}
 
 /* -----------Sidebar div tips------------- */
 /* from r-pkgs.org*/
