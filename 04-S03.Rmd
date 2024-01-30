@@ -118,9 +118,9 @@ Use the appropriate function to import the two data files.
 Name  `ESS9e01_1.dta` as `ess9` and `ESSMD-2018-cntry_F1.dta` as `ess_country_full`. 
 
 ```{r}
-ess9 <- read_dta("ESS9e01_1.dta")
+ess9 <- read_dta("data/ESS9e01_1.dta")
 
-ess_country_full <- read_dta("ESSMD-2018-cntry_F1.dta")
+ess_country_full <- read_dta("data/ESSMD-2018-cntry_F1.dta")
 ```
 
 ## 2.3 Task {-}

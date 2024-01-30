@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4. Bonus Task: Data on GitHub | Data Cleaning and Visualisation using R</title>
+  <title>8. Data Transformation | Data Cleaning and Visualisation using R</title>
   <meta name="description" content="Notebook hosting practical materials for SOST70023." />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4. Bonus Task: Data on GitHub | Data Cleaning and Visualisation using R" />
+  <meta property="og:title" content="8. Data Transformation | Data Cleaning and Visualisation using R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Notebook hosting practical materials for SOST70023." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4. Bonus Task: Data on GitHub | Data Cleaning and Visualisation using R" />
+  <meta name="twitter:title" content="8. Data Transformation | Data Cleaning and Visualisation using R" />
   
   <meta name="twitter:description" content="Notebook hosting practical materials for SOST70023." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="importing-and-exporting-data.html"/>
-<link rel="next" href="overview-1.html"/>
+<link rel="prev" href="perfoming-the-merge.html"/>
+<link rel="next" href="saving-data-objects.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -328,118 +328,174 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <img src="images/banners/DCVR_banner.png" alt="Trulli">
   </div>
 </center>
-<div id="bonus-task-data-on-github" class="section level1 unnumbered hasAnchor">
-<h1>4. Bonus Task: Data on GitHub<a href="bonus-task-data-on-github.html#bonus-task-data-on-github" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var codeBlocks = document.querySelectorAll('pre > code');
-
-    codeBlocks.forEach(function(block) {
-        // Check if the block's content starts with '##'
-        if (block.textContent.trim().startsWith('##')) {
-            var button = document.createElement('button');
-            button.className = 'toggle-button';
-            button.textContent = 'Show R Output';
-            button.style.display = 'block'; // Ensure button is visible
-            block.style.display = 'none'; // Initially hide the R output
-
-            button.onclick = function() {
-                if (block.style.display === 'none') {
-                    block.style.display = 'block';
-                    button.textContent = 'Hide R Output';
-                } else {
-                    block.style.display = 'none';
-                    button.textContent = 'Show R Output';
-                }
-            };
-
-            block.parentNode.insertBefore(button, block);
-        }
-    });
-});
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var rComments = document.querySelectorAll('.r-comment');
-
-    rComments.forEach(function(comment) {
-        // Create the toggle button
-        var button = document.createElement('button');
-        button.className = 'toggle-comment-button';
-        button.textContent = 'Show Explanation';
-        button.style.display = 'block'; // Ensure button is visible
-        comment.style.display = 'none'; // Initially hide the comment
-
-        // Add click event listener to the button
-        button.onclick = function() {
-            if (comment.style.display === 'none') {
-                comment.style.display = 'block'; // Adjust as needed
-                button.textContent = 'Hide Explanation';
-            } else {
-                comment.style.display = 'none';
-                button.textContent = 'Show Explanation';
-            }
-        };
-
-        // Insert the button before the comment
-        comment.parentNode.insertBefore(button, comment);
-    });
-});
-
-</script>
-<p><strong>Importing Data from Github Repositories</strong></p>
-<p>Many different types of data can be imported in R using either base R functions or functions from packages. However, R is not limited to importing ‘hard copy’ files from your machine but also supports direct import of data files located on websites for example.</p>
-<p><a href="https://github.com/features" target="_blank">GitHub </a> is a cloud-based, online platform that allows programming users to openly share research projects, associated documentation, data files, and comments with other users and/or the public. You will learn more about GitHub later in the course.</p>
-<p>Explore the <a href="https://github.com/CSSEGISandData/COVID-19" target="_blank">Johns Hopkins Whiting School of Engineering COVID-19</a> Github Repository.</p>
-<ol style="list-style-type: decimal">
-<li>Open the <strong>csse_covid_19_data</strong> folder found at the beginning of the page.</li>
-<li>Then open <strong>the csse_covid_19_time_series</strong> folder.</li>
-<li>Click on <strong>time_series_covid19_confirmed_global.csv</strong> link.</li>
-<li>Click on the <strong>Raw</strong> button on the right hand side of the screen.<br />
+<div id="data-transformation" class="section level1 unnumbered hasAnchor">
+<h1>8. Data Transformation<a href="data-transformation.html#data-transformation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Now that our new dataset contains all the information needed, let’s have a look at the variables and perform some transformations. To find out more about what the variable code names mean, you can of course consult the data dictionaries for more detailed information, but you can also use the <code>attributes()</code> function.</p>
+<div id="task-14" class="section level2 unnumbered hasAnchor">
+<h2>8.1 Task<a href="data-transformation.html#task-14" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Explore the <code>gndr</code> variable using the <code>count()</code> function.</p>
+</div>
+<div id="task-15" class="section level2 unnumbered hasAnchor">
+<h2>8.2 Task<a href="data-transformation.html#task-15" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="data-transformation.html#cb148-1" tabindex="-1"></a><span class="fu">count</span>(ess2, gndr)</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 2 × 2
+##   gndr           n
+##   &lt;dbl+lbl&gt;  &lt;int&gt;
+## 1 1 [Male]   16730
+## 2 2 [Female] 18780</code></pre>
+<p>Transform the <code>gndr</code> variable into a factor variable called <code>sex</code> with two categories; assign a Male label to values of 1 and a Female label to the values of 2. Use the <code>count</code> function to confirm the changes.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="data-transformation.html#cb150-1" tabindex="-1"></a>ess2<span class="sc">$</span>sex <span class="ot">&lt;-</span> <span class="fu">factor</span>(ess2<span class="sc">$</span>gndr, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>))</span></code></pre></div>
+</details>
+<p>Use the <code>count</code> function to confirm the changes.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="data-transformation.html#cb151-1" tabindex="-1"></a><span class="fu">count</span>(ess2, sex)</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 2 × 2
+##   sex        n
+##   &lt;fct&gt;  &lt;int&gt;
+## 1 Male   16730
+## 2 Female 18780</code></pre>
+</div>
+<div id="task-16" class="section level2 unnumbered hasAnchor">
+<h2>8.3 Task<a href="data-transformation.html#task-16" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Find out what the <strong>imbgeco</strong> variable measures.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="data-transformation.html#cb153-1" tabindex="-1"></a><span class="fu">attributes</span>(ess2<span class="sc">$</span>imbgeco)</span></code></pre></div>
+</details>
+<pre><code>## $label
+## [1] &quot;Immigration bad or good for country&#39;s economy&quot;
+## 
+## $format.stata
+## [1] &quot;%20.0g&quot;
+## 
+## $labels
+##  Bad for the economy                    1                    2 
+##                    0                    1                    2 
+##                    3                    4                    5 
+##                    3                    4                    5 
+##                    6                    7                    8 
+##                    6                    7                    8 
+##                    9 Good for the economy              Refusal 
+##                    9                   10                   NA 
+##           Don&#39;t know            No answer 
+##                   NA                   NA 
+## 
+## $class
+## [1] &quot;haven_labelled&quot; &quot;vctrs_vctr&quot;     &quot;double&quot;</code></pre>
+<p>Use the appropriate functions to transform the <code>imbgeco</code> variable into a factor variable called <code>immigration</code> with three categories as follows:</p>
+<ul>
+<li>values 0 to 3 should represent “Bad for Economy”<br />
 </li>
-<li>The webpage will now show you a long series of numbers. This is the ‘data file’ that you need to import. Note that this file is a <code>.csv</code> file. The same base R function you have previously used will also work in this case.</li>
-</ol>
-<div id="exercise-17" class="section level2 unnumbered hasAnchor">
-<h2>4.1 Exercise<a href="bonus-task-data-on-github.html#exercise-17" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>To import the data file, create a new object called <code>covid_johnshop</code>. Within the base R <code>.csv</code> function, paste the full data file web link. Do not forget to enclose this link with quotation marks.</p>
+<li>values 4 to 6 should represent “Neutral”<br />
+</li>
+<li>values 7 to 10 should represent “Good for Economy”</li>
+</ul>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="bonus-task-data-on-github.html#cb24-1" tabindex="-1"></a>covid_johnshop <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="data-transformation.html#cb155-1" tabindex="-1"></a>ess2 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(ess2, </span>
+<span id="cb155-2"><a href="data-transformation.html#cb155-2" tabindex="-1"></a>                   <span class="at">immigration =</span> <span class="fu">case_when</span>(</span>
+<span id="cb155-3"><a href="data-transformation.html#cb155-3" tabindex="-1"></a>                     imbgeco <span class="sc">&gt;=</span><span class="dv">0</span> <span class="sc">&amp;</span> imbgeco <span class="sc">&lt;=</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">&quot;Bad for Economy&quot;</span>,</span>
+<span id="cb155-4"><a href="data-transformation.html#cb155-4" tabindex="-1"></a>                     imbgeco <span class="sc">&gt;=</span> <span class="dv">4</span> <span class="sc">&amp;</span> imbgeco <span class="sc">&lt;=</span> <span class="dv">6</span> <span class="sc">~</span> <span class="st">&quot;Neutral&quot;</span>,</span>
+<span id="cb155-5"><a href="data-transformation.html#cb155-5" tabindex="-1"></a>                     imbgeco <span class="sc">&gt;=</span> <span class="dv">7</span> <span class="sc">&amp;</span> imbgeco <span class="sc">&lt;=</span> <span class="dv">10</span> <span class="sc">~</span> <span class="st">&quot;Good for Economy&quot;</span>), </span>
+<span id="cb155-6"><a href="data-transformation.html#cb155-6" tabindex="-1"></a>                   <span class="at">immigration_factor =</span> <span class="fu">factor</span>(immigration))</span></code></pre></div>
 </details>
-</div>
-<div id="exercise-18" class="section level2 unnumbered hasAnchor">
-<h2>4.2 Exercise<a href="bonus-task-data-on-github.html#exercise-18" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>View the contents of this object.</p>
+<p>Confirm the changes using the <code>count()</code> function.</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="bonus-task-data-on-github.html#cb25-1" tabindex="-1"></a><span class="fu">View</span>(covid_johnshop)</span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="data-transformation.html#cb156-1" tabindex="-1"></a><span class="fu">count</span>(ess2, immigration_factor)</span></code></pre></div>
 </details>
+<pre><code>## # A tibble: 4 × 2
+##   immigration_factor     n
+##   &lt;fct&gt;              &lt;int&gt;
+## 1 Bad for Economy     8598
+## 2 Good for Economy   10984
+## 3 Neutral            14474
+## 4 &lt;NA&gt;                1454</code></pre>
 </div>
-<div id="exercise-19" class="section level2 unnumbered hasAnchor">
-<h2>4.3 Exercise<a href="bonus-task-data-on-github.html#exercise-19" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Find the class of the object.</p>
+<div id="task-17" class="section level2 unnumbered hasAnchor">
+<h2>8.4 Task<a href="data-transformation.html#task-17" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Use the appropriate functions to create a new factor variable called <code>immigrants</code> based on the<code>imwbcnt</code> variable such that:
+- values of 0 to 3 represent “Worse”
+- values of 4 to 6 represent “Neither Better nor Worse”
+- values of 7 to 10 represent “Better”</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="bonus-task-data-on-github.html#cb26-1" tabindex="-1"></a><span class="fu">class</span>(covid_johnshop)</span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="data-transformation.html#cb158-1" tabindex="-1"></a>ess2 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(ess2, </span>
+<span id="cb158-2"><a href="data-transformation.html#cb158-2" tabindex="-1"></a>                   <span class="at">immigrants =</span> <span class="fu">case_when</span>(</span>
+<span id="cb158-3"><a href="data-transformation.html#cb158-3" tabindex="-1"></a>                     imbgeco <span class="sc">&gt;=</span><span class="dv">0</span> <span class="sc">&amp;</span> imbgeco <span class="sc">&lt;=</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">&quot;Worse&quot;</span>,</span>
+<span id="cb158-4"><a href="data-transformation.html#cb158-4" tabindex="-1"></a>                     imbgeco <span class="sc">&gt;=</span> <span class="dv">4</span> <span class="sc">&amp;</span> imbgeco <span class="sc">&lt;=</span> <span class="dv">6</span> <span class="sc">~</span> <span class="st">&quot;Neither Better nor Worse&quot;</span>,</span>
+<span id="cb158-5"><a href="data-transformation.html#cb158-5" tabindex="-1"></a>                     imbgeco <span class="sc">&gt;=</span> <span class="dv">7</span> <span class="sc">&amp;</span> imbgeco <span class="sc">&lt;=</span> <span class="dv">10</span> <span class="sc">~</span> <span class="st">&quot;Better&quot;</span>), </span>
+<span id="cb158-6"><a href="data-transformation.html#cb158-6" tabindex="-1"></a>                   <span class="at">immigrats =</span> <span class="fu">factor</span>(immigrants))</span></code></pre></div>
 </details>
-<pre><code>## [1] &quot;data.frame&quot;</code></pre>
-</div>
-<div id="exercise-20" class="section level2 unnumbered hasAnchor">
-<h2>4.4 Exercise<a href="bonus-task-data-on-github.html#exercise-20" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Export the data as a <code>.csv</code> file.</p>
+<p>Confirm the changes using the <code>count()</code> function.</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="bonus-task-data-on-github.html#cb28-1" tabindex="-1"></a><span class="fu">write.csv</span>(covid_johnshop, <span class="st">&quot;data/covid_johnshop.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="data-transformation.html#cb159-1" tabindex="-1"></a><span class="fu">count</span>(ess2, immigrants)</span></code></pre></div>
 </details>
-
+<pre><code>## # A tibble: 4 × 2
+##   immigrants                   n
+##   &lt;chr&gt;                    &lt;int&gt;
+## 1 Better                   10984
+## 2 Neither Better nor Worse 14474
+## 3 Worse                     8598
+## 4 &lt;NA&gt;                      1454</code></pre>
+<p>Use the appropriate forcats function to assign NA values to a level called “missing” for the <code>immigrants</code> variable.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="data-transformation.html#cb161-1" tabindex="-1"></a>ess2 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(ess2, </span>
+<span id="cb161-2"><a href="data-transformation.html#cb161-2" tabindex="-1"></a>                 <span class="at">immigrants =</span> <span class="fu">fct_explicit_na</span>(immigrants, </span>
+<span id="cb161-3"><a href="data-transformation.html#cb161-3" tabindex="-1"></a>                                                      <span class="at">na_level =</span> <span class="st">&quot;Missing&quot;</span>))</span></code></pre></div>
+</details>
+<pre><code>## Warning: There was 1 warning in `mutate()`.
+## ℹ In argument: `immigrants = fct_explicit_na(immigrants, na_level =
+##   &quot;Missing&quot;)`.
+## Caused by warning:
+## ! `fct_explicit_na()` was deprecated in forcats 1.0.0.
+## ℹ Please use `fct_na_value_to_level()` instead.</code></pre>
+<p>Confirm the changes.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="data-transformation.html#cb163-1" tabindex="-1"></a><span class="fu">count</span>(ess2, immigrants)</span></code></pre></div>
+</details>
+<pre><code>## # A tibble: 4 × 2
+##   immigrants                   n
+##   &lt;fct&gt;                    &lt;int&gt;
+## 1 Better                   10984
+## 2 Neither Better nor Worse 14474
+## 3 Worse                     8598
+## 4 Missing                   1454</code></pre>
+</div>
+<div id="task-18" class="section level2 unnumbered hasAnchor">
+<h2>8.5 Task<a href="data-transformation.html#task-18" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Remove the “c_” prefix and the “_2018” suffix from the <strong>ess2</strong> variables. Now use the appropriate function to check whether the changes have been applied.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="data-transformation.html#cb165-1" tabindex="-1"></a><span class="co"># Removing the &quot;c_prefix&quot;</span></span>
+<span id="cb165-2"><a href="data-transformation.html#cb165-2" tabindex="-1"></a>ess2 <span class="ot">&lt;-</span> ess2 <span class="sc">%&gt;%</span></span>
+<span id="cb165-3"><a href="data-transformation.html#cb165-3" tabindex="-1"></a><span class="fu">rename_all</span>(<span class="sc">~</span> <span class="fu">str_remove</span>(., <span class="st">&quot;c_&quot;</span>))</span>
+<span id="cb165-4"><a href="data-transformation.html#cb165-4" tabindex="-1"></a></span>
+<span id="cb165-5"><a href="data-transformation.html#cb165-5" tabindex="-1"></a><span class="co"># Removing the &quot;_2018&quot; suffix</span></span>
+<span id="cb165-6"><a href="data-transformation.html#cb165-6" tabindex="-1"></a>ess2 <span class="ot">&lt;-</span> ess2 <span class="sc">%&gt;%</span></span>
+<span id="cb165-7"><a href="data-transformation.html#cb165-7" tabindex="-1"></a><span class="fu">rename_all</span>(<span class="sc">~</span> <span class="fu">str_remove</span>(., <span class="st">&quot;_2018&quot;</span>))</span></code></pre></div>
+</details>
+<p>Now use a suitable function to check whether the changes have been applied.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="data-transformation.html#cb166-1" tabindex="-1"></a><span class="fu">names</span>(ess2)</span></code></pre></div>
+</details>
+<pre><code>##  [1] &quot;idno&quot;               &quot;cntry&quot;              &quot;imbgeco&quot;           
+##  [4] &quot;imueclt&quot;            &quot;imwbcnt&quot;            &quot;vote&quot;              
+##  [7] &quot;uempla&quot;             &quot;agea&quot;               &quot;eduyrs&quot;            
+## [10] &quot;gndr&quot;               &quot;region&quot;             &quot;id&quot;                
+## [13] &quot;medage&quot;             &quot;olddeprat&quot;          &quot;tpopsz&quot;            
+## [16] &quot;fpopsz&quot;             &quot;mpopsz&quot;             &quot;gini&quot;              
+## [19] &quot;ticpi&quot;              &quot;asyl_app&quot;           &quot;popfor&quot;            
+## [22] &quot;sex&quot;                &quot;immigration&quot;        &quot;immigration_factor&quot;
+## [25] &quot;immigrants&quot;         &quot;immigrats&quot;</code></pre>
 </div>
 </div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="importing-and-exporting-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="overview-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="perfoming-the-merge.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="saving-data-objects.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

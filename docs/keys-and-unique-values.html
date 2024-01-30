@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4. Bonus Task: Data on GitHub | Data Cleaning and Visualisation using R</title>
+  <title>6. Keys and Unique Values | Data Cleaning and Visualisation using R</title>
   <meta name="description" content="Notebook hosting practical materials for SOST70023." />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4. Bonus Task: Data on GitHub | Data Cleaning and Visualisation using R" />
+  <meta property="og:title" content="6. Keys and Unique Values | Data Cleaning and Visualisation using R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Notebook hosting practical materials for SOST70023." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4. Bonus Task: Data on GitHub | Data Cleaning and Visualisation using R" />
+  <meta name="twitter:title" content="6. Keys and Unique Values | Data Cleaning and Visualisation using R" />
   
   <meta name="twitter:description" content="Notebook hosting practical materials for SOST70023." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="importing-and-exporting-data.html"/>
-<link rel="next" href="overview-1.html"/>
+<link rel="prev" href="merging-data.html"/>
+<link rel="next" href="perfoming-the-merge.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -328,118 +328,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <img src="images/banners/DCVR_banner.png" alt="Trulli">
   </div>
 </center>
-<div id="bonus-task-data-on-github" class="section level1 unnumbered hasAnchor">
-<h1>4. Bonus Task: Data on GitHub<a href="bonus-task-data-on-github.html#bonus-task-data-on-github" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var codeBlocks = document.querySelectorAll('pre > code');
-
-    codeBlocks.forEach(function(block) {
-        // Check if the block's content starts with '##'
-        if (block.textContent.trim().startsWith('##')) {
-            var button = document.createElement('button');
-            button.className = 'toggle-button';
-            button.textContent = 'Show R Output';
-            button.style.display = 'block'; // Ensure button is visible
-            block.style.display = 'none'; // Initially hide the R output
-
-            button.onclick = function() {
-                if (block.style.display === 'none') {
-                    block.style.display = 'block';
-                    button.textContent = 'Hide R Output';
-                } else {
-                    block.style.display = 'none';
-                    button.textContent = 'Show R Output';
-                }
-            };
-
-            block.parentNode.insertBefore(button, block);
-        }
-    });
-});
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var rComments = document.querySelectorAll('.r-comment');
-
-    rComments.forEach(function(comment) {
-        // Create the toggle button
-        var button = document.createElement('button');
-        button.className = 'toggle-comment-button';
-        button.textContent = 'Show Explanation';
-        button.style.display = 'block'; // Ensure button is visible
-        comment.style.display = 'none'; // Initially hide the comment
-
-        // Add click event listener to the button
-        button.onclick = function() {
-            if (comment.style.display === 'none') {
-                comment.style.display = 'block'; // Adjust as needed
-                button.textContent = 'Hide Explanation';
-            } else {
-                comment.style.display = 'none';
-                button.textContent = 'Show Explanation';
-            }
-        };
-
-        // Insert the button before the comment
-        comment.parentNode.insertBefore(button, comment);
-    });
-});
-
-</script>
-<p><strong>Importing Data from Github Repositories</strong></p>
-<p>Many different types of data can be imported in R using either base R functions or functions from packages. However, R is not limited to importing ‘hard copy’ files from your machine but also supports direct import of data files located on websites for example.</p>
-<p><a href="https://github.com/features" target="_blank">GitHub </a> is a cloud-based, online platform that allows programming users to openly share research projects, associated documentation, data files, and comments with other users and/or the public. You will learn more about GitHub later in the course.</p>
-<p>Explore the <a href="https://github.com/CSSEGISandData/COVID-19" target="_blank">Johns Hopkins Whiting School of Engineering COVID-19</a> Github Repository.</p>
-<ol style="list-style-type: decimal">
-<li>Open the <strong>csse_covid_19_data</strong> folder found at the beginning of the page.</li>
-<li>Then open <strong>the csse_covid_19_time_series</strong> folder.</li>
-<li>Click on <strong>time_series_covid19_confirmed_global.csv</strong> link.</li>
-<li>Click on the <strong>Raw</strong> button on the right hand side of the screen.<br />
-</li>
-<li>The webpage will now show you a long series of numbers. This is the ‘data file’ that you need to import. Note that this file is a <code>.csv</code> file. The same base R function you have previously used will also work in this case.</li>
-</ol>
-<div id="exercise-17" class="section level2 unnumbered hasAnchor">
-<h2>4.1 Exercise<a href="bonus-task-data-on-github.html#exercise-17" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>To import the data file, create a new object called <code>covid_johnshop</code>. Within the base R <code>.csv</code> function, paste the full data file web link. Do not forget to enclose this link with quotation marks.</p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="bonus-task-data-on-github.html#cb24-1" tabindex="-1"></a>covid_johnshop <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv&quot;</span>)</span></code></pre></div>
-</details>
+<div id="keys-and-unique-values" class="section level1 unnumbered hasAnchor">
+<h1>6. Keys and Unique Values<a href="keys-and-unique-values.html#keys-and-unique-values" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In the context of this practical, we are interested to explore individual level differences given country. Therefore, the purpose of the merge is to add the country level data to the individual level data so that each survey respondent will be associated with a particular country.</p>
+<div class="question">
+<p>What kind of join will this be?</p>
 </div>
-<div id="exercise-18" class="section level2 unnumbered hasAnchor">
-<h2>4.2 Exercise<a href="bonus-task-data-on-github.html#exercise-18" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>View the contents of this object.</p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="bonus-task-data-on-github.html#cb25-1" tabindex="-1"></a><span class="fu">View</span>(covid_johnshop)</span></code></pre></div>
-</details>
+<div class="r-comment" style="display: none;">
+<p>This will be a <code>left_join()</code> with the individual level data as the first input and the <strong>cntry</strong> variable as the key since this is the key in the country level data object.</p>
 </div>
-<div id="exercise-19" class="section level2 unnumbered hasAnchor">
-<h2>4.3 Exercise<a href="bonus-task-data-on-github.html#exercise-19" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Find the class of the object.</p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="bonus-task-data-on-github.html#cb26-1" tabindex="-1"></a><span class="fu">class</span>(covid_johnshop)</span></code></pre></div>
-</details>
-<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<p>For information purposes, it is important to explore whether all countries are available in the individual level data object so that we can identify whether any information would be lost during the merge.</p>
+<p>To do so, we can use the <code>unique()</code> base R function which identifies unique values in variables and the <code>%in%</code> logical operator which is used to compare values and produce a <code>TRUE</code> or <code>FALSE</code> output.</p>
+<p>To check for unique values in the <strong>ess</strong> object, you can run the code below in your console.</p>
+<p><code>unique(ess$cntry)</code></p>
+<p>We should also find out if all the countries in the country level data are also found in the individual level data. Essentially, the below line of code is asking R whether the values of the variable <code>cntry</code> in the <code>ess</code> object are are also present in the <code>ess_cntry18</code> object. Run the code below in your console.</p>
+<p><code>country_present &lt;- unique(ess$cntry) %in% unique(ess_cntry18$cntry)</code></p>
+<p>If you print the contents, you will find that there are multiple <code>FALSE</code> instances, which means that there are countries that are not present in the country level dataset.</p>
+<p>To find out exactly which countries are not present in the country level data, run the below code in your console. This combines the unique function to check for countries in the <code>ess</code> object and the subsetting square brackets so that the output excludes countries that are present in both objects and provides only those which are absent from <code>ess_cntry18</code>. Run the code below in your console.</p>
+<p><code>unique(ess$cntry)[!country_present]</code></p>
 </div>
-<div id="exercise-20" class="section level2 unnumbered hasAnchor">
-<h2>4.4 Exercise<a href="bonus-task-data-on-github.html#exercise-20" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Export the data as a <code>.csv</code> file.</p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="bonus-task-data-on-github.html#cb28-1" tabindex="-1"></a><span class="fu">write.csv</span>(covid_johnshop, <span class="st">&quot;data/covid_johnshop.csv&quot;</span>)</span></code></pre></div>
-</details>
-
-</div>
-</div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="importing-and-exporting-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="overview-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="merging-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="perfoming-the-merge.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
