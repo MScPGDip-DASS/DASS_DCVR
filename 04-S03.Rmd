@@ -136,7 +136,7 @@ How does the output of `glimpse()` differ from the output of the `str()` functio
 :::
 
 ::: {.r-comment style="display: none;"}
-As you can see, `glimpse()` provides a similar output to the base R `str()` function but it is adapted specifically for tibble data objects. Since `this object`ess9` is very large, the output is rather difficult to navigate.
+As you can see, `glimpse()` provides a similar output to the base R `str()` function but it is adapted specifically for tibble data objects. Since this object **ess9** is very large, the output is rather difficult to navigate.
 :::
 
 # 3. Subsetting {-}
@@ -145,9 +145,9 @@ In general, datasets will require some degree of subsetting of variables that wo
 
 ## 3.1 Task {-}
 
-Using the appropriate function, subset `ess9` so that it contains only the following variables: idno, cntry, imbgeco, imueclt, imwbcnt, vote, uempla, agea, eduyrs, gndr, region.  
+Using the appropriate function, subset **ess9** so that it contains only the following variables: idno, cntry, imbgeco, imueclt, imwbcnt, vote, uempla, agea, eduyrs, gndr, region.  
 
-Name this new data object `ess`.  
+Name this new data object **ess**.  
 
 ```{r}
 
@@ -166,7 +166,7 @@ In general, datasets will require some degree of subsetting of variables that wo
 
 ## 3.2 Task {-}
 
-Explore `ess` using `glimpse()`.
+Explore **ess** using `glimpse()`.
 
 ```{r}
 glimpse(ess)
@@ -180,28 +180,135 @@ What dimensions does the object have? What do you think about the class of some 
 This object is quite large (over 30,000 observations for 11 variables). You can also see that at least two variables, such as **gndr** and **cntry** should be coded as factors; in the dataset, they are coded as numeric or character, respectively.
 :::
 
-## 3.3 Task {-}
+# 4. Filtering Observations {-}
 
-Explore `vote` and `gndr` using the `attributes()` function. What do these variables represent? Are these variables of the correct class?
+## 4.1 Task {-}
 
-Using the appropriate function, find the number of cases for each variable. Are these are missing values? If so, filter the observations so that the `count()` function displays only valid cases. 
+Explore the **edurys** variable and find out what this variable measures. 
 
-Explore the `edurys`variable and find out what this variable measures. Are there any missing values? If so, use the filter function remove the missing values from the variable and confirm that the missing values have been removed.
+```{r}
+attributes(ess$eduyrs)
+```
+
+Count the number of observations. Are there any missing values? 
+
+```{r}
+count(ess, eduyrs)
+```
+
+Use the `filter()` function remove the missing values from the variable. 
+
+```{r}
+ess <- filter(ess, !is.na(eduyrs))
+```
+
+Confirm that the missing values have been removed. 
+
+```{r}
+sum(is.na(ess$eduyrs))
+```
+
+## 4.2 Task {-}
+
+Explore the **vote** variable and find out what this variable measures. 
+
+```{r}
+attributes(ess$vote)
+```
+
+::: {.r-comment style="display: none;"}
+The **vote** variable records whether survey respondents voted during their last national election and is a categorical variable with 3 categories (yes, no, not eligible) coded as a numeric variable.
+:::
+
+Count the number of observations. Are there any missing values? 
+
+```{r}
+count(ess, vote)
+```
+
+::: {.r-comment style="display: none;"}
+The **vote** variable highlights that (by far), the majority of the respondents who participated in the survey did vote in their last national election. There are a total of 412 missing values.
+:::
+
+Count the number of observations but this time, drop the missing values. 
+
+```{r}
+ess %>% count(vote) %>%
+        drop_na()
+```
+
+::: {.r-comment style="display: none;"}
+To count the values of the vote variable but drop the missing ones, we can use the `count()` and `drop_na()` functions in the same sequence by connecting these two functions with the pipe operator.  
+
+Another way to obtain the same result is to first remove the missing values by using the `filter()` function and then use `count()`.     
+
+`ess %>% filter(!is.na(vote)) %>% count(vote)`
+:::
 
 
-# 5. Merging Data
+## 4.3 Task {-}
 
-## 5.1 Preparing Data
+Explore the **gndr** and find out what it measures.
 
-To perform the remaining exercises, you will need to join the individual level data object `ess` with the country level data object `ess_country_full` .
 
-Explore the `ess_country_full` object using `head()` and `glimpse()`. What dimensions does this object have? Do you notice any patterns in the names of the variables?
+```{r}
+attributes(ess$gndr)
+```
+
+::: {.r-comment style="display: none;"}
+The **gndr** variable records whether the sex of the surey respondents is a categorical variable with 2 categories (male, female) also coded as a numeric variable.
+:::
+
+Using the appropriate function, find the number of cases. Are these are missing values?
+
+```{r}
+count(ess, gndr)
+```
+
+
+# 5. Merging Data {-}
+
+To perform the remaining exercises, you will need to join the individual-level data object `ess` with the country-level data object `ess_country_full` .
+
+## 5.1 Task {-}
+
+Explore the `ess_country_full` object using `glimpse()`. 
+
+```{r}
+glimpse(ess_country_full)
+```
+
+:::question 
+Do you notice any patterns in the names of the variables?
+:::
+
+::: {.r-comment style="display: none;"}
+When using `glimpse()`, it is evidently cumbersome to explore the variables in the console. Nevertheless, if you glance through the output in the console, you can note several patterns in the names. For example, each variable starts with the `c_` pattern, and each variable name ends with **year**. Variables contain specific name patterns that show which variables were recorded in multiple years. 
+:::
+
+## 5.2 Task {-}
 
 The data file contains country level data from multiple years. However, since our individual level data only contains data from 2018, the `ess_country_full` data object must be subsetted so that it also contains data only from 2018. 
 
-Using the appropriate function, subset the `ess_country_full` data object so that it only contains the variable `cntry` and variables from 2018. \textbf{Hint\: use the} `ends_with` \textbf{function to match the year pattern in the variable names.} Name this new object `ess_cntry18`.
+Using the appropriate function, subset `ess_country_full` such that it only contains the variable `cntry` and variables from 2018. 
 
-Before merging, we must see whether the two data objects have unique keys. One sensible option would be  the `cntry` variable which is found in both objects. 
+```{r}
+ess_cntry18 <- ess_country_full %>% select(cntry, ends_with("2018"))
+```
+
+Now confirm that the changes have been applied. 
+
+```{r}
+glimpse(ess_cntry18)
+```
+
+::: {.r-comment style="display: none;"}
+When using `glimpse()`, it is evidently cumbersome to explore the variables in the console. Nevertheless, if you glance through the output in the console, you can note several patterns in the names. For example, each variable starts with the `c_` pattern, and each variable name ends with **year**. Variables contain specific name patterns that show which variables were recorded in multiple years. 
+:::
+
+## 5.3 Task {-}
+
+Before merging, we must check  kthe two data objects have unique keys. One sensible option would be  the `cntry` variable which is found in both objects. 
 
 Use the appropriate function to see whether the observations for the `cntry` variable from `ess_cntry18` are unique. Do the same for `ess`. 
 
