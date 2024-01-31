@@ -38,7 +38,7 @@ Section 2: The Structure of Data Objects
 |   `is.na()`    | identifies NA values; returns a logical output (TRUE/FALSE) for each element in an object | base R  |
 
 ::: attention
-Remember to continue working in the RStudio project you created for this course and typing your answers in separate R script for each practical.
+Remember to continue working in the RStudio project you created for this course and typing your answers in separate R scripts. 
 :::
 
 # Practical 1 {.unnumbered}

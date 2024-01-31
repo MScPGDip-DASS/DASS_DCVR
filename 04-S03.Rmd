@@ -19,7 +19,7 @@
 |     `c()`     |          concatenate function           | base R  |
 
 ::: attention
-Remember to continue working in the RStudio project you created for this course and typing your answers in separate R script for each practical.
+Remember to continue working in the RStudio project you created for this course and typing your answers in separate R scripts.
 :::
 
 # 1. Download the Data {-}
@@ -967,7 +967,7 @@ names(ess2)
 ```
 
 
-# 9. Saving Data Objects 
+# 9. Saving Data Objects {-}
 
 
 ```{js, echo=FALSE}

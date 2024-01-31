@@ -32,7 +32,7 @@ Section 1: Introducing Statistical Programming with R and RStudio
 | `write.csv()` |       save a file as `.csv` file        | base R  |
 
 ::: attention
-Remember to continue working in the RStudio project you created for this course and typing your answers in separate R script for each practical.
+Remember to continue working in the RStudio project you created for this course and typing your answers in separate R scripts.
 :::
 
 # 1. Performing Calculations with Vectors {.unnumbered}
