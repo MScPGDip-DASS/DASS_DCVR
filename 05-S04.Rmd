@@ -95,9 +95,9 @@ For now, make sure to keep both the GitHub page and GitHub Desktop open (you can
 
 ### OPTION 1: With GitHub Desktop {-}
 
-To perform the commit action with GitHub Desktop is very simple. The two files you created will now appear in the application and will have already been automatically selected (confirm that they are accompanied by check marks). In the Summary box underneath the files, provide a short description of these files and then click on **Commit to main**. Once the software reinitialises, click on **Push Origin**. Note that if you do not click on Push Origin, these files will NOT be added to the central repository but will only be updated in your local repository. After you perform the push action, you should no longer see these two files under the Changes tab but you can track the history of the changes made to this project by clicking on the **History** tab. 
+To perform the commit action with GitHub Desktop is very simple. The two files you created will now appear in the application and will have already been automatically selected (confirm that they are accompanied by check marks). In the Summary box underneath the files, provide a short description of these files and then click on **Commit to main**. Once the software reinitialises, click on **Push origin**. Note that if you do not click on **Push origin**, these files will NOT be added to the central repository but will only be updated in your local repository. After you perform the push action, you should no longer see these two files under the Changes tab but you can track the history of the changes made to this project by clicking on the **History** tab. 
 
-If you now navigate to your online GitHub account, you should see these two new files in your central remote repository (refresh the page if these are not visible). Click on the `.md` file to see how it is presented on GitHub. 
+If you now navigate to your online GitHub account page, you should see these two new files in your central remote repository (refresh the page if these are not visible). Click on the `.md` file to see how it is presented on GitHub. 
 
 ### OPTION 2: With RStudio {-}
 
