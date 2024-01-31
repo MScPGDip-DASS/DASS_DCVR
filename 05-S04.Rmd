@@ -125,9 +125,11 @@ Write a brief description of your files in the **Commit Message** box, and then 
 
 # Practical 2 {-}
 
-For this practical, you will be required to create a PDF Document using the built-in sample content provided by R Markdown. The output you produce should appear as shown on the subsequent pages of this document.
+For this practical, you will be required to create a PDF Document using the built-in sample content provided by R Markdown.  
 
-In addition to carefully exploring the attached output, follow the guidelines below:  
+The R Markdown file you create should produce the following document: <a href="files_attached/DCVR_S04_Practical2.pdf" download="DCVR_S04_Practical2">click here to view the file</a>. You can view the file in your browser. If you want to save a copy, right-click on your mouse or keypad and select *Save as*. 
+
+**In addition to carefully exploring the attached output, follow the guidelines below:**  
 
 - Use numbered level 1 section headings  
 
@@ -148,9 +150,8 @@ In addition to carefully exploring the attached output, follow the guidelines be
 - Customise the `plot(pressure)` output using chunk options so that the figure width is set to 5 and the figure height to 4. Also, align the output in the center of the page.  
 
 
-**AFTER** you have attempted this activity on your own, you can click on the links below to download the .Rmd file which you can knit on your machines to PDF.   
-
-
-[Download the RMD file](files_attached/01_S04_Practical2.Rmd)
+:::attention
+**AFTER** you have attempted this activity on your own, have a look at the original <a href="files_attached/DCVR_S04_Practical2.Rmd" download="DCVR_S04_Practical2">.Rmd file here</a>. You can view the file in your browser. If you want to save a copy, right-click on your mouse or keypad and select **Save as**. 
+:::
 
 
