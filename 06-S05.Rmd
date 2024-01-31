@@ -26,6 +26,14 @@ Section 5: Data Visualisation
 
 # 1. The Dataset {.unnumbered}
 
+This practical uses data from a longitudinal survey conducted by Camfed (international non-profit organisation) on educational challenges in Tanzania and Zimbabwe in 2013-2015. To learn more about Camfed and the work that they do, please <a href="https://camfed.org/" target="_blank">visit their website</a>. This dataset is hosted by the UK Data Service and can be downloaded from the \<a href="<a href="https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=8335" target="_blank">visit their website</a> " target="\_blank"\>UK Data Service Website</a>.
+
+In this practical, you will use a sample of data from the Camfed survey. Before you begin the tasks, you will need to download the `cfed_small.RDS` data file from the Section 5 learning materials on Blackboard and place it in your **data** subfolder in your RStudio project working directory. 
+
+You will require the following packages for this session: `tidyverse`, `haven`, `gridExtra`, and `ggthemes`.  
+
+# 2. Getting Started {.unnumbered}
+
 ```{js, echo=FALSE}
 document.addEventListener('DOMContentLoaded', function() {
     var codeBlocks = document.querySelectorAll('pre > code');
@@ -85,14 +93,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ```
 
-This practical uses data from a longitudinal survey conducted by Camfed (international non-profit organisation) on educational challenges in Tanzania and Zimbabwe in 2013-2015. To learn more about Camfed and the work that they do, please <a href="https://camfed.org/" target="_blank">visit their website</a>. This dataset is hosted by the UK Data Service and can be downloaded from the \<a href="<a href="https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=8335" target="_blank">visit their website</a> " target="\_blank"\>UK Data Service Website</a>.
-
-In this practical, you will use a sample of data from the Camfed survey. Before you begin the tasks, you will need to download the `cfed_small.RDS` data file from the Section 5 learning materials on Blackboard and place it in your **data** subfolder in your RStudio project working directory. 
-
-You will require the following packages for this session: `tidyverse`, `haven`, `gridExtra`, and `ggthemes`.  
-
-# 2. Getting Started {.unnumbered}
-
 Remember to adequately prepare for your new R session by loading all necessary packages. This is also an opportunity for you to install any packages you may need. 
 
 ```{r, warning = FALSE, message = FALSE}
@@ -115,6 +115,66 @@ camfed_sample <-  readRDS("cfed_small.RDS")
 
 
 # 3. Data Distributions {.unnumbered}
+
+```{js, echo=FALSE}
+document.addEventListener('DOMContentLoaded', function() {
+    var codeBlocks = document.querySelectorAll('pre > code');
+
+    codeBlocks.forEach(function(block) {
+        // Check if the block's content starts with '##'
+        if (block.textContent.trim().startsWith('##')) {
+            var button = document.createElement('button');
+            button.className = 'toggle-button';
+            button.textContent = 'Show R Output';
+            button.style.display = 'block'; // Ensure button is visible
+            block.style.display = 'none'; // Initially hide the R output
+
+            button.onclick = function() {
+                if (block.style.display === 'none') {
+                    block.style.display = 'block';
+                    button.textContent = 'Hide R Output';
+                } else {
+                    block.style.display = 'none';
+                    button.textContent = 'Show R Output';
+                }
+            };
+
+            block.parentNode.insertBefore(button, block);
+        }
+    });
+});
+```
+
+```{js, echo=FALSE}
+document.addEventListener('DOMContentLoaded', function() {
+    var rComments = document.querySelectorAll('.r-comment');
+
+    rComments.forEach(function(comment) {
+        // Create the toggle button
+        var button = document.createElement('button');
+        button.className = 'toggle-comment-button';
+        button.textContent = 'Show Explanation';
+        button.style.display = 'block'; // Ensure button is visible
+        comment.style.display = 'none'; // Initially hide the comment
+
+        // Add click event listener to the button
+        button.onclick = function() {
+            if (comment.style.display === 'none') {
+                comment.style.display = 'block'; // Adjust as needed
+                button.textContent = 'Hide Explanation';
+            } else {
+                comment.style.display = 'none';
+                button.textContent = 'Show Explanation';
+            }
+        };
+
+        // Insert the button before the comment
+        comment.parentNode.insertBefore(button, comment);
+    });
+});
+
+```
+
 
 ## 3.1 Task {-}
 
@@ -174,6 +234,66 @@ At first glance, the two distributions do not seem to be very different, with th
 
 # 4. Bar Charts {-}
 
+```{js, echo=FALSE}
+document.addEventListener('DOMContentLoaded', function() {
+    var codeBlocks = document.querySelectorAll('pre > code');
+
+    codeBlocks.forEach(function(block) {
+        // Check if the block's content starts with '##'
+        if (block.textContent.trim().startsWith('##')) {
+            var button = document.createElement('button');
+            button.className = 'toggle-button';
+            button.textContent = 'Show R Output';
+            button.style.display = 'block'; // Ensure button is visible
+            block.style.display = 'none'; // Initially hide the R output
+
+            button.onclick = function() {
+                if (block.style.display === 'none') {
+                    block.style.display = 'block';
+                    button.textContent = 'Hide R Output';
+                } else {
+                    block.style.display = 'none';
+                    button.textContent = 'Show R Output';
+                }
+            };
+
+            block.parentNode.insertBefore(button, block);
+        }
+    });
+});
+```
+
+```{js, echo=FALSE}
+document.addEventListener('DOMContentLoaded', function() {
+    var rComments = document.querySelectorAll('.r-comment');
+
+    rComments.forEach(function(comment) {
+        // Create the toggle button
+        var button = document.createElement('button');
+        button.className = 'toggle-comment-button';
+        button.textContent = 'Show Explanation';
+        button.style.display = 'block'; // Ensure button is visible
+        comment.style.display = 'none'; // Initially hide the comment
+
+        // Add click event listener to the button
+        button.onclick = function() {
+            if (comment.style.display === 'none') {
+                comment.style.display = 'block'; // Adjust as needed
+                button.textContent = 'Hide Explanation';
+            } else {
+                comment.style.display = 'none';
+                button.textContent = 'Show Explanation';
+            }
+        };
+
+        // Insert the button before the comment
+        comment.parentNode.insertBefore(button, comment);
+    });
+});
+
+```
+
+
 ## 4.1 Task {-}
 
 Create a proportion bar chart of the `improvement` variable for Tanzania. This variable asks respondents whether they agree with the following statement: "When I get a bad mark I ask the teacher to explain what I need to improve".
@@ -210,6 +330,66 @@ ggplot(camfed_sample, aes(school_imp)) +
 
 
 # 5. Scatterplots {-}
+
+```{js, echo=FALSE}
+document.addEventListener('DOMContentLoaded', function() {
+    var codeBlocks = document.querySelectorAll('pre > code');
+
+    codeBlocks.forEach(function(block) {
+        // Check if the block's content starts with '##'
+        if (block.textContent.trim().startsWith('##')) {
+            var button = document.createElement('button');
+            button.className = 'toggle-button';
+            button.textContent = 'Show R Output';
+            button.style.display = 'block'; // Ensure button is visible
+            block.style.display = 'none'; // Initially hide the R output
+
+            button.onclick = function() {
+                if (block.style.display === 'none') {
+                    block.style.display = 'block';
+                    button.textContent = 'Hide R Output';
+                } else {
+                    block.style.display = 'none';
+                    button.textContent = 'Show R Output';
+                }
+            };
+
+            block.parentNode.insertBefore(button, block);
+        }
+    });
+});
+```
+
+```{js, echo=FALSE}
+document.addEventListener('DOMContentLoaded', function() {
+    var rComments = document.querySelectorAll('.r-comment');
+
+    rComments.forEach(function(comment) {
+        // Create the toggle button
+        var button = document.createElement('button');
+        button.className = 'toggle-comment-button';
+        button.textContent = 'Show Explanation';
+        button.style.display = 'block'; // Ensure button is visible
+        comment.style.display = 'none'; // Initially hide the comment
+
+        // Add click event listener to the button
+        button.onclick = function() {
+            if (comment.style.display === 'none') {
+                comment.style.display = 'block'; // Adjust as needed
+                button.textContent = 'Hide Explanation';
+            } else {
+                comment.style.display = 'none';
+                button.textContent = 'Show Explanation';
+            }
+        };
+
+        // Insert the button before the comment
+        comment.parentNode.insertBefore(button, comment);
+    });
+});
+
+```
+
 
 ## 5.1 Task {-}
 
