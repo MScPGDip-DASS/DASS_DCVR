@@ -91,7 +91,7 @@ For this practical, you will perform tasks using an earlier version of data from
 
 There are two files that you will be using in this practical:  
 
-`ESS9e01_1.dta` (individual-level data) and `ESSMD-2018-cntry_F1.dta` (country-level data).   
+**ESS9e01_1.dta** (individual-level data) and **ESSMD-2018-cntry_F1.dta** (country-level data).   
 
 Both of these data files can be downloaded from the learning materials pages on Blackboard.
 
@@ -176,7 +176,7 @@ library(haven)
 ## 2.2 Task {-}
 
 Use the appropriate function to import the two data files.
-Name  `ESS9e01_1.dta` as `ess9` and `ESSMD-2018-cntry_F1.dta` as `ess_country_full`. 
+Name  ESS9e01_1.dta as **ess9** and ESSMD-2018-cntry_F1.dta as **ess_country_full**. 
 
 ```{r}
 ess9 <- read_dta("data/ESS9e01_1.dta")
@@ -186,7 +186,7 @@ ess_country_full <- read_dta("data/ESSMD-2018-cntry_F1.dta")
 
 ## 2.3 Task {-}
 
-Use the `glimpse()` function from `dplyr` to explore the structure of `ess9`. 
+Use the `glimpse()` function from `dplyr` to explore the structure of **ess9**. 
 
 ```{r, results = FALSE}
 glimpse(ess9)
@@ -433,7 +433,6 @@ Another way to obtain the same result is to first remove the missing values by u
 
 Explore the **gndr** and find out what it measures.
 
-
 ```{r}
 attributes(ess$gndr)
 ```
@@ -449,7 +448,7 @@ count(ess, gndr)
 ```
 
 
-# 5. Merging Data {-}
+# 5. Keys and Unique Values {-}
 
 
 ```{js, echo=FALSE}
@@ -512,11 +511,11 @@ document.addEventListener('DOMContentLoaded', function() {
 ```
 
 
-To perform the remaining exercises, you will need to join the individual-level data object `ess` with the country-level data object `ess_country_full` .
+To perform the remaining exercises, you will need to join the individual-level data object **ess** with the country-level data object **ess_country_full**.
 
 ## 5.1 Task {-}
 
-Explore the `ess_country_full` object using `glimpse()`. 
+Explore **ess_country_full** using `glimpse()`. 
 
 ```{r}
 glimpse(ess_country_full)
@@ -532,9 +531,9 @@ When using `glimpse()`, it is evidently cumbersome to explore the variables in t
 
 ## 5.2 Task {-}
 
-The data file contains country level data from multiple years. However, since our individual level data only contains data from 2018, the `ess_country_full` data object must be subsetted so that it also contains data only from 2018. 
+The data file contains country level data from multiple years. However, since our individual level data only contains data from 2018, the **ess_country_full** data object must be subsetted so that it also contains data only from 2018. 
 
-Using the appropriate function, subset `ess_country_full` such that it only contains the variable `cntry` and variables from 2018. 
+Using the appropriate function, subset **ess_country_full** such that it only contains the variable **cntry** and variables from 2018. 
 
 ```{r}
 ess_cntry18 <- ess_country_full %>% select(cntry, ends_with("2018"))
@@ -615,68 +614,7 @@ count() %>%
 filter(n > 1)
 ```
 
-# 6. Keys and Unique Values {-}
-
-
-```{js, echo=FALSE}
-document.addEventListener('DOMContentLoaded', function() {
-    var codeBlocks = document.querySelectorAll('pre > code');
-
-    codeBlocks.forEach(function(block) {
-        // Check if the block's content starts with '##'
-        if (block.textContent.trim().startsWith('##')) {
-            var button = document.createElement('button');
-            button.className = 'toggle-button';
-            button.textContent = 'Show R Output';
-            button.style.display = 'block'; // Ensure button is visible
-            block.style.display = 'none'; // Initially hide the R output
-
-            button.onclick = function() {
-                if (block.style.display === 'none') {
-                    block.style.display = 'block';
-                    button.textContent = 'Hide R Output';
-                } else {
-                    block.style.display = 'none';
-                    button.textContent = 'Show R Output';
-                }
-            };
-
-            block.parentNode.insertBefore(button, block);
-        }
-    });
-});
-```
-
-```{js, echo=FALSE}
-document.addEventListener('DOMContentLoaded', function() {
-    var rComments = document.querySelectorAll('.r-comment');
-
-    rComments.forEach(function(comment) {
-        // Create the toggle button
-        var button = document.createElement('button');
-        button.className = 'toggle-comment-button';
-        button.textContent = 'Show Explanation';
-        button.style.display = 'block'; // Ensure button is visible
-        comment.style.display = 'none'; // Initially hide the comment
-
-        // Add click event listener to the button
-        button.onclick = function() {
-            if (comment.style.display === 'none') {
-                comment.style.display = 'block'; // Adjust as needed
-                button.textContent = 'Hide Explanation';
-            } else {
-                comment.style.display = 'none';
-                button.textContent = 'Show Explanation';
-            }
-        };
-
-        // Insert the button before the comment
-        comment.parentNode.insertBefore(button, comment);
-    });
-});
-
-```
-
+## 5.5. Task {-}
 
 In the context of this practical, we are interested to explore individual level differences given country. Therefore, the purpose of the merge is to add the country level data to the individual level data so that each survey respondent will be associated with a particular country.  
 
@@ -707,7 +645,7 @@ To find out exactly which countries are not present in the country level data, r
 `unique(ess$cntry)[!country_present]`
 
 
-# 7. Perfoming the Merge {-}
+# 6. Perfoming the Merge {-}
 
 
 ```{js, echo=FALSE}
@@ -770,7 +708,7 @@ document.addEventListener('DOMContentLoaded', function() {
 ```
 
 
-## 7.1 Task {-}
+## 6.1 Task {-}
 
 Use the appropriate function to merge **ess** with **ess_cntry18** by **cntry** and name this new data object **ess2**.
 
@@ -778,7 +716,7 @@ Use the appropriate function to merge **ess** with **ess_cntry18** by **cntry** 
 ess2 <- left_join(ess, ess_cntry18, by = "cntry")
 ```
 
-## 7.2 Task {-}
+## 6.2 Task {-}
 
 Explore the object using `glimpse()`. What are the dimensions of this new data object? 
 
@@ -790,7 +728,7 @@ glimpse(ess2)
 This new object has 35,510 observations of 21 variables.
 :::
 
-# 8. Data Transformation {-}
+# 7. Data Transformation {-}
 
 
 ```{js, echo=FALSE}
@@ -855,30 +793,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
 Now that our new dataset contains all the information needed, let's have a look at the variables and perform some transformations. To find out more about what the variable code names mean, you can of course consult the data dictionaries for more detailed information, but you can also use the `attributes()` function. 
 
-## 8.1 Task {-}
+## 7.1 Task {-}
 
-Explore the `gndr` variable using the `count()` function. 
+Explore the **gndr** variable using the `count()` function. 
 
-## 8.2 Task {-}
+## 7.2 Task {-}
 
 ```{r}
 count(ess2, gndr)
 ```
 
-Transform the `gndr` variable into a factor variable called `sex` with two categories; assign a Male label to values of 1 and a Female label to the values of 2. Use the `count` function to confirm the changes.  
+Transform the **gndr** variable into a factor variable called **sex** with two categories; assign a Male label to values of 1 and a Female label to the values of 2. Use the `count` function to confirm the changes.  
 
 ```{r}
 ess2$sex <- factor(ess2$gndr, labels = c("Male", "Female"))
 ```
 
-Use the `count` function to confirm the changes.  
+Use the `count()` function to confirm the changes.  
 
 ```{r}
 count(ess2, sex)
 ```
 
 
-## 8.3 Task {-}
+## 7.3 Task {-}
 
 Find out what the **imbgeco** variable measures. 
 
@@ -886,7 +824,7 @@ Find out what the **imbgeco** variable measures.
 attributes(ess2$imbgeco)
 ```
 
-Use the appropriate functions to transform the `imbgeco` variable into a factor variable called `immigration` with three categories as follows: 
+Use the appropriate functions to transform the **imbgeco** variable into a factor variable called **immigration** with three categories as follows: 
 
 - values 0 to 3 should represent "Bad for Economy"  
 - values 4 to 6 should represent "Neutral"  
@@ -908,9 +846,9 @@ Confirm the changes using the `count()` function.
 count(ess2, immigration_factor)
 ```
 
-## 8.4 Task {-}
+## 7.4 Task {-}
 
-Use the appropriate functions to create a new factor variable called `immigrants` based on the`imwbcnt` variable such that: 
+Use the appropriate functions to create a new factor variable called **immigrants** based on the **imwbcnt** variable such that: 
 - values of 0 to 3 represent "Worse"
 - values of 4 to 6 represent "Neither Better nor Worse"
 - values of 7 to 10 represent "Better"
@@ -931,7 +869,7 @@ count(ess2, immigrants)
 ```
 
 
-Use the appropriate forcats function to assign NA values to a level called "missing" for the `immigrants` variable.
+Use the appropriate forcats function to assign NA values to a level called "missing" for the **immigrants** variable.
 
 ```{r}
 ess2 <- mutate(ess2, 
@@ -945,7 +883,7 @@ Confirm the changes.
 count(ess2, immigrants)
 ```
 
-## 8.5 Task {-}
+## 7.5 Task {-}
 
 Remove the "c_" prefix and the "_2018" suffix from the **ess2** variables. Now use the appropriate function to check whether the changes have been applied. 
 
@@ -967,7 +905,7 @@ names(ess2)
 ```
 
 
-# 9. Saving Data Objects {-}
+# 8. Saving Data Objects {-}
 
 
 ```{js, echo=FALSE}
@@ -1029,7 +967,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ```
 
-Now export the **ess2** data object as a `.csv` file using the `write_csv()` function from the `readr` core tidyverse package. 
+Now export the **ess2** data object as a `.csv` file using the `write_csv()` function from the `readr` core tidyverse package. Name this file **ess2**. 
 
 ::: folder 
 Make sure that you export this file in your **data** subfolder in your RStudio project working directory. You will use this file in other practicals of this course. 
