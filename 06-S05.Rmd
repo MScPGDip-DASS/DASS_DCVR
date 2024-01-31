@@ -110,7 +110,7 @@ Importing the data should be done only after you've installed and loaded all nec
 Import the `cfed_small.RDS` file and store it in an object called **camfed_sample**
 
 ```{r}
-camfed_sample <-  readRDS("cfed_small.RDS")
+camfed_sample <-  readRDS("data/cfed_small.RDS")
 ```
 
 
