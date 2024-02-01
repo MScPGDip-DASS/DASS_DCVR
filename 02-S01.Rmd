@@ -310,7 +310,7 @@ Data download and access under a <a href="https://creativecommons.org/licenses/b
 4. Follow the same approach for accessing the STATA file.  
 
 ::: folder
-Place the two files you downloaded in your root R project working directory in a subfolder called **data**.The recommended approach for a ‘clean’ working directory is to place all the data files you plan to use in a separate folder within your R project working directory. You should always use simple names that allow you easy access to the contents when you want to either explore the folder on your machine or specify the path to these folders in R.  
+Place the two files you downloaded in your root R project working directory in a subfolder called **data**. The recommended approach for a ‘clean’ working directory is to place all the data files you plan to use in a separate folder within your R project working directory. You should always use simple names that allow you easy access to the contents when you want to either explore the folder on your machine or specify the path to these folders in R.  
 
 You should also keep both folders you downloaded (**UKDA-8850-spss** and **UKDA-8850-stata**) unzipped in your **data** folder. 
 :::
