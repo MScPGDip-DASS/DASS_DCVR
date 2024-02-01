@@ -381,9 +381,10 @@ Throughout the course units of this programme, you will utilise real datasets to
 
 In this exercise, you will practice how to download, access, and import data from the UK Data Service in R. You will use data from the *2019 British Social Attitudes Survey, Poverty and Welfare: Open Access Teaching Dataset*.
 
-You will also have the opportunity to practice how to export data in various formats.
+::: attention
+Before you begin the practical, you **MUST** register with the UK Data Service. Guidance on how to do this can be found in the Section 1 learning materials on Blackboard.
 
-**Remember to first register with the UK Data Service. Guidance on how to do this can be found in the Section 1 learning materials on Blackboard.**
+**Once you complete registration:**
 
 Navigate to the <a href="https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=8850#!/access-data" target="_blank">British Social Attitudes Survey (2019) webpage</a> on the UK Data Service website.
 
@@ -394,11 +395,10 @@ To access the SPSS data file, unzip folder and open the folders in the following
 *UKDA-8850-spss \> spss \> spss25*
 
 Follow the same approach for accessing the STATA file.
-
-Place these two files in your root R project working directory in a subfolder called **data**.
+:::
 
 ::: folder
-The recommended approach for a ‘clean’ working directory is to place all the data files you plan to use in a separate folder within your R project working directory. You should always use simple names that allow you easy access to the contents when you want to either explore the folder on your machine or specify the path to these folders in R.
+Place the two files you downloaded in your root R project working directory in a subfolder called **data**.The recommended approach for a ‘clean’ working directory is to place all the data files you plan to use in a separate folder within your R project working directory. You should always use simple names that allow you easy access to the contents when you want to either explore the folder on your machine or specify the path to these folders in R.
 :::
 
 ## 3.1 Exercise {.unnumbered}
