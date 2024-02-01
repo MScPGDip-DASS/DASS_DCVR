@@ -493,7 +493,7 @@ dim(matrix_object)
 
 ### Exercise 2.2.1 {.unnumbered}
 
-Create a data frame called `data_frame` by combining the three objects you created earlier (**numeric_vector**, **char_vct**, and **commuting**).
+Create a data frame called **data_frame** by combining the three objects you created earlier (**numeric_vector**, **char_vct**, and **commuting**).
 
 ```{r}
 data_frame <- data.frame(numeric_vector, char_vct, commuting)
@@ -509,7 +509,7 @@ attributes(data_frame)
 
 ### Exercise 2.2.2 {.unnumbered}
 
-Use the appropriate functions to compactly view the first and last parts of the **data_frame** object.
+Compactly view the first and last parts of the **data_frame** object.
 
 ```{r}
 head(data_frame)
@@ -521,7 +521,7 @@ tail(data_frame)
 
 ### Exercise 2.2.3 {.unnumbered}
 
-Use the appropriate function to confirm the names of the columns of **data_frame**.
+Find the names of the columns of **data_frame**.
 
 ```{r}
 colnames(data_frame)
@@ -533,7 +533,7 @@ names(data_frame)
 
 ### Exercise 2.2.4 {.unnumbered}
 
-Create a list called **list_combined** by combing the following objects you previously created (**numeric_vector**, **commuting**, **education**, and **data_frame**).
+Create a list called **list_combined** by combining the following objects you previously created (**numeric_vector**, **commuting**, **education**, and **data_frame**).
 
 ```{r}
 list_combined <- list(numeric_vector, commuting, education, data_frame)
@@ -541,7 +541,7 @@ list_combined <- list(numeric_vector, commuting, education, data_frame)
 
 ### Exercise 2.2.5 {.unnumbered}
 
-Use the appropriate function to view the contents of **list_combined** in a compact form.
+View the contents of **list_combined** in a compact form.
 
 ```{r}
 str(list_combined)
@@ -638,7 +638,7 @@ Use the `class()` function to confirm that the data object is a `data.frame`. Yo
 
 ### 3.1.2 Exercise {.unnumbered}
 
-Use the appropriate function to obtain a compact summary statistics output.
+Obtain a compact summary statistics output.
 
 ```{r}
 summary(bsas_dataset)

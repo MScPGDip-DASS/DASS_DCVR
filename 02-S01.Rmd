@@ -443,7 +443,7 @@ There are many different ways to find the number of observations and variables s
 
 ## 3.3 Exercise {.unnumbered}
 
-Export both **bsas_spss** and **bsas_stata** data objects in `.RData` format. Name this file **bsas_objects**. 
+Export  **bsas_spss** and **bsas_stata** in `.RData` format. Name this file **bsas_objects**. 
 
 ```{r, eval = FALSE}
 save(bsas_spss, bsas_stata, file = "data/bsas_objects.RData")
@@ -455,7 +455,7 @@ Remember to keep your root working directory organised and save/export your data
 
 ## 3.4 Exercise {.unnumbered}
 
-Now export **bsas_spss** as a single object in `.RDS` format. Name this file **bsas_spss_file**. 
+Now export **bsas_spss** in `.RDS` format and name it **bsas_spss_file**. 
 
 ```{r, eval = FALSE}
 saveRDS(bsas_spss, "data/bsas_spss_file.RDS")
@@ -463,7 +463,7 @@ saveRDS(bsas_spss, "data/bsas_spss_file.RDS")
 
 ## 3.5 Exercise {.unnumbered}
 
-Finally, export the **bsas_stata** object as a `.csv` file. Name this file **bsas_csv_file**. 
+Finally, export **bsas_stata** as a `.csv` file and name it **bsas_csv_file**. 
 
 ```{r, eval = FALSE}
 write.csv(bsas_stata, "data/bsas_csv_file.csv")
@@ -482,7 +482,7 @@ Are there any differences between the two data objects? If so, why?
 :::
 
 ::: {.r-comment style="display: none;"}
-The **bsas_stata** object imported with the `haven` package has accompanying metadata. When exporting data files with metadata as `.csv` files, this metadata is lost because this type of format does not support metadata in the same way that files such as SPSS and STATA do. Also, you may note that the **bsas_stata2** has 27 rather than 26 variables; by default, the `write.csv()` function will automatically number each row in the data file and therefore, will produce an additional column.
+You can have a look at the two data objects using `View()`. The **bsas_stata** object imported with the `haven` package has accompanying metadata. When exporting data files with metadata as `.csv` files, this metadata is lost because this type of format does not support metadata in the same way that files such as SPSS and STATA do. Also, you may note that the **bsas_stata2** has 27 rather than 26 variables; by default, the `write.csv()` function will automatically number each row in the data file and therefore, will produce an additional column.
 :::
 
 ## 3.7 Exercise {.unnumbered}
