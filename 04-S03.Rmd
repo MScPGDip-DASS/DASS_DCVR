@@ -22,7 +22,7 @@
 Remember to continue working in the RStudio project you created for this course and typing your answers in separate R scripts.
 :::
 
-# 1. Download the Data {-}
+# 1. Getting Started {-}
 
 ```{js, echo=FALSE}
 document.addEventListener('DOMContentLoaded', function() {
@@ -266,7 +266,7 @@ In general, datasets will require some degree of subsetting of variables that wo
 
 ## 3.1 Task {-}
 
-Using the appropriate function, subset **ess9** so that it contains only the following variables: idno, cntry, imbgeco, imueclt, imwbcnt, vote, uempla, agea, eduyrs, gndr, region.  
+Subset **ess9** so that it contains only the following variables: idno, cntry, imbgeco, imueclt, imwbcnt, vote, uempla, agea, eduyrs, gndr, region.  
 
 Name this new data object **ess**.  
 
@@ -378,7 +378,7 @@ Count the number of observations. Are there any missing values?
 count(ess, eduyrs)
 ```
 
-Use the `filter()` function remove the missing values from the variable. 
+Use `filter()` remove the missing values from the variable. 
 
 ```{r}
 ess <- filter(ess, !is.na(eduyrs))
@@ -440,7 +440,7 @@ attributes(ess$gndr)
 The **gndr** variable records whether the sex of the surey respondents is a categorical variable with 2 categories (male, female) also coded as a numeric variable.
 :::
 
-Using the appropriate function, find the number of cases. Are these are missing values?
+Find the number of cases for each category. Are these are missing values?
 
 ```{r}
 count(ess, gndr)
@@ -448,7 +448,6 @@ count(ess, gndr)
 
 
 # 5. Keys and Unique Values {-}
-
 
 ```{js, echo=FALSE}
 document.addEventListener('DOMContentLoaded', function() {
@@ -532,7 +531,7 @@ When using `glimpse()`, it is evidently cumbersome to explore the variables in t
 
 The data file contains country level data from multiple years. However, since our individual level data only contains data from 2018, the **ess_country_full** data object must be subsetted so that it also contains data only from 2018. 
 
-Using the appropriate function, subset **ess_country_full** such that it only contains the variable **cntry** and variables from 2018. 
+Subset **ess_country_full** such that it only contains the variable **cntry** and variables from 2018. 
 
 ```{r}
 ess_cntry18 <- ess_country_full %>% select(cntry, ends_with("2018"))
@@ -552,7 +551,7 @@ When using `glimpse()`, it is evidently cumbersome to explore the variables in t
 
 Before merging, we must check whether the two data objects (**ess** and  **ess_cntry18**) have unique keys. One sensible option for unique key would be the **cntry** variable which is found in both objects. 
 
-Use the appropriate function to check whether the observations for the **cntry** variable in **ess_cntry18** are unique. 
+Check whether the observations for the **cntry** variable in **ess_cntry18** are unique. 
 
 ```{r}
 ess_cntry18 %>% 
@@ -709,7 +708,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ## 6.1 Task {-}
 
-Use the appropriate function to merge **ess** with **ess_cntry18** by **cntry** and name this new data object **ess2**.
+Merge **ess** with **ess_cntry18** by **cntry** and name this new data object **ess2**.
 
 ```{r}
 ess2 <- left_join(ess, ess_cntry18, by = "cntry")
@@ -808,7 +807,7 @@ Transform the **gndr** variable into a factor variable called **sex** with two c
 ess2$sex <- factor(ess2$gndr, labels = c("Male", "Female"))
 ```
 
-Use the `count()` function to confirm the changes.  
+Use `count()` to confirm the changes.  
 
 ```{r}
 count(ess2, sex)
@@ -823,7 +822,7 @@ Find out what the **imbgeco** variable measures.
 attributes(ess2$imbgeco)
 ```
 
-Use the appropriate functions to transform the **imbgeco** variable into a factor variable called **immigration** with three categories as follows: 
+Transform the **imbgeco** variable into a factor variable called **immigration** with three categories as follows: 
 
 - values 0 to 3 should represent "Bad for Economy"  
 - values 4 to 6 should represent "Neutral"  
@@ -847,10 +846,10 @@ count(ess2, immigration_factor)
 
 ## 7.4 Task {-}
 
-Use the appropriate functions to create a new factor variable called **immigrants** based on the **imwbcnt** variable such that: 
-- values of 0 to 3 represent "Worse"
-- values of 4 to 6 represent "Neither Better nor Worse"
-- values of 7 to 10 represent "Better"
+Create a new factor variable called **immigrants** based on the **imwbcnt** variable such that:  
+- values of 0 to 3 represent "Worse"  
+- values of 4 to 6 represent "Neither Better nor Worse"  
+- values of 7 to 10 represent "Better"  
 
 ```{r}
 ess2 <- mutate(ess2, 
@@ -868,7 +867,7 @@ count(ess2, immigrants)
 ```
 
 
-Use the appropriate forcats function to assign NA values to a level called "missing" for the **immigrants** variable.
+Use the appropriate `forcats` function to assign NA values to a level called "missing" for the **immigrants** variable.
 
 ```{r}
 ess2 <- mutate(ess2, 
