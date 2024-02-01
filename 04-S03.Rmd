@@ -90,7 +90,7 @@ This cross-national survey is one of the largest and methodologically rigorous i
 For this practical, you will perform tasks using an earlier version of data from **ESS Round 9 (2018)**. 
 
 ::: attention
-Before you begin the practical, you **MUST** create an account with ESS. 
+Before you begin the practical, you **MUST** create an account with ESS. Navigate to the href=" https://ess.sikt.no/en/?tab=overview" target="_blank">data portal page </a>, and click on **Log in**. The new page to which you will be taken may display text in Norwegian; switch to English using the top right button on the page. Use the link next to *Don't have an account on any of these providers?* to create a new account. Use your University of Manchester email. 
 :::
 
 There are two files that you will be using in this practical:  
