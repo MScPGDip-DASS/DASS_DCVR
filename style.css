@@ -302,6 +302,8 @@ div.attention {
     color: black;
     background-color: white;
     text-align: justify;
+    border: 1px  #777; 
+
 }
 
 p.caption {
