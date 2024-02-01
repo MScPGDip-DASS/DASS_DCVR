@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Practical 1 | Data Cleaning and Visualisation using R</title>
+  <title>1. Basics of Vector Structures | Data Cleaning and Visualisation using R</title>
   <meta name="description" content="Notebook hosting practical materials for SOST70023." />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Practical 1 | Data Cleaning and Visualisation using R" />
+  <meta property="og:title" content="1. Basics of Vector Structures | Data Cleaning and Visualisation using R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Notebook hosting practical materials for SOST70023." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Practical 1 | Data Cleaning and Visualisation using R" />
+  <meta name="twitter:title" content="1. Basics of Vector Structures | Data Cleaning and Visualisation using R" />
   
   <meta name="twitter:description" content="Notebook hosting practical materials for SOST70023." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="overview-1.html"/>
-<link rel="next" href="practical-2.html"/>
+<link rel="prev" href="overview.html"/>
+<link rel="next" href="importing-and-exporting-data.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -336,8 +336,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <img src="images/banners/DCVR_banner.png" alt="Trulli">
   </div>
 </center>
-<div id="practical-1" class="section level1 unnumbered hasAnchor">
-<h1>Practical 1<a href="practical-1.html#practical-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="basics-of-vector-structures" class="section level1 unnumbered hasAnchor">
+<h1>1. Basics of Vector Structures<a href="basics-of-vector-structures.html#basics-of-vector-structures" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     var codeBlocks = document.querySelectorAll('pre > code');
@@ -395,286 +395,124 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 </script>
-<div id="vectors-and-factors" class="section level2 unnumbered hasAnchor">
-<h2>1.1 Vectors and Factors<a href="practical-1.html#vectors-and-factors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="exercise-19" class="section level3 unnumbered hasAnchor">
-<h3>1.1.1 Exercise<a href="practical-1.html#exercise-19" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Create and print a vector object named <strong>data_vct</strong> that contains the following values: 8, incorrect, 9.8.</p>
+<div id="exercise" class="section level2 unnumbered hasAnchor">
+<h2>1.1 Exercise<a href="basics-of-vector-structures.html#exercise" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Create a vector object called <strong>num_vct</strong> that contains the following values: 70, 8, 50, 100.</p>
+<p>Print the contents.</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="practical-1.html#cb27-1" tabindex="-1"></a>data_vct <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="st">&quot;incorrect&quot;</span>, <span class="fl">9.8</span>)</span>
-<span id="cb27-2"><a href="practical-1.html#cb27-2" tabindex="-1"></a></span>
-<span id="cb27-3"><a href="practical-1.html#cb27-3" tabindex="-1"></a>data_vct</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="basics-of-vector-structures.html#cb1-1" tabindex="-1"></a><span class="co"># Creating the vector.</span></span>
+<span id="cb1-2"><a href="basics-of-vector-structures.html#cb1-2" tabindex="-1"></a>num_vct <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">70</span>, <span class="dv">8</span>, <span class="dv">50</span>, <span class="dv">100</span>) </span>
+<span id="cb1-3"><a href="basics-of-vector-structures.html#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="basics-of-vector-structures.html#cb1-4" tabindex="-1"></a><span class="co"># Now printing the contents.</span></span>
+<span id="cb1-5"><a href="basics-of-vector-structures.html#cb1-5" tabindex="-1"></a>num_vct </span></code></pre></div>
 </details>
-<pre><code>## [1] &quot;8&quot;         &quot;incorrect&quot; &quot;9.8&quot;</code></pre>
-<div class="question">
-<p>What output does R produce? Why?</p>
+<pre><code>## [1]  70   8  50 100</code></pre>
 </div>
-<div class="r-comment" style="display: none;">
-<p>Vectors can only contain a single data type since they are homogenous structures and in this exercise, there are two data types in this vector, namely numeric and character. When R detects multiple data types within a vector, it will, by default, coerce all values to a single data type. Since the character value cannot be coerced to a numeric value, R will coerce all values to character. This is irrespective of whether the values are logical or numeric.<br />
-Alternatively, if you did not place the word “incorrect” between inverted commas such as <code>data_vct &lt;- c(8, incorrect, 9.8)</code>, then the attempt to create the vector would have failed and you would have been prompted by an error message: <code>Error: object 'incorrect' not found</code>. The reason for this is that only logical values can be specified as text in vectors without inverted commas; anything else will be a character value and must be specified within inverted commas.</p>
-</div>
-</div>
-<div id="exercise-20" class="section level3 unnumbered hasAnchor">
-<h3>1.1.2 Exercise<a href="practical-1.html#exercise-20" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Create a vector object named <strong>data_vct2</strong> that contains the following values: 8, FALSE, 9.8.</p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="practical-1.html#cb29-1" tabindex="-1"></a>data_vct2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="cn">FALSE</span>, <span class="fl">9.8</span>)</span>
-<span id="cb29-2"><a href="practical-1.html#cb29-2" tabindex="-1"></a></span>
-<span id="cb29-3"><a href="practical-1.html#cb29-3" tabindex="-1"></a><span class="fu">class</span>(data_vct2)</span></code></pre></div>
-</details>
-<pre><code>## [1] &quot;numeric&quot;</code></pre>
-<div class="question">
-<p>What output does R produce? What class is this vector? Why?</p>
-</div>
-<div class="r-comment" style="display: none;">
-<p>This is another example of how R coerces values to have a consistent data type when detecting heterogeneity in a vector. In this case, the word FALSE must be specified as a logical value. This value is coerced to numeric because, by default, logical values in R are converted to 0 and 1, corresponding to FALSE and TRUE respectively. Alternatively, if you have specified the word FALSE as a character value, then the logical value would have been coerced to a character value and the vector would have been a vector of class <code>character</code>.</p>
-</div>
-</div>
-<div id="exercise-21" class="section level3 unnumbered hasAnchor">
-<h3>1.1.3 Exercise<a href="practical-1.html#exercise-21" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Create a vector object named <strong>data_vct3</strong> that contains the following values: 8, False, 9.8, True.</p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="practical-1.html#cb31-1" tabindex="-1"></a>data_vct3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">8</span>, False, <span class="fl">9.8</span>, True)</span></code></pre></div>
-</details>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;False&#39; not found</code></pre>
-<div class="question">
-<p>What output does R produce? Why?</p>
-</div>
-<div class="r-comment" style="display: none;">
-<p>If your treated this value as a logical value, then you would have obtained an error since logical values are case sensitive and can only take two different forms: <code>TRUE</code> or <code>T</code>, <code>FALSE</code> or <code>F</code>.</p>
-</div>
-</div>
-<div id="exercise-22" class="section level3 unnumbered hasAnchor">
-<h3>1.1.4 Exercise<a href="practical-1.html#exercise-22" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Create a factor named <strong>data_fct</strong> that contains the following values: bus, car, car, car, train, bus, bus, train, train. Print the contents, find the number of levels, and confirm the class.</p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="practical-1.html#cb33-1" tabindex="-1"></a>data_fct <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;bus&quot;</span>, <span class="st">&quot;car&quot;</span>, <span class="st">&quot;car&quot;</span>, <span class="st">&quot;car&quot;</span>, </span>
-<span id="cb33-2"><a href="practical-1.html#cb33-2" tabindex="-1"></a>                   <span class="st">&quot;train&quot;</span>, <span class="st">&quot;bus&quot;</span>, <span class="st">&quot;bus&quot;</span>, <span class="st">&quot;train&quot;</span>, <span class="st">&quot;train&quot;</span>))</span>
-<span id="cb33-3"><a href="practical-1.html#cb33-3" tabindex="-1"></a></span>
-<span id="cb33-4"><a href="practical-1.html#cb33-4" tabindex="-1"></a>data_fct</span>
-<span id="cb33-5"><a href="practical-1.html#cb33-5" tabindex="-1"></a></span>
-<span id="cb33-6"><a href="practical-1.html#cb33-6" tabindex="-1"></a><span class="fu">class</span>(data_fct)</span></code></pre></div>
-</details>
-<div class="r-comment" style="display: none;">
-<p>This object is of class <code>factor</code> and has three levels <code>bus, car, train</code>. The output should look like below:</p>
-<p>data_fct</p>
-<p><code>[1] bus   car   car   car   train bus   bus   train train</code><br />
-<code>Levels: bus car train</code></p>
-<p>class(data_fct)</p>
-<p><code>[1] "factor"</code></p>
-</div>
-</div>
-<div id="exercise-23" class="section level3 unnumbered hasAnchor">
-<h3>1.1.5 Exercise<a href="practical-1.html#exercise-23" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Create three vectors as follows:</p>
+<div id="exercise-1" class="section level2 unnumbered hasAnchor">
+<h2>1.2 Exercise<a href="basics-of-vector-structures.html#exercise-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Perform the following tasks with <strong>num_vct</strong>:</p>
 <ul>
-<li><p>A numeric vector called <strong>num_vct</strong> which contains the following values: 50, 10, 45, 90.</p></li>
-<li><p>A character vector called <strong>char_vct</strong> which contains the following values: This, is, a, string, vector.</p></li>
-<li><p>A logical vector called <strong>logic_vct</strong> which contains the following values: TRUE, FALSE, FALSE, TRUE, TRUE.</p></li>
+<li>Multiply the vector by 2.<br />
+</li>
+<li>Divide the vector by 10.<br />
+</li>
+<li>Subtract 5 from the vector.<br />
+</li>
+<li>Add 8 to the vector.</li>
 </ul>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="practical-1.html#cb34-1" tabindex="-1"></a>num_vct <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">10</span>, <span class="dv">45</span>, <span class="dv">90</span>)</span>
-<span id="cb34-2"><a href="practical-1.html#cb34-2" tabindex="-1"></a></span>
-<span id="cb34-3"><a href="practical-1.html#cb34-3" tabindex="-1"></a>char_vct <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;This&quot;</span>, <span class="st">&quot;is&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;string&quot;</span>, <span class="st">&quot;vector&quot;</span>)</span>
-<span id="cb34-4"><a href="practical-1.html#cb34-4" tabindex="-1"></a></span>
-<span id="cb34-5"><a href="practical-1.html#cb34-5" tabindex="-1"></a>logic_vct <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="basics-of-vector-structures.html#cb3-1" tabindex="-1"></a>num_vct <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb3-2"><a href="basics-of-vector-structures.html#cb3-2" tabindex="-1"></a>num_vct <span class="sc">/</span> <span class="dv">10</span></span>
+<span id="cb3-3"><a href="basics-of-vector-structures.html#cb3-3" tabindex="-1"></a>num_vct <span class="sc">-</span> <span class="dv">5</span> </span>
+<span id="cb3-4"><a href="basics-of-vector-structures.html#cb3-4" tabindex="-1"></a>num_vct <span class="sc">+</span> <span class="dv">8</span> </span></code></pre></div>
 </details>
-</div>
-</div>
-<div id="data-frames-and-lists" class="section level2 unnumbered hasAnchor">
-<h2>1.2 Data Frames and Lists<a href="practical-1.html#data-frames-and-lists" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="exercise-24" class="section level3 unnumbered hasAnchor">
-<h3>1.2.1 Exercise<a href="practical-1.html#exercise-24" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Create a data frame called <strong>df</strong> by combing the following three vectors you previously created (<strong>num_vct</strong>, <strong>char_vct</strong>, <strong>logic_vct</strong>).</p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="practical-1.html#cb35-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(num_vct, char_vct, logic_vct)</span></code></pre></div>
-</details>
-<pre><code>## Error in data.frame(num_vct, char_vct, logic_vct): arguments imply differing number of rows: 4, 5</code></pre>
-<div class="question">
-<p>What does the R output say? Why?</p>
-</div>
 <div class="r-comment" style="display: none;">
-<p>As you probably already noticed when finding the lengths of each vector earlier in the practical, the numeric vector has 4 rows whilst the character and logical vectors have 5 rows. When creating data frames, all vectors must have the same length, otherwise, you will be prompted by an error: <code>Error in data.frame(num_vct, char_vct, logic_vct) : arguments imply differing number of rows: 4, 5</code>.</p>
+<p>When performing operations on single vectors, you will note in the output that the operation is applied to each individual element within the vector.</p>
 </div>
 </div>
-<div id="exercise-25" class="section level3 unnumbered hasAnchor">
-<h3>1.2.2 Exercise<a href="practical-1.html#exercise-25" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Since a data frame cannot be created with vectors of different lengths, try to instead create a list object called <strong>list_one</strong> and print the contents.</p>
+<div id="exercise-2" class="section level2 unnumbered hasAnchor">
+<h2>1.3 Exercise<a href="basics-of-vector-structures.html#exercise-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Create a new numeric vector that contains the following values: 5, 7, 9, 10. Name it <strong>num_vct2</strong> and print the contents.</p>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="practical-1.html#cb37-1" tabindex="-1"></a><span class="co"># Creating the list </span></span>
-<span id="cb37-2"><a href="practical-1.html#cb37-2" tabindex="-1"></a>list_one <span class="ot">&lt;-</span> <span class="fu">list</span>(num_vct, char_vct, logic_vct)</span>
-<span id="cb37-3"><a href="practical-1.html#cb37-3" tabindex="-1"></a></span>
-<span id="cb37-4"><a href="practical-1.html#cb37-4" tabindex="-1"></a><span class="co"># Printing the list.</span></span>
-<span id="cb37-5"><a href="practical-1.html#cb37-5" tabindex="-1"></a>list_one</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="basics-of-vector-structures.html#cb4-1" tabindex="-1"></a><span class="co"># Creating the vector.</span></span>
+<span id="cb4-2"><a href="basics-of-vector-structures.html#cb4-2" tabindex="-1"></a>num_vct2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">10</span>)</span>
+<span id="cb4-3"><a href="basics-of-vector-structures.html#cb4-3" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="basics-of-vector-structures.html#cb4-4" tabindex="-1"></a><span class="co">#Now printing the contents.</span></span>
+<span id="cb4-5"><a href="basics-of-vector-structures.html#cb4-5" tabindex="-1"></a>num_vct2</span></code></pre></div>
 </details>
-<pre><code>## [[1]]
-## [1] 50 10 45 90
-## 
-## [[2]]
-## [1] &quot;This&quot;   &quot;is&quot;     &quot;a&quot;      &quot;string&quot; &quot;vector&quot;
-## 
-## [[3]]
-## [1]  TRUE FALSE FALSE  TRUE  TRUE</code></pre>
-<div class="question">
-<p>Did you successfully create a list? Why did this work (or didn’t)?</p>
+<pre><code>## [1]  5  7  9 10</code></pre>
 </div>
-<div class="r-comment" style="display: none;">
-<p>The list was created successfully since lists are both heterogenous structures and can take different types of items regardless of their structure. No error message should appear.</p>
-</div>
-<div class="question">
-<p>Can you find out how many variables and observations this list has? How about the number of items?</p>
-</div>
-<div class="r-comment" style="display: none;">
-<p>List structures do not have variables or observations since they are a storage mode of different types of items. Instead, lists are defined by the number of items they contain. If you print the contents, you can confirm that this list has 3 items.</p>
-</div>
-</div>
-<div id="exercise-26" class="section level3 unnumbered hasAnchor">
-<h3>1.2.3 Exercise<a href="practical-1.html#exercise-26" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Use the <code>View()</code> function to visualise the contents of the list you have just created.</p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="practical-1.html#cb39-1" tabindex="-1"></a><span class="fu">View</span>(list_one)</span></code></pre></div>
-</details>
-<div class="question">
-<p>Is the output similar to that from a data frame object? Why not?</p>
-</div>
-<div class="r-comment" style="display: none;">
-<p>The <code>View()</code> function produces a different output for lists than in does for data frames since these are different structures. Data frames have rows and columns whilst lists have items. The view function is not very useful for lists because it is designed for users to visualise data values, but it does provide some relevant information such as the number of items, the data type of each item, and a compact summary of the values of each item.</p>
-</div>
-</div>
-<div id="exercise-27" class="section level3 unnumbered hasAnchor">
-<h3>1.2.4 Exercise<a href="practical-1.html#exercise-27" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Create a new vector called <strong>num_vct3</strong> with the following values: 50, 10, 45, 90, 5.</p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="practical-1.html#cb40-1" tabindex="-1"></a>num_vct3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">10</span>, <span class="dv">45</span>, <span class="dv">90</span>, <span class="dv">5</span>)</span></code></pre></div>
-</details>
-</div>
-<div id="exercise-28" class="section level3 unnumbered hasAnchor">
-<h3>1.2.5 Exercise<a href="practical-1.html#exercise-28" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Create a data frame called <strong>df_one</strong> by combing <strong>num_vct3</strong> with the following logical and character vectors you created earlier (<strong>char_vct</strong>, <strong>logic_vct</strong>). Then print the contents.</p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="practical-1.html#cb41-1" tabindex="-1"></a>df_one <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(num_vct3, char_vct, logic_vct)</span>
-<span id="cb41-2"><a href="practical-1.html#cb41-2" tabindex="-1"></a></span>
-<span id="cb41-3"><a href="practical-1.html#cb41-3" tabindex="-1"></a>df_one</span></code></pre></div>
-</details>
-<pre><code>##   num_vct3 char_vct logic_vct
-## 1       50     This      TRUE
-## 2       10       is     FALSE
-## 3       45        a     FALSE
-## 4       90   string      TRUE
-## 5        5   vector      TRUE</code></pre>
-<div class="question">
-<p>How many variables and observations does this data frame have?</p>
-</div>
-<div class="r-comment" style="display: none;">
-<p>There are 5 observations of 3 variables. This is easy to identify with small data objects such as this one. For larger datasets, you can easily spot this by looking under the Environment tab.</p>
-</div>
-</div>
-<div id="exercise-29" class="section level3 unnumbered hasAnchor">
-<h3>1.2.6 Exercise<a href="practical-1.html#exercise-29" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Create a list called <strong>list_two</strong> by combining three of the vectors you created earlier (<strong>num_vct3</strong>, <strong>num_vct</strong>, <strong>char_vct</strong>, <strong>logic_vct</strong>).</p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="practical-1.html#cb43-1" tabindex="-1"></a>list_two <span class="ot">&lt;-</span> <span class="fu">list</span>(num_vct3, num_vct, char_vct, logic_vct)</span></code></pre></div>
-</details>
-</div>
-</div>
-<div id="matrices-and-arrays" class="section level2 unnumbered hasAnchor">
-<h2>1.3 Matrices and Arrays<a href="practical-1.html#matrices-and-arrays" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="exercise-30" class="section level3 unnumbered hasAnchor">
-<h3>1.3.1 Exercise<a href="practical-1.html#exercise-30" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Create and print a matrix named <strong>matrix_one</strong> that contains the following values: 1, 4, 6, 10. The values must be placed in two rows and two columns.</p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="practical-1.html#cb44-1" tabindex="-1"></a>matrix_one <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">10</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
-<span id="cb44-2"><a href="practical-1.html#cb44-2" tabindex="-1"></a></span>
-<span id="cb44-3"><a href="practical-1.html#cb44-3" tabindex="-1"></a>matrix_one</span></code></pre></div>
-</details>
-<pre><code>##      [,1] [,2]
-## [1,]    1    6
-## [2,]    4   10</code></pre>
-</div>
-<div id="exercise-31" class="section level3 unnumbered hasAnchor">
-<h3>1.3.2 Exercise<a href="practical-1.html#exercise-31" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Create and print a matrix named <strong>matrix_two</strong> that contains the following sequence of values: 10 to 13. The values must be placed in one row row and four columns.</p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="practical-1.html#cb46-1" tabindex="-1"></a>matrix_two <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">10</span><span class="sc">:</span><span class="dv">13</span>, <span class="at">nrow =</span> <span class="dv">1</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
-<span id="cb46-2"><a href="practical-1.html#cb46-2" tabindex="-1"></a>matrix_two</span></code></pre></div>
-</details>
-<pre><code>##      [,1] [,2] [,3] [,4]
-## [1,]   10   11   12   13</code></pre>
-</div>
-<div id="exercise-32" class="section level3 unnumbered hasAnchor">
-<h3>1.3.3 Exercise<a href="practical-1.html#exercise-32" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Create a matrix named <strong>matrix_three</strong> using the following numeric vector you created earlier (<strong>num_vct</strong>). The values must be placed in four rows and one column. Print the contents.</p>
-<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="practical-1.html#cb48-1" tabindex="-1"></a>matrix_three <span class="ot">&lt;-</span> <span class="fu">matrix</span>(num_vct, <span class="at">nrow =</span> <span class="dv">4</span>, <span class="at">ncol =</span> <span class="dv">1</span>)</span>
-<span id="cb48-2"><a href="practical-1.html#cb48-2" tabindex="-1"></a></span>
-<span id="cb48-3"><a href="practical-1.html#cb48-3" tabindex="-1"></a>matrix_three</span></code></pre></div>
-</details>
-<pre><code>##      [,1]
-## [1,]   50
-## [2,]   10
-## [3,]   45
-## [4,]   90</code></pre>
-</div>
-</div>
-<div id="bonus-task" class="section level2 unnumbered hasAnchor">
-<h2>1.4 Bonus Task<a href="practical-1.html#bonus-task" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Create a list using the list of items below and name it <strong>list_example</strong>. Print the contents</p>
+<div id="exercise-3" class="section level2 unnumbered hasAnchor">
+<h2>1.4 Exercise<a href="basics-of-vector-structures.html#exercise-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Perform the following tasks with <strong>num_vct</strong> and <strong>num_vct2</strong>:</p>
 <ul>
-<li><strong>num_vct</strong></li>
-<li><strong>matrix_three</strong></li>
-<li><strong>df_one</strong></li>
-<li><strong>list_two</strong></li>
-<li><strong>“character string”</strong></li>
-<li><strong>1000</strong></li>
+<li>Add <strong>num_vct2</strong> to <strong>num_vct</strong>.<br />
+</li>
+<li>Divide <strong>num_vct</strong> by <strong>num_vct2</strong>.<br />
+</li>
+<li>Multiply <strong>num_vct</strong> by <strong>num_vct2</strong>.</li>
+<li>Subtract <strong>num_vct</strong> from <strong>num_vct2</strong>.</li>
 </ul>
 <details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="practical-1.html#cb50-1" tabindex="-1"></a>list_example <span class="ot">&lt;-</span> <span class="fu">list</span>(num_vct, matrix_three, df_one, </span>
-<span id="cb50-2"><a href="practical-1.html#cb50-2" tabindex="-1"></a>                     list_two, <span class="st">&quot;character string&quot;</span>, <span class="dv">1000</span>)</span>
-<span id="cb50-3"><a href="practical-1.html#cb50-3" tabindex="-1"></a></span>
-<span id="cb50-4"><a href="practical-1.html#cb50-4" tabindex="-1"></a>list_example</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="basics-of-vector-structures.html#cb6-1" tabindex="-1"></a>num_vct2 <span class="sc">+</span> num_vct</span>
+<span id="cb6-2"><a href="basics-of-vector-structures.html#cb6-2" tabindex="-1"></a>num_vct <span class="sc">/</span> num_vct2</span>
+<span id="cb6-3"><a href="basics-of-vector-structures.html#cb6-3" tabindex="-1"></a>num_vct <span class="sc">*</span> num_vct2</span>
+<span id="cb6-4"><a href="basics-of-vector-structures.html#cb6-4" tabindex="-1"></a>num_vct2 <span class="sc">-</span> num_vct</span></code></pre></div>
 </details>
-<pre><code>## [[1]]
-## [1] 50 10 45 90
-## 
-## [[2]]
-##      [,1]
-## [1,]   50
-## [2,]   10
-## [3,]   45
-## [4,]   90
-## 
-## [[3]]
-##   num_vct3 char_vct logic_vct
-## 1       50     This      TRUE
-## 2       10       is     FALSE
-## 3       45        a     FALSE
-## 4       90   string      TRUE
-## 5        5   vector      TRUE
-## 
-## [[4]]
-## [[4]][[1]]
-## [1] 50 10 45 90  5
-## 
-## [[4]][[2]]
-## [1] 50 10 45 90
-## 
-## [[4]][[3]]
-## [1] &quot;This&quot;   &quot;is&quot;     &quot;a&quot;      &quot;string&quot; &quot;vector&quot;
-## 
-## [[4]][[4]]
-## [1]  TRUE FALSE FALSE  TRUE  TRUE
-## 
-## 
-## [[5]]
-## [1] &quot;character string&quot;
-## 
-## [[6]]
-## [1] 1000</code></pre>
+<div class="r-comment" style="display: none;">
+<p>When performing operations with two vectors, you will note in the output that the operation is being applied to the element of each vector in sequential order, according to the index of each element.</p>
+<p>Let’s take the following operation as an example: <strong>num_vct2 - num_vct</strong>.</p>
+<p>The elements of <strong>num_vct</strong> are: 70, 8, 50, 100<br />
+The elements of <strong>num_vct2</strong> are: 5, 7, 9, 10</p>
+<p>When subtracting <strong>num_vct</strong> from <strong>num_vct2</strong>, R performs the following operations according to the ‘position’ of each element in the vector.</p>
+<p>At index [1], we have 70 for <strong>num_vct</strong> and 5 for <strong>num_vct2</strong><br />
+At index [2], we have 8 for <strong>num_vct</strong> and 7 for <strong>num_vct2</strong><br />
+At index [3], we have 50 for <strong>num_vct</strong> and 9 for <strong>num_vct2</strong><br />
+At index [4], we have 100 for <strong>num_vct</strong> and 10 for <strong>num_vct2</strong><br />
+</p>
+<p>Therefore, R will perform the subtraction operation for each element located at a given index.</p>
+<p>The output for this operation will be: <code>[1] -65  -1 -41 -90</code>.</p>
+</div>
+</div>
+<div id="exercise-4" class="section level2 unnumbered hasAnchor">
+<h2>1.5 Exercise<a href="basics-of-vector-structures.html#exercise-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Create a character vector object that contains the following: I, love, programming, with, R.</p>
+<p>Name this vector <strong>char_vct</strong> and print the contents.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="basics-of-vector-structures.html#cb7-1" tabindex="-1"></a>char_vct <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;I&quot;</span>, <span class="st">&quot;love&quot;</span>, <span class="st">&quot;programming&quot;</span>, <span class="st">&quot;with&quot;</span>, <span class="st">&quot;R&quot;</span>)</span>
+<span id="cb7-2"><a href="basics-of-vector-structures.html#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="basics-of-vector-structures.html#cb7-3" tabindex="-1"></a>char_vct</span></code></pre></div>
+</details>
+<pre><code>## [1] &quot;I&quot;           &quot;love&quot;        &quot;programming&quot; &quot;with&quot;        &quot;R&quot;</code></pre>
+</div>
+<div id="exercise-5" class="section level2 unnumbered hasAnchor">
+<h2>1.6 Exercise<a href="basics-of-vector-structures.html#exercise-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Perform calculations on <strong>char_vct</strong>.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="basics-of-vector-structures.html#cb9-1" tabindex="-1"></a>char_vct <span class="sc">*</span> <span class="dv">2</span> </span></code></pre></div>
+</details>
+<pre><code>## Error in char_vct * 2: non-numeric argument to binary operator</code></pre>
 <div class="question">
-<p>Is it possible for a list to contain any type of data structure and if so why? Can you find out how many items the list has?</p>
+<p>What results do you obtain after trying to perform mathematical operations on your character vector? Why ?</p>
 </div>
 <div class="r-comment" style="display: none;">
-<p>Lists are highly flexible data structures and can contain any data type or object items, regardless of whether they are single values, or more complex structures. Lists also support nesting, which means that they can also contain other lists. There are 6 items in this list: a vector, a matrix, a data frame, a list, a character value, and a numeric value. This list is quite a large one and printing the contents is not a very useful way to view the items. You will learn alternatives functions to display data structures more compactly later in the course.</p>
+<p>Let’s say we try to multiply the character vector by 2. Note the error message in the console; none of the tasks can be applied to this vector because these are all arithmetic tasks which work only on numeric vectors.</p>
+</div>
+</div>
+<div id="exercise-6" class="section level2 unnumbered hasAnchor">
+<h2>1.7 Exercise<a href="basics-of-vector-structures.html#exercise-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Create a vector object that contains the following logical and numeric values: TRUE, 6, FALSE, 10, FALSE. Name it <strong>new_vct</strong> and print the contents.</p>
+<details class=chunk-details><summary class=chunk-summary><span class=chunk-summary-text>Code</span></summary>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="basics-of-vector-structures.html#cb11-1" tabindex="-1"></a>new_vct <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="dv">6</span>, <span class="cn">FALSE</span>, <span class="dv">10</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb11-2"><a href="basics-of-vector-structures.html#cb11-2" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="basics-of-vector-structures.html#cb11-3" tabindex="-1"></a>new_vct</span></code></pre></div>
+</details>
+<pre><code>## [1]  1  6  0 10  0</code></pre>
+<div class="question">
+<p>Does the output match the contents you entered when you created the vector? Why?</p>
+</div>
+<div class="r-comment" style="display: none;">
+<p>No, it does not. Since vectors cannot contain different data types, R will force (i.e. coerce) all entered values to match, in an attempt to lose as little information as possible. In this case, the logical values are coerced to 1 and 0, corresponding to True and False respectively. This is one of the several reasons for why data cleaning is important before proceeding with data analysis; such coercion can have a significant impact on the accuracy of our data and implicitly, on your interpretation of the data.</p>
 </div>
 </div>
 </div>
@@ -683,8 +521,8 @@ Alternatively, if you did not place the word “incorrect” between inverted co
           </div>
         </div>
       </div>
-<a href="overview-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="practical-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="overview.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="importing-and-exporting-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

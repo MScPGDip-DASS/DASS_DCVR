@@ -260,7 +260,8 @@ div.ilos {
     min-height: 120px;
     color: #003258;
     background-color: white;
-    text-align: left;
+    text-align: justify;
+
   }
 
 div.folder {
@@ -285,6 +286,22 @@ div.folder {
 
 div.attention {
   background-image: url("images/boxes/attention.png");
+}
+
+
+/* -----------Sidebar div tips------------- */
+/* from r-pkgs.org*/
+
+  div.reference {
+    padding: 1em;
+    margin: 1em 0;
+    color: black;
+    background-color: white;
+    text-align: justify;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #EAEAEA; /* This sets the border color to light grey */
+    font-size: 12px
 }
 
 
