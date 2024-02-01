@@ -288,6 +288,22 @@ div.attention {
 }
 
 
+/* -----------Sidebar div tips------------- */
+/* from r-pkgs.org*/
+
+  div.reference {
+    padding: 1em;
+    margin: 1em 0;
+    padding-left: 100px;
+    background-size: 70px;
+    background-repeat: no-repeat;
+    background-position: 15px center;
+    min-height: 120px;
+    color: black;
+    background-color: white;
+    text-align: justify;
+}
+
 p.caption {
   color: #777;
   margin-top: 10px;
