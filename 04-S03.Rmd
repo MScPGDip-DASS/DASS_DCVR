@@ -83,19 +83,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ```
 
-To complete the practical exercises in this section, you will use data from the <a href="https://www.europeansocialsurvey.org/" target="_blank">European Social Survey (ESS) </a>.   
-
-This cross-national survey is one of the largest and methodologically rigorous in Europe and has been conducted every two years since 2002. The wealth of data collected biennially covers a wide range of social science topics that can be used for a wide variety of analyses including multilevel analysis.  
-
-For this practical, you will perform tasks using an earlier version of data from **ESS Round 9 (2018)**. 
-
+To complete the practical exercises in this section, you will use data from the <a href="https://www.europeansocialsurvey.org/" target="_blank">European Social Survey (ESS) </a>. The European Social Survey is a cross-national survey that has been conducted every two years since 2002. It is one of the largest and methodologically rigorous in Europe and covers a wide range of social science topics that can be used for a wide variety of statistical analyses.  
+ 
 ::: attention
-Before you begin the practical, you **MUST** create an account with ESS. Navigate to the href=" https://ess.sikt.no/en/?tab=overview" target="_blank">data portal page </a>, and click on **Log in**. The new page to which you will be taken may display text in Norwegian; switch to English using the top right button on the page. Use the link next to *Don't have an account on any of these providers?* to create a new account. Use your University of Manchester email. 
+Before you begin the practical, you **MUST** create an account with ESS. Navigate to the href=" https://ess.sikt.no/en/?tab=overview" target="_blank">data portal page </a>, and click on **Log in**. The new page to which you will be taken may display text in Norwegian; switch to English using the top right button on the page. Then click on the link next to *Don't have an account on any of these providers?* to create a new account using your University of Manchester email. 
 :::
 
-There are two files that you will be using in this practical:  
+For this practical, you will perform tasks using an earlier version of data from **ESS Round 9 (2018)**. There are two files that you will be using in this practical:   
 
-**ESS9e01_1.dta** (individual-level data) and **ESSMD-2018-cntry_F1.dta** (country-level data).   
+**ESS9e01_1.dta** (individual-level data)   
+**ESSMD-2018-cntry_F1.dta** (country-level data).   
 
 Both of these data files can be downloaded from the learning materials pages on Blackboard.
 
@@ -104,7 +101,6 @@ Ensure that you download and place these two files, as usual, in your `data` fol
 ::: 
 
 # 2. Data Import {-}
-
 
 ```{js, echo=FALSE}
 document.addEventListener('DOMContentLoaded', function() {
@@ -170,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 Remember the first step before beginning any analysis in R?  
 
-You will require two packages for this section, `tidyverse` and `haven`.
+You will need to load two packages for this session, `tidyverse` and `haven`.
 
 ```{r warning = FALSE, message = FALSE}
 library(tidyverse)
@@ -179,10 +175,9 @@ library(haven)
 
 ## 2.2 Task {-}
 
-Use the appropriate function to import the two data files.
-Name  ESS9e01_1.dta as **ess9** and ESSMD-2018-cntry_F1.dta as **ess_country_full**. 
+Import the two data files. Name  `ESS9e01_1.dta` as **ess9** and `ESSMD-2018-cntry_F1.dta` as **ess_country_full**. 
 
-```{r}
+```{r warning = FALSE, message = FALSE}
 ess9 <- read_dta("data/ESS9e01_1.dta")
 
 ess_country_full <- read_dta("data/ESSMD-2018-cntry_F1.dta")
