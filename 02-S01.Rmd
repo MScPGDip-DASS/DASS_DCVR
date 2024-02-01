@@ -377,9 +377,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ```
 
-Throughout the course units of this programme, you will utilise real datasets to develop your data analysis and interpretation skills.
+In this exercise, you will practice how to download, access, and import data from the UK Data Service in R. You will use data from the *2019 British Social Attitudes Survey, Poverty and Welfare: Open Access Teaching Dataset*. 
 
-In this exercise, you will practice how to download, access, and import data from the UK Data Service in R. You will use data from the *2019 British Social Attitudes Survey, Poverty and Welfare: Open Access Teaching Dataset*.
+::: reference
+*Citation and copyright*  
+
+University of Manchester, Cathie Marsh Institute for Social Research (CMIST), UK Data Service. (2022). British Social Attitudes Survey, 2019, Poverty and Welfare: Open Access Teaching Dataset. [data collection]. NatCen Social Research, [original data producer(s)]. NatCen Social Research. SN: 8850, DOI: http://doi.org/10.5255/UKDA-SN-8850-1  
+
+Data download and access under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International </a> licence.
+::: 
+
 
 Navigate to the <a href="https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=8850#!/access-data" target="_blank">British Social Attitudes Survey (2019) webpage</a> on the UK Data Service website.
 
