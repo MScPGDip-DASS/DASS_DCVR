@@ -37,7 +37,7 @@ library(tidyverse)
 library(haven)
 ```
 
-Before you begin, load the `.Rdata` file. In your environment you will note four separate data objects: us_a, us_b, us_c, and us_d. Each of these represents a *wave*. 
+Before you begin, load the `.Rdata` file. In your R Environment, you will note four separate data objects: us_a, us_b, us_c, and us_d. Each of these represents a *wave*. 
 
 ```{r, eval=FALSE}
 load("data/us_sample.RData")
@@ -45,7 +45,7 @@ load("data/us_sample.RData")
 
 ## 1.1 Data Management, Merging, and Reshaping {-}
 
-To analyse data at longitudinal level and therefore identify and investigate trends over time, all waves must be merged together in a single data frame. However, before any merging is performed, the data in each wave must be adequately prepared. First, we'll rename the variables so that they can be more easily handled in later tasks. 
+To analyse data at longitudinal level and therefore identify and investigate trends over time, all waves must be merged together in a single data frame. However, before any merging is performed, the data in each wave must be adequately prepared. First, we'll rename the variables so that they can be easily handled more easily in later tasks. 
 
 Let's start with a simple example. Have a look at the names of the `us1` object you have imported and then use the `rename()` command to change the `a_dvage` variable to `a_age`. **
 

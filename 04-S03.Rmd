@@ -89,6 +89,10 @@ This cross-national survey is one of the largest and methodologically rigorous i
 
 For this practical, you will perform tasks using an earlier version of data from **ESS Round 9 (2018)**. 
 
+::: attention
+Before you begin the practical, you **MUST** create an account with ESS. 
+:::
+
 There are two files that you will be using in this practical:  
 
 **ESS9e01_1.dta** (individual-level data) and **ESSMD-2018-cntry_F1.dta** (country-level data).   
