@@ -343,6 +343,10 @@ Import the dataset in STATA format; name this object **bsas_stata**.
 library(haven)
 ```
 
+```{r echo = FALSE, warning = FALSE, message = FALSE, results= 'hide'}
+bsas_stata <- read_dta("D:/DASS/data/bsa2019_poverty_open.dta")
+```
+
 ```{r eval = FALSE}
 bsas_stata <- read_dta("data/bsa2019_poverty_open.dta")
 ```
@@ -411,7 +415,7 @@ bsas_spss2 <- readRDS("data/bsas_spss_file.RDS")
 
 Finally, load the `.Rdata` file you created previously (**bsas_objects**). 
 
-```{r, eval=FALSE}
+```{r, eval = FALSE}
 load("data/bsas_objects.RData")
 ```
 
