@@ -633,15 +633,19 @@ Data download and access under a <a href="https://creativecommons.org/licenses/b
 ::: 
 
 
+For this practical, you will use one of the objects you have exported as a `.csv` file in your R project **data** folder, namely the **bsas_stata** object.  
 
-
-For this practical, you will use one of the objects you have exported as a `.csv` file in your R project **data** folder, namely the **bsas_stata** object.
 
 ### 3.1.1 Exercise {.unnumbered}
 
 Import the **bsas_stata** `.csv` object and name this object **bsas_dataset**.
 
-```{r}
+```{r echo = FALSE, warning = FALSE, message = FALSE, results = 'hide'}
+bsas_dataset <- read.csv("D:/DASS/data/bsas_stata_file.csv")
+```
+
+
+```{r eval = FALSE}
 bsas_dataset <- read.csv("data/bsas_stata_file.csv")
 ```
 
