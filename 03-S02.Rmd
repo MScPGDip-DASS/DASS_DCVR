@@ -74,32 +74,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ```{js, echo=FALSE}
 document.addEventListener('DOMContentLoaded', function() {
-    var rComments = document.querySelectorAll('.r-comment');
+    var answers = document.querySelectorAll('.answers');
 
-    rComments.forEach(function(comment) {
+    answers.forEach(function(answer) {
         // Create the toggle button
         var button = document.createElement('button');
-        button.className = 'toggle-comment-button';
-        button.textContent = 'Show Explanation';
+        button.className = 'toggle-answer-button';
+        button.textContent = 'Show Answer'; // Updated text content
         button.style.display = 'block'; // Ensure button is visible
-        comment.style.display = 'none'; // Initially hide the comment
+        answer.style.display = 'none'; // Initially hide the answer
 
         // Add click event listener to the button
         button.onclick = function() {
-            if (comment.style.display === 'none') {
-                comment.style.display = 'block'; // Adjust as needed
-                button.textContent = 'Hide Explanation';
+            if (answer.style.display === 'none') {
+                answer.style.display = 'block'; // Show the answer
+                button.textContent = 'Hide Answer'; // Update button text
             } else {
-                comment.style.display = 'none';
-                button.textContent = 'Show Explanation';
+                answer.style.display = 'none'; // Hide the answer
+                button.textContent = 'Show Answer'; // Reset button text
             }
         };
 
-        // Insert the button before the comment
-        comment.parentNode.insertBefore(button, comment);
+        // Insert the button before the answer
+        answer.parentNode.insertBefore(button, answer);
     });
 });
-
 ```
 
 ## 1.1 Vectors and Factors {.unnumbered}
